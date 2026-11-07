@@ -2,8 +2,13 @@ import type { Card, DifficultyDef, GameState, LevelDef, Location } from './types
 
 export const ROWS = 4;
 export const COLS = 5;
-/** columna con la casilla "GRATIS" bloqueada en la fila inferior */
-export const BONUS_COL = 2;
+/** columna central: aquí viven, ancladas, las cartas de categoría (nunca contiene objetos) */
+export const CATEGORY_COL = 2;
+/** categorías reveladas al iniciar (la 4ª casilla de la columna es GRATIS) */
+export const CATEGORY_SLOTS = 3;
+/** la casilla "GRATIS" es la última casilla de la columna central */
+export const BONUS_COL = CATEGORY_COL;
+const ITEM_COLS = Array.from({ length: COLS }, (_, i) => i).filter((i) => i !== CATEGORY_COL);
 export const BONUS_MOVES = 5;
 export const TRAY_SIZE = 5;
 
@@ -30,13 +35,9 @@ export function locate(s: GameState, id: string): Location | null {
   return null;
 }
 
-/** Carta de categoría visible en el tablero para `cat`, si existe */
+/** Carta de categoría revelada para `cat`, si está en su casilla */
 export function activeCategory(s: GameState, cat: string): Card | null {
-  for (let col = 0; col < COLS; col++) {
-    const c = visibleCards(s, col).find((x) => x.kind === 'category' && x.cat === cat);
-    if (c) return c;
-  }
-  return null;
+  return s.categories.find((c) => c?.cat === cat) ?? null;
 }
 
 export const canPlace = (s: GameState, card: Card) =>
@@ -112,10 +113,10 @@ export function placeItem(prev: GameState, id: string, spendMove = true): PlaceR
 
   let completedCategory: Card | null = null;
   if (s.progress[card.cat] >= s.totals[card.cat]) {
-    const catLoc = locate(s, activeCategory(s, card.cat)!.id);
-    if (catLoc && catLoc.where === 'board') {
-      completedCategory = removeFromBoard(s, catLoc.col, catLoc.idx);
-    }
+    completedCategory = activeCategory(s, card.cat);
+    // La siguiente categoría ocupa la misma casilla; la casilla nunca se mueve.
+    const slot = s.categories.findIndex((c) => c?.cat === card.cat);
+    if (slot !== -1) s.categories[slot] = s.pending.shift() ?? null;
   }
   evaluate(s);
   return { state: s, completedCategory };
@@ -195,14 +196,11 @@ export function findHint(s: GameState): Hint {
   return null;
 }
 
-/** Heurística: guardar en la bandeja la carta cuya categoría está más cerca de aparecer. */
+/** Heurística: guardar en la bandeja la carta cuya categoría está más cerca de revelarse. */
 function chooseTrayCandidate(s: GameState, items: Card[]): Card {
   const depth = (cat: string) => {
-    for (const col of s.columns) {
-      const i = col.findIndex((c) => c.kind === 'category' && c.cat === cat);
-      if (i !== -1) return i;
-    }
-    return 999;
+    const i = s.pending.findIndex((c) => c.cat === cat);
+    return i === -1 ? 999 : i;
   };
   return [...items].sort((a, b) => depth(a.cat) - depth(b.cat))[0];
 }
@@ -254,16 +252,17 @@ export function createLevel(level: LevelDef, diff: DifficultyDef): GameState {
   const progress: Record<string, number> = {};
   const lastItem: Record<string, Card | null> = {};
   const base: Card[] = [];
+  const allCategories: Card[] = [];
   for (const cat of level.categories) {
     totals[cat.id] = cat.items.length;
     progress[cat.id] = 0;
     lastItem[cat.id] = null;
-    base.push({ id: `cat-${cat.id}`, kind: 'category', cat: cat.id, emoji: cat.icon, label: cat.name, hidden: false });
+    allCategories.push({ id: `cat-${cat.id}`, kind: 'category', cat: cat.id, emoji: cat.icon, label: cat.name, hidden: false });
     cat.items.forEach((it, i) =>
       base.push({ id: `${cat.id}-${i}`, kind: 'item', cat: cat.id, emoji: it.emoji, label: it.name, hidden: false }),
     );
   }
-  const totalItems = base.filter((c) => c.kind === 'item').length;
+  const totalItems = base.length;
 
   let fallback: GameState | null = null;
   for (let attempt = 0; attempt < 600; attempt++) {
@@ -272,13 +271,16 @@ export function createLevel(level: LevelDef, diff: DifficultyDef): GameState {
       ...c,
       hidden: c.kind === 'item' && rnd() < hiddenRatio,
     }));
+    const cats = shuffle(allCategories, rnd);
     const columns: Card[][] = Array.from({ length: COLS }, () => []);
-    order.forEach((c, i) => columns[i % COLS].push(c));
+    order.forEach((c, i) => columns[ITEM_COLS[i % ITEM_COLS.length]].push(c));
 
     const s: GameState = {
       levelId: level.id,
       difficulty: diff.id,
       columns,
+      categories: cats.slice(0, CATEGORY_SLOTS),
+      pending: cats.slice(CATEGORY_SLOTS),
       tray: Array(TRAY_SIZE).fill(null),
       openSlots: diff.openSlots,
       progress: { ...progress },
@@ -291,8 +293,7 @@ export function createLevel(level: LevelDef, diff: DifficultyDef): GameState {
       bonusUnlocked: false,
       status: 'playing',
     };
-    // Al inicio debe haber al menos una categoría y alguna jugada directa.
-    if (!COLS_RANGE.some((c) => visibleCards(s, c).some((x) => x.kind === 'category'))) continue;
+    // Al inicio debe haber alguna jugada directa.
     if (!hasAnyMove(s)) continue;
 
     const steps = solve(s);
@@ -306,5 +307,3 @@ export function createLevel(level: LevelDef, diff: DifficultyDef): GameState {
   if (fallback) return fallback;
   throw new Error(`No se pudo generar el nivel ${level.id}`);
 }
-
-const COLS_RANGE = Array.from({ length: COLS }, (_, i) => i);

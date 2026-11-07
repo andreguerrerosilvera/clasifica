@@ -1,12 +1,11 @@
 import { AnimatePresence, LayoutGroup, motion } from 'framer-motion';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import {
-  BONUS_COL,
   BONUS_MOVES,
+  CATEGORY_COL,
   ROWS,
   TRAY_SIZE,
   addMoves,
-  canPlace,
   createLevel,
   findHint,
   freeTraySlot,
@@ -124,19 +123,6 @@ export function GameScreen({ levelId, difficulty, coins, spend, onWin, onNext, o
 
   const locked = state.status !== 'playing' || dealing;
 
-  const handleTap = (card: Card) => {
-    if (locked) return;
-    if (card.hidden) return say('Carta oculta: retira una carta vecina para revelarla');
-    if (card.kind === 'category') return say(`Arrastra aquí cartas de «${card.label}»`);
-    if (canPlace(state, card)) return place(card.id);
-    const loc = locate(state, card.id);
-    if (!loc) return;
-    if (loc.where === 'tray') return say('Su categoría aún no está en el tablero');
-    if (freeTraySlot(state) === -1) return say('¡La bandeja está llena!');
-    const next = moveToTray(state, card.id);
-    if (next) commit(next);
-  };
-
   const handleDrop = (card: Card, target: DropTarget) => {
     if (locked || !target) return;
     const loc = locate(state, card.id);
@@ -148,8 +134,8 @@ export function GameScreen({ levelId, difficulty, coins, spend, onWin, onNext, o
       if (next) commit(next);
       return;
     }
-    const cat = locate(state, target)?.card;
-    if (!cat || cat.kind !== 'category') return;
+    const cat = state.categories.find((c) => c?.id === target);
+    if (!cat) return;
     if (cat.cat !== card.cat) return say('Movimiento inválido: esta carta no pertenece a esta categoría');
     place(card.id);
   };
@@ -274,6 +260,51 @@ export function GameScreen({ levelId, difficulty, coins, spend, onWin, onNext, o
           <main className="px-2 pt-2">
             <div className="grid grid-cols-5 gap-[6px]">
               {state.columns.map((col, c) => {
+                if (c === CATEGORY_COL) {
+                  // Columna central: categorías ancladas, fijas durante toda la partida
+                  // Rejilla fija de 4 casillas: 3 categorías reveladas + GRATIS (última casilla)
+                  return (
+                    <div key={c} className="flex flex-col" style={{ containerType: 'inline-size' }}>
+                      <DeckIndicator count={0} />
+                      <div
+                        className="grid gap-[6px]"
+                        style={{ gridTemplateRows: 'repeat(4, calc(100cqw * 1.25))' }}
+                      >
+                        {Array.from({ length: ROWS }, (_, r) => (
+                          <div
+                            key={`slot-${r}`}
+                            style={{ gridRow: r + 1, gridColumn: 1 }}
+                            className="h-full rounded-[10px] bg-[#5a2ca8]/80 shadow-[inset_0_2px_6px_rgba(0,0,0,.25)]"
+                          />
+                        ))}
+                        {state.categories.map((card, i) =>
+                          card ? (
+                            <CardView
+                              key={card.id}
+                              card={card}
+                              style={{ gridRow: i + 1, gridColumn: 1 }}
+                              progress={state.progress[card.cat]}
+                              total={state.totals[card.cat]}
+                              lastItem={state.lastItem[card.cat]}
+                              highlight={isHi(card.id)}
+                              interactive={!locked}
+                            />
+                          ) : null,
+                        )}
+                        {!state.bonusUnlocked && (
+                          <button
+                            onClick={claimBonus}
+                            style={{ gridRow: ROWS, gridColumn: 1 }}
+                            className="relative z-10 flex flex-col items-center justify-center rounded-[10px] border-2 border-[#ffb347] bg-[repeating-linear-gradient(45deg,#ff8a1c_0_8px,#ff9a33_8px_16px)] text-white shadow-[0_3px_0_#b85a00] active:scale-95"
+                          >
+                            <span className="text-[clamp(16px,5vw,24px)] leading-none">🎁</span>
+                            <span className="font-display text-[clamp(11px,3.4vw,15px)] leading-tight">gratis</span>
+                          </button>
+                        )}
+                      </div>
+                    </div>
+                  );
+                }
                 const vis = visibleRows(state, c);
                 const shown = col.slice(0, vis);
                 const deck = col.length - shown.length;
@@ -291,16 +322,6 @@ export function GameScreen({ levelId, difficulty, coins, spend, onWin, onNext, o
                           className="h-full rounded-[10px] bg-[#5a2ca8]/80 shadow-[inset_0_2px_6px_rgba(0,0,0,.25)]"
                         />
                       ))}
-                      {c === BONUS_COL && !state.bonusUnlocked && (
-                        <button
-                          onClick={claimBonus}
-                          style={{ gridRow: ROWS, gridColumn: 1 }}
-                          className="relative z-10 flex flex-col items-center justify-center rounded-[10px] border-2 border-[#ffb347] bg-[repeating-linear-gradient(45deg,#ff8a1c_0_8px,#ff9a33_8px_16px)] text-white shadow-[0_3px_0_#b85a00] active:scale-95"
-                        >
-                          <span className="text-[clamp(16px,5vw,24px)] leading-none">🎁</span>
-                          <span className="font-display text-[clamp(11px,3.4vw,15px)] leading-tight">gratis</span>
-                        </button>
-                      )}
                       {shown.map((card, i) => (
                         <CardView
                           key={card.id}
@@ -308,11 +329,9 @@ export function GameScreen({ levelId, difficulty, coins, spend, onWin, onNext, o
                           style={{ gridRow: vis - i, gridColumn: 1 }}
                           progress={state.progress[card.cat]}
                           total={state.totals[card.cat]}
-                          lastItem={card.kind === 'category' ? state.lastItem[card.cat] : null}
                           highlight={isHi(card.id)}
                           dealDelay={dealing ? (dealIndex.get(card.id) ?? 0) * 0.035 : null}
                           interactive={!locked}
-                          onTap={() => handleTap(card)}
                           onDrop={(t) => handleDrop(card, t)}
                         />
                       ))}
@@ -352,7 +371,6 @@ export function GameScreen({ levelId, difficulty, coins, spend, onWin, onNext, o
                           compact
                           highlight={isHi(card.id)}
                           interactive={!locked}
-                          onTap={() => handleTap(card)}
                           onDrop={(t) => handleDrop(card, t)}
                         />
                       )

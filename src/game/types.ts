@@ -54,6 +54,10 @@ export interface GameState {
   difficulty: DifficultyId;
   /** columnas del tablero; índice 0 = carta más abajo */
   columns: Card[][];
+  /** casillas de categoría ancladas en la columna central (reveladas); null = casilla vacía */
+  categories: (Card | null)[];
+  /** categorías aún no reveladas; entran en la casilla de la que se completa */
+  pending: Card[];
   tray: (Card | null)[];
   openSlots: number;
   progress: Record<string, number>;

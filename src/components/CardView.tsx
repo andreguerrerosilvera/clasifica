@@ -20,7 +20,6 @@ interface Props {
   highlight?: boolean;
   dealDelay?: number | null;
   interactive: boolean;
-  onTap?: () => void;
   onDrop?: (target: DropTarget) => void;
   style?: React.CSSProperties;
   compact?: boolean;
@@ -34,7 +33,6 @@ export function CardView({
   highlight,
   dealDelay,
   interactive,
-  onTap,
   onDrop,
   style,
   compact,
@@ -65,8 +63,6 @@ export function CardView({
       dragSnapToOrigin
       dragMomentum={false}
       whileDrag={{ scale: 1.1, zIndex: 60, rotate: 4, boxShadow: '0 14px 24px rgba(0,0,0,.35)' }}
-      whileTap={interactive ? { scale: 0.94 } : undefined}
-      onTap={() => interactive && onTap?.()}
       onDragEnd={(e) => {
         const ev = e as PointerEvent;
         const x = 'clientX' in ev ? ev.clientX : 0;
@@ -76,7 +72,7 @@ export function CardView({
       style={{ touchAction: 'none', ...style }}
       className={[
         'relative z-10 h-full min-h-0 w-full select-none overflow-visible rounded-[10px]',
-        interactive ? 'cursor-pointer' : '',
+        draggable ? 'cursor-grab active:cursor-grabbing' : '',
         highlight ? 'animate-pulseGlow z-20' : '',
       ].join(' ')}
     >
@@ -128,6 +124,15 @@ function CategoryFace({
   lastItem: Card | null;
 }) {
   const done = progress >= total;
+  // Sin cartas encima: solo el nombre, centrado
+  if (!lastItem)
+    return (
+      <div className="flex h-full w-full items-center justify-center overflow-hidden rounded-[10px] border-2 border-[#f2c230] bg-gradient-to-b from-[#fff3b0] to-[#fbd960] px-1 shadow-[0_3px_0_#c89614]">
+        <span className="max-w-full break-words text-center text-[clamp(10px,3vw,14px)] font-black leading-[1.1] text-[#5b3d00]">
+          {card.label}
+        </span>
+      </div>
+    );
   return (
     <div
       className={[
@@ -140,18 +145,14 @@ function CategoryFace({
         {progress}/{total}
       </span>
       <div className="flex flex-1 items-center justify-center pt-3">
-        {lastItem ? (
-          <motion.span
-            layoutId={lastItem.id}
-            key={lastItem.id}
-            className="text-[clamp(20px,7vw,34px)] leading-none"
-            transition={{ type: 'spring', stiffness: 380, damping: 30 }}
-          >
-            {lastItem.emoji}
-          </motion.span>
-        ) : (
-          <span className="text-[clamp(18px,6vw,28px)] leading-none opacity-40 grayscale">{card.emoji}</span>
-        )}
+        <motion.span
+          layoutId={lastItem.id}
+          key={lastItem.id}
+          className="text-[clamp(20px,7vw,34px)] leading-none"
+          transition={{ type: 'spring', stiffness: 380, damping: 30 }}
+        >
+          {lastItem.emoji}
+        </motion.span>
       </div>
       <span className="max-w-full px-0.5 text-center text-[clamp(8px,2.4vw,11px)] font-black leading-[1.05] text-[#5b3d00]">
         {card.label}
