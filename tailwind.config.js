@@ -9,7 +9,7 @@ export default {
       },
       colors: {
         cream: '#fff6e0',
-        night: '#14204a',
+        night: '#2a1450',
       },
       keyframes: {
         pulseGlow: {

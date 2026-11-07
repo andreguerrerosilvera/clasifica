@@ -220,14 +220,14 @@ export function GameScreen({ levelId, difficulty, coins, spend, onWin, onNext, o
     <div className="board-bg relative flex min-h-full w-full justify-center overflow-hidden">
       <div className="flex w-full max-w-[440px] flex-col">
         {/* Cabecera */}
-        <header className="relative z-30 bg-[#4a4fe3] px-3 pb-3 pt-3 shadow-[0_4px_0_rgba(0,0,0,.15)]">
+        <header className="relative z-30 bg-[#7a43d9] px-3 pb-3 pt-3 shadow-[0_4px_0_rgba(0,0,0,.15)]">
           <p className="text-center font-display text-[13px] tracking-wider text-white/60">
             {level.title.toUpperCase()} · {diff.label.toUpperCase()}
           </p>
           <div className="mt-1 flex items-center justify-between">
             <CoinPill coins={coins} />
             <div
-              className={`flex items-center gap-2 rounded-full bg-[#2a2f9e] px-4 py-1 shadow-inner ${state.moves <= 5 ? 'animate-shake' : ''}`}
+              className={`flex items-center gap-2 rounded-full bg-[#4a2490] px-4 py-1 shadow-inner ${state.moves <= 5 ? 'animate-shake' : ''}`}
               key={state.moves <= 5 ? state.moves : 'ok'}
             >
               <span className="font-display text-lg text-white">movimientos</span>
@@ -238,12 +238,12 @@ export function GameScreen({ levelId, difficulty, coins, spend, onWin, onNext, o
             <button
               aria-label="Ajustes"
               onClick={() => setSettings(true)}
-              className="flex h-9 w-9 items-center justify-center rounded-full bg-[#2a2f9e] text-xl text-white active:scale-90"
+              className="flex h-9 w-9 items-center justify-center rounded-full bg-[#4a2490] text-xl text-white active:scale-90"
             >
               ⚙️
             </button>
           </div>
-          <div className="mx-auto mt-3 h-2.5 w-[82%] overflow-hidden rounded-full bg-[#262b8f]">
+          <div className="mx-auto mt-3 h-2.5 w-[82%] overflow-hidden rounded-full bg-[#3f1f82]">
             <motion.div
               className="h-full rounded-full bg-gradient-to-r from-[#21d4b4] to-[#4ef0c8]"
               animate={{ width: `${progressPct}%` }}
@@ -261,7 +261,7 @@ export function GameScreen({ levelId, difficulty, coins, spend, onWin, onNext, o
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -10 }}
-                className="max-w-[380px] rounded-lg border-2 border-[#3fe0d0] bg-[#0f2f5c]/95 px-4 py-2 text-center text-sm font-extrabold text-white shadow-lg"
+                className="max-w-[380px] rounded-lg border-2 border-[#3fe0d0] bg-[#2a1058]/95 px-4 py-2 text-center text-sm font-extrabold text-white shadow-lg"
               >
                 {toast.msg}
               </motion.div>
@@ -288,7 +288,7 @@ export function GameScreen({ levelId, difficulty, coins, spend, onWin, onNext, o
                         <div
                           key={`slot-${r}`}
                           style={{ gridRow: r + 1, gridColumn: 1 }}
-                          className="h-full rounded-[10px] bg-[#174a9c]/80 shadow-[inset_0_2px_6px_rgba(0,0,0,.25)]"
+                          className="h-full rounded-[10px] bg-[#5a2ca8]/80 shadow-[inset_0_2px_6px_rgba(0,0,0,.25)]"
                         />
                       ))}
                       {c === BONUS_COL && !state.bonusUnlocked && (
@@ -334,12 +334,12 @@ export function GameScreen({ levelId, difficulty, coins, spend, onWin, onNext, o
                 return (
                   <div
                     key={i}
-                    className="relative aspect-[4/5] w-[clamp(44px,13vw,58px)] rounded-lg bg-[#123f8a]/90 shadow-[inset_0_2px_6px_rgba(0,0,0,.35)]"
+                    className="relative aspect-[4/5] w-[clamp(44px,13vw,58px)] rounded-lg bg-[#4c2394]/90 shadow-[inset_0_2px_6px_rgba(0,0,0,.35)]"
                   >
                     {!open ? (
                       <button
                         onClick={unlockSlot}
-                        className="flex h-full w-full flex-col items-center justify-center rounded-lg border border-white/15 bg-[#1a4c9f] text-white/80 active:scale-95"
+                        className="flex h-full w-full flex-col items-center justify-center rounded-lg border border-white/15 bg-[#5d2fae] text-white/80 active:scale-95"
                       >
                         <span className="text-base leading-none">🔒</span>
                         <span className="mt-0.5 text-[10px] font-black">🪙{COST.slot}</span>
@@ -437,7 +437,7 @@ export function GameScreen({ levelId, difficulty, coins, spend, onWin, onNext, o
 
 export function CoinPill({ coins }: { coins: number }) {
   return (
-    <div className="flex items-center gap-1.5 rounded-full bg-[#2a2f9e] py-1 pl-1 pr-3 shadow-inner">
+    <div className="flex items-center gap-1.5 rounded-full bg-[#4a2490] py-1 pl-1 pr-3 shadow-inner">
       <span className="flex h-6 w-6 items-center justify-center rounded-full bg-gradient-to-b from-[#ffe17a] to-[#f2a900] text-[13px] shadow-[0_2px_0_#a36b00]">
         🪙
       </span>

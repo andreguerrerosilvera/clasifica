@@ -5,7 +5,7 @@
 html, body, #root { height: 100%; }
 body {
   margin: 0;
-  background: #1d4fae;
+  background: #5b2aae;
   font-family: Nunito, system-ui, sans-serif;
   -webkit-tap-highlight-color: transparent;
   overscroll-behavior: none;
@@ -13,10 +13,10 @@ body {
   -webkit-user-select: none;
 }
 .board-bg {
-  background-color: #1f5cc0;
+  background-color: #6a35c4;
   background-image:
     radial-gradient(rgba(255,255,255,.07) 1px, transparent 1px),
-    linear-gradient(180deg, #2466cf 0%, #1a4fa8 100%);
+    linear-gradient(180deg, #7840d4 0%, #53279f 100%);
   background-size: 14px 14px, 100% 100%;
 }
 .card-back {

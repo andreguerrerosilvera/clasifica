@@ -20,7 +20,7 @@ export function HomeScreen({ coins, difficulty, completed, onDifficulty, onPlay 
   const diff = DIFFICULTIES.find((d) => d.id === difficulty)!;
 
   return (
-    <div className="relative min-h-full w-full overflow-hidden bg-gradient-to-b from-[#7cc8ff] via-[#5aa6f5] to-[#2f6fdc]">
+    <div className="relative min-h-full w-full overflow-hidden bg-gradient-to-b from-[#c9a2ff] via-[#9d6af0] to-[#6a35c4]">
       {FLOATERS.map((e, i) => (
         <motion.div
           key={e}
@@ -51,9 +51,9 @@ export function HomeScreen({ coins, difficulty, completed, onDifficulty, onPlay 
         </motion.div>
 
         {/* Dificultad */}
-        <div className="mt-7 rounded-2xl bg-[#1d3f9e]/85 p-3 shadow-xl backdrop-blur">
+        <div className="mt-7 rounded-2xl bg-[#4a2290]/85 p-3 shadow-xl backdrop-blur">
           <p className="mb-2 text-center font-display text-sm tracking-wider text-white/70">DIFICULTAD</p>
-          <div className="grid grid-cols-3 gap-1.5 rounded-xl bg-[#14306f] p-1">
+          <div className="grid grid-cols-3 gap-1.5 rounded-xl bg-[#351869] p-1">
             {DIFFICULTIES.map((d) => (
               <button
                 key={d.id}
@@ -90,12 +90,12 @@ export function HomeScreen({ coins, difficulty, completed, onDifficulty, onPlay 
                 transition={{ delay: 0.15 + i * 0.08 }}
                 whileTap={open ? { scale: 0.97 } : undefined}
                 className={`flex items-center gap-3 rounded-2xl border-b-4 p-3 text-left shadow-lg ${
-                  open ? 'border-[#c89614] bg-gradient-to-b from-[#fff3b0] to-[#fbd960]' : 'border-[#3a4a7a] bg-[#5a6a99]'
+                  open ? 'border-[#c89614] bg-gradient-to-b from-[#fff3b0] to-[#fbd960]' : 'border-[#4f3a7a] bg-[#7a649f]'
                 }`}
               >
                 <span
                   className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-xl font-display text-2xl ${
-                    open ? 'bg-[#c58a00] text-white' : 'bg-[#3a4a7a] text-white/60'
+                    open ? 'bg-[#c58a00] text-white' : 'bg-[#4f3a7a] text-white/60'
                   }`}
                 >
                   {open ? l.id : '🔒'}
@@ -121,7 +121,7 @@ export function HomeScreen({ coins, difficulty, completed, onDifficulty, onPlay 
           JUGAR {next.title.toUpperCase()}
         </button>
 
-        <div className="mt-6 rounded-2xl bg-[#1d3f9e]/70 px-4 pb-4 pt-1">
+        <div className="mt-6 rounded-2xl bg-[#4a2290]/70 px-4 pb-4 pt-1">
           <HowToPlay light />
         </div>
       </div>

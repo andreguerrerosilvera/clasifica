@@ -5,7 +5,7 @@ import { useEffect, useRef, useState, type ReactNode } from 'react';
 function Backdrop({ children, peek = false }: { children: ReactNode; peek?: boolean }) {
   return (
     <motion.div
-      className="fixed inset-0 z-[80] flex items-center justify-center bg-[#0b1230]/75 px-5"
+      className="fixed inset-0 z-[80] flex items-center justify-center bg-[#170b30]/75 px-5"
       initial={{ opacity: 0 }}
       animate={{ opacity: peek ? 0 : 1 }}
       exit={{ opacity: 0 }}
@@ -16,7 +16,7 @@ function Backdrop({ children, peek = false }: { children: ReactNode; peek?: bool
 }
 
 function Panel({ title, children, tone = 'red' }: { title: string; children: ReactNode; tone?: 'red' | 'blue' }) {
-  const head = tone === 'red' ? 'from-[#ff5a3c] to-[#e62e1f] border-[#c41f12]' : 'from-[#5a6cff] to-[#3c46d6] border-[#2a31a8]';
+  const head = tone === 'red' ? 'from-[#ff5a3c] to-[#e62e1f] border-[#c41f12]' : 'from-[#a56cff] to-[#7a3cd6] border-[#5a22a8]';
   return (
     <motion.div
       initial={{ scale: 0.7, y: 30 }}
@@ -194,7 +194,7 @@ export function WinScreen({
   useEffect(() => {
     if (!canvas.current) return;
     const fire = confetti.create(canvas.current, { resize: true });
-    const colors = ['#ffd23f', '#3fe0d0', '#ff6b6b', '#ffffff', '#7c83ff', '#ff9f1c'];
+    const colors = ['#ffd23f', '#3fe0d0', '#ff6b6b', '#ffffff', '#b58cff', '#ff9f1c'];
     const burst = () =>
       fire({
         particleCount: 70,
