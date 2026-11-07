@@ -1,4 +1,4 @@
-import type { DifficultyDef, LevelDef } from './types';
+import type { DifficultyDef, LevelDef } from '../models/types';
 
 export const DIFFICULTIES: DifficultyDef[] = [
   {

@@ -74,3 +74,16 @@ export interface GameState {
 export type Location =
   | { where: 'board'; col: number; idx: number; card: Card }
   | { where: 'tray'; slot: number; card: Card };
+
+/** Destino de un arrastre: id de una categoría, la bandeja o nada */
+export type DropTarget = string | 'tray' | null;
+
+/** Jugada sugerida por la pista */
+export type Hint = { itemId: string; target: string | 'tray' } | null;
+
+/** Progreso persistente del jugador */
+export interface Save {
+  coins: number;
+  difficulty: DifficultyId;
+  completed: Record<DifficultyId, number[]>;
+}

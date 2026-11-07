@@ -1,55 +1,14 @@
-import { useEffect, useState } from 'react';
-import { GameScreen } from './components/GameScreen';
-import { HomeScreen } from './components/HomeScreen';
-import { LEVELS } from './game/levels';
-import type { DifficultyId } from './game/types';
+import { useState } from 'react';
+import { LEVELS } from './data/levels';
+import { useSave } from './hooks/useSave';
+import { GameScreen } from './ui/screens/GameScreen';
+import { HomeScreen } from './ui/screens/HomeScreen';
 
-interface Save {
-  coins: number;
-  difficulty: DifficultyId;
-  completed: Record<DifficultyId, number[]>;
-}
-
-const KEY = 'clasifica-save-v1';
-const DEFAULT: Save = { coins: 300, difficulty: 'normal', completed: { facil: [], normal: [], dificil: [] } };
-
-function load(): Save {
-  try {
-    const raw = localStorage.getItem(KEY);
-    if (raw) return { ...DEFAULT, ...JSON.parse(raw) };
-  } catch {
-    /* almacenamiento no disponible */
-  }
-  return DEFAULT;
-}
+type Screen = { name: 'home' } | { name: 'game'; levelId: number };
 
 export default function App() {
-  const [save, setSave] = useState<Save>(load);
-  const [screen, setScreen] = useState<{ name: 'home' } | { name: 'game'; levelId: number }>({ name: 'home' });
-
-  useEffect(() => {
-    try {
-      localStorage.setItem(KEY, JSON.stringify(save));
-    } catch {
-      /* ignorar */
-    }
-  }, [save]);
-
-  const spend = (n: number) => {
-    if (save.coins < n) return false;
-    setSave((s) => ({ ...s, coins: s.coins - n }));
-    return true;
-  };
-
-  const onWin = (levelId: number, reward: number) =>
-    setSave((s) => {
-      const done = s.completed[s.difficulty];
-      return {
-        ...s,
-        coins: s.coins + reward,
-        completed: { ...s.completed, [s.difficulty]: done.includes(levelId) ? done : [...done, levelId] },
-      };
-    });
+  const { save, spend, setDifficulty, registerWin } = useSave();
+  const [screen, setScreen] = useState<Screen>({ name: 'home' });
 
   if (screen.name === 'game') {
     const idx = LEVELS.findIndex((l) => l.id === screen.levelId);
@@ -60,7 +19,7 @@ export default function App() {
         difficulty={save.difficulty}
         coins={save.coins}
         spend={spend}
-        onWin={onWin}
+        onWin={registerWin}
         onExit={() => setScreen({ name: 'home' })}
         onNext={() =>
           setScreen(idx < LEVELS.length - 1 ? { name: 'game', levelId: LEVELS[idx + 1].id } : { name: 'home' })
@@ -74,7 +33,7 @@ export default function App() {
       coins={save.coins}
       difficulty={save.difficulty}
       completed={save.completed[save.difficulty]}
-      onDifficulty={(d) => setSave((s) => ({ ...s, difficulty: d }))}
+      onDifficulty={setDifficulty}
       onPlay={(levelId) => setScreen({ name: 'game', levelId })}
     />
   );

@@ -1,8 +1,8 @@
 import { motion } from 'framer-motion';
-import { DIFFICULTIES, LEVELS } from '../game/levels';
-import type { DifficultyId } from '../game/types';
-import { CoinPill } from './GameScreen';
-import { HowToPlay, Logo } from './Modals';
+import { DIFFICULTIES, LEVELS } from '../../data/levels';
+import type { DifficultyId } from '../../models/types';
+import { CoinPill } from '../components/CoinPill';
+import { HowToPlay, Logo } from '../modals/Modals';
 
 interface Props {
   coins: number;

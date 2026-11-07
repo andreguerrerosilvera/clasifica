@@ -1,16 +1,6 @@
 import { motion } from 'framer-motion';
-import type { Card } from '../game/types';
-
-export type DropTarget = string | 'tray' | null;
-
-/** Busca el destino (categoría o bandeja) bajo un punto de la pantalla */
-export function dropTargetAt(clientX: number, clientY: number): DropTarget {
-  for (const el of document.elementsFromPoint(clientX, clientY)) {
-    const t = (el as HTMLElement).closest?.('[data-drop]') as HTMLElement | null;
-    if (t) return t.dataset.drop ?? null;
-  }
-  return null;
-}
+import type { Card, DropTarget } from '../../models/types';
+import { dropTargetAt } from '../dropTarget';
 
 interface Props {
   card: Card;
