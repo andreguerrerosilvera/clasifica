@@ -10,7 +10,7 @@
     },
     "hard": {
       "label": "Difícil",
-      "description": "Movimientos justos, más \"?\" y bandeja reducida"
+      "description": "Movimientos justos y más \"?\""
     }
   },
   "categories": {
@@ -28,7 +28,7 @@
     "tools": "Taller",
     "space": "Espacio",
     "clothes": "Ropa",
-    "fastfood": "Fast food",
+    "fastfood": "Comida rápida",
     "jobs": "Oficios",
     "jungle": "Selva",
     "birds": "Aves",
