@@ -29,7 +29,6 @@ export default function App() {
 
   return (
     <HomeScreen
-      coins={save.coins}
       completed={save.completed}
       onPlay={(levelId) => setScreen({ name: 'game', levelId })}
     />

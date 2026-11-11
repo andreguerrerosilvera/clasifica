@@ -1,0 +1,77 @@
+{
+  "id": 7,
+  "difficulty": "normal",
+  "moves": 41,
+  "categories": [
+    {
+      "id": "house",
+      "icon": "🏠",
+      "items": [
+        { "id": "sofa", "emoji": "🛋️" },
+        { "id": "bed", "emoji": "🛏️" },
+        { "id": "chair", "emoji": "🪑" },
+        { "id": "door", "emoji": "🚪" },
+        { "id": "mirror", "emoji": "🪞" },
+        { "id": "bathtub", "emoji": "🛁" }
+      ]
+    },
+    {
+      "id": "places",
+      "icon": "🧭",
+      "items": [
+        { "id": "castle", "emoji": "🏰" },
+        { "id": "home", "emoji": "🏡" },
+        { "id": "hospital", "emoji": "🏥" },
+        { "id": "school_building", "emoji": "🏫" },
+        { "id": "tower", "emoji": "🗼" },
+        { "id": "stadium", "emoji": "🏟️" }
+      ]
+    },
+    {
+      "id": "music",
+      "icon": "🎼",
+      "items": [
+        { "id": "guitar", "emoji": "🎸" },
+        { "id": "piano", "emoji": "🎹" },
+        { "id": "trumpet", "emoji": "🎺" },
+        { "id": "drum", "emoji": "🥁" },
+        { "id": "violin", "emoji": "🎻" },
+        { "id": "accordion", "emoji": "🪗" }
+      ]
+    },
+    {
+      "id": "plants",
+      "icon": "🪴",
+      "items": [
+        { "id": "cactus", "emoji": "🌵" },
+        { "id": "pine", "emoji": "🌲" },
+        { "id": "palm", "emoji": "🌴" },
+        { "id": "clover", "emoji": "🍀" },
+        { "id": "maple", "emoji": "🍁" },
+        { "id": "mushroom", "emoji": "🍄" }
+      ]
+    },
+    {
+      "id": "weather",
+      "icon": "🌡️",
+      "items": [
+        { "id": "sun", "emoji": "☀️" },
+        { "id": "rain", "emoji": "🌧️" },
+        { "id": "snow", "emoji": "❄️" },
+        { "id": "storm", "emoji": "⛈️" },
+        { "id": "rainbow", "emoji": "🌈" }
+      ]
+    }
+  ],
+  "layout": {
+    "columns": [
+      ["house.bed","music.drum","plants.cactus","plants.maple","house.chair","house.mirror","music.piano","house.bathtub"],
+      ["places.home","music.guitar","plants.pine","weather.sun","house.door","places.stadium","plants.mushroom"],
+      [],
+      ["weather.snow","weather.storm","weather.rain","weather.rainbow","plants.clover","house.sofa","music.trumpet"],
+      ["places.school_building","plants.palm","places.castle","music.accordion","places.tower","music.violin","places.hospital"]
+    ],
+    "hidden": ["places.home","plants.cactus","music.accordion","music.trumpet","places.hospital"],
+    "categoryOrder": ["music","plants","house","weather","places"]
+  }
+}

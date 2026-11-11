@@ -1,0 +1,88 @@
+{
+  "id": 11,
+  "difficulty": "normal",
+  "moves": 47,
+  "categories": [
+    {
+      "id": "sports",
+      "icon": "🏅",
+      "items": [
+        { "id": "boxing", "emoji": "🥊" },
+        { "id": "skateboard", "emoji": "🛹" },
+        { "id": "ping_pong", "emoji": "🏓" },
+        { "id": "badminton", "emoji": "🏸" },
+        { "id": "goal", "emoji": "🥅" },
+        { "id": "ice_skate", "emoji": "⛸️" },
+        { "id": "ski", "emoji": "🎿" }
+      ]
+    },
+    {
+      "id": "balls",
+      "icon": "🏟️",
+      "items": [
+        { "id": "soccer", "emoji": "⚽" },
+        { "id": "basketball", "emoji": "🏀" },
+        { "id": "tennis", "emoji": "🎾" },
+        { "id": "football", "emoji": "🏈" },
+        { "id": "volleyball", "emoji": "🏐" }
+      ]
+    },
+    {
+      "id": "hats",
+      "icon": "🎩",
+      "items": [
+        { "id": "top_hat", "emoji": "🎩" },
+        { "id": "sun_hat", "emoji": "👒" },
+        { "id": "cap", "emoji": "🧢" },
+        { "id": "cowboy_hat", "emoji": "🤠" }
+      ]
+    },
+    {
+      "id": "transport",
+      "icon": "🗺️",
+      "items": [
+        { "id": "car", "emoji": "🚗" },
+        { "id": "bike", "emoji": "🚲" },
+        { "id": "plane", "emoji": "✈️" },
+        { "id": "train", "emoji": "🚂" },
+        { "id": "ship", "emoji": "🚢" },
+        { "id": "helicopter", "emoji": "🚁" }
+      ]
+    },
+    {
+      "id": "space",
+      "icon": "🔭",
+      "items": [
+        { "id": "rocket", "emoji": "🚀" },
+        { "id": "saturn", "emoji": "🪐" },
+        { "id": "moon", "emoji": "🌙" },
+        { "id": "comet", "emoji": "☄️" },
+        { "id": "ufo", "emoji": "🛸" },
+        { "id": "alien", "emoji": "👽" }
+      ]
+    },
+    {
+      "id": "jobs",
+      "icon": "🪪",
+      "items": [
+        { "id": "firefighter", "emoji": "👩‍🚒" },
+        { "id": "chef", "emoji": "👨‍🍳" },
+        { "id": "doctor", "emoji": "👩‍⚕️" },
+        { "id": "police", "emoji": "👮" },
+        { "id": "builder", "emoji": "👷" },
+        { "id": "farmer", "emoji": "🧑‍🌾" }
+      ]
+    }
+  ],
+  "layout": {
+    "columns": [
+      ["hats.sun_hat","balls.basketball","transport.helicopter","jobs.firefighter","balls.football","sports.ski","balls.volleyball","hats.cowboy_hat","hats.cap"],
+      ["space.comet","transport.train","sports.ping_pong","space.moon","hats.top_hat","space.ufo","space.rocket","sports.ice_skate","transport.ship"],
+      [],
+      ["transport.plane","space.saturn","transport.bike","jobs.police","balls.tennis","jobs.doctor","transport.car","jobs.farmer"],
+      ["sports.goal","sports.skateboard","jobs.builder","sports.boxing","sports.badminton","jobs.chef","balls.soccer","space.alien"]
+    ],
+    "hidden": ["sports.goal","balls.basketball","sports.skateboard","sports.ping_pong","jobs.police","hats.top_hat","jobs.doctor","transport.car","balls.soccer","hats.cowboy_hat","transport.ship"],
+    "categoryOrder": ["transport","sports","hats","balls","jobs","space"]
+  }
+}

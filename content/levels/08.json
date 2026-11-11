@@ -1,0 +1,91 @@
+{
+  "id": 8,
+  "difficulty": "hard",
+  "moves": 44,
+  "categories": [
+    {
+      "id": "jungle",
+      "icon": "🌴",
+      "items": [
+        { "id": "lion", "emoji": "🦁" },
+        { "id": "tiger", "emoji": "🐯" },
+        { "id": "monkey", "emoji": "🐒" },
+        { "id": "zebra", "emoji": "🦓" },
+        { "id": "giraffe", "emoji": "🦒" },
+        { "id": "elephant", "emoji": "🐘" },
+        { "id": "hippo", "emoji": "🦛" }
+      ]
+    },
+    {
+      "id": "ocean",
+      "icon": "🌊",
+      "items": [
+        { "id": "octopus", "emoji": "🐙" },
+        { "id": "crab", "emoji": "🦀" },
+        { "id": "fish", "emoji": "🐠" },
+        { "id": "dolphin", "emoji": "🐬" },
+        { "id": "whale", "emoji": "🐳" },
+        { "id": "shark", "emoji": "🦈" },
+        { "id": "jellyfish", "emoji": "🪼" }
+      ]
+    },
+    {
+      "id": "birds",
+      "icon": "🪺",
+      "items": [
+        { "id": "parrot", "emoji": "🦜" },
+        { "id": "owl", "emoji": "🦉" },
+        { "id": "penguin", "emoji": "🐧" },
+        { "id": "flamingo", "emoji": "🦩" },
+        { "id": "eagle", "emoji": "🦅" },
+        { "id": "duck", "emoji": "🦆" },
+        { "id": "swan", "emoji": "🦢" }
+      ]
+    },
+    {
+      "id": "reptiles",
+      "icon": "🦎",
+      "items": [
+        { "id": "crocodile", "emoji": "🐊" },
+        { "id": "turtle", "emoji": "🐢" },
+        { "id": "lizard", "emoji": "🦎" },
+        { "id": "snake", "emoji": "🐍" },
+        { "id": "trex", "emoji": "🦖" },
+        { "id": "sauropod", "emoji": "🦕" }
+      ]
+    },
+    {
+      "id": "bugs",
+      "icon": "🔎",
+      "items": [
+        { "id": "bee", "emoji": "🐝" },
+        { "id": "butterfly", "emoji": "🦋" },
+        { "id": "ladybug", "emoji": "🐞" },
+        { "id": "ant", "emoji": "🐜" },
+        { "id": "snail", "emoji": "🐌" }
+      ]
+    },
+    {
+      "id": "farm",
+      "icon": "🏡",
+      "items": [
+        { "id": "cow", "emoji": "🐄" },
+        { "id": "pig", "emoji": "🐖" },
+        { "id": "sheep", "emoji": "🐑" },
+        { "id": "hen", "emoji": "🐔" },
+        { "id": "horse", "emoji": "🐴" }
+      ]
+    }
+  ],
+  "layout": {
+    "columns": [
+      ["reptiles.trex","birds.duck","ocean.whale","birds.parrot","farm.cow","jungle.tiger","ocean.fish","jungle.hippo","ocean.shark","jungle.elephant"],
+      ["reptiles.lizard","bugs.ladybug","birds.owl","reptiles.snake","jungle.zebra","farm.hen","birds.swan","bugs.butterfly","reptiles.crocodile"],
+      [],
+      ["ocean.jellyfish","farm.horse","birds.penguin","bugs.ant","jungle.lion","reptiles.sauropod","ocean.dolphin","farm.sheep","birds.eagle"],
+      ["bugs.snail","birds.flamingo","ocean.octopus","jungle.giraffe","ocean.crab","farm.pig","jungle.monkey","reptiles.turtle","bugs.bee"]
+    ],
+    "hidden": ["reptiles.lizard","bugs.snail","birds.duck","bugs.ladybug","ocean.whale","birds.parrot","jungle.giraffe","farm.cow","reptiles.sauropod","bugs.butterfly","farm.sheep","birds.eagle","bugs.bee"],
+    "categoryOrder": ["bugs","farm","ocean","birds","reptiles","jungle"]
+  }
+}

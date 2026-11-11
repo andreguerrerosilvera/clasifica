@@ -1,11 +1,9 @@
 import { motion } from 'framer-motion';
 import { useMemo } from 'react';
 import { LEVELS } from '../../data/levels';
-import { CoinPill } from '../components/CoinPill';
 import { Logo } from '../modals/Modals';
 
 interface Props {
-  coins: number;
   completed: number[];
   onPlay: (levelId: number) => void;
 }
@@ -35,7 +33,7 @@ function makeFloaters() {
   });
 }
 
-export function HomeScreen({ coins, completed, onPlay }: Props) {
+export function HomeScreen({ completed, onPlay }: Props) {
   const floaters = useMemo(() => makeFloaters(), []);
   const next = LEVELS.find((l) => !completed.includes(l.id)) ?? LEVELS[LEVELS.length - 1];
 
@@ -54,10 +52,6 @@ export function HomeScreen({ coins, completed, onPlay }: Props) {
       ))}
 
       <div className="relative mx-auto flex h-full max-w-[440px] flex-col px-5 pb-8 pt-5">
-        <div className="flex justify-end">
-          <CoinPill coins={coins} />
-        </div>
-
         <div className="pointer-events-none absolute inset-0 flex flex-col items-center justify-center px-5">
           <motion.div
             initial={{ scale: 0.6, opacity: 0 }}

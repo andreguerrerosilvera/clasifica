@@ -1,0 +1,114 @@
+{
+  "id": 13,
+  "difficulty": "hard",
+  "moves": 57,
+  "categories": [
+    {
+      "id": "jungle",
+      "icon": "🌴",
+      "items": [
+        { "id": "lion", "emoji": "🦁" },
+        { "id": "tiger", "emoji": "🐯" },
+        { "id": "monkey", "emoji": "🐒" },
+        { "id": "zebra", "emoji": "🦓" },
+        { "id": "giraffe", "emoji": "🦒" },
+        { "id": "elephant", "emoji": "🐘" }
+      ]
+    },
+    {
+      "id": "ocean",
+      "icon": "🌊",
+      "items": [
+        { "id": "octopus", "emoji": "🐙" },
+        { "id": "crab", "emoji": "🦀" },
+        { "id": "fish", "emoji": "🐠" },
+        { "id": "dolphin", "emoji": "🐬" },
+        { "id": "whale", "emoji": "🐳" },
+        { "id": "shark", "emoji": "🦈" }
+      ]
+    },
+    {
+      "id": "tech",
+      "icon": "🔌",
+      "items": [
+        { "id": "laptop", "emoji": "💻" },
+        { "id": "phone", "emoji": "📱" },
+        { "id": "watch", "emoji": "⌚" },
+        { "id": "headphones", "emoji": "🎧" },
+        { "id": "camera", "emoji": "📷" },
+        { "id": "printer", "emoji": "🖨️" }
+      ]
+    },
+    {
+      "id": "kitchen",
+      "icon": "🍳",
+      "items": [
+        { "id": "frying_pan", "emoji": "🍳" },
+        { "id": "spoon", "emoji": "🥄" },
+        { "id": "knife", "emoji": "🔪" },
+        { "id": "cutlery", "emoji": "🍴" },
+        { "id": "teapot", "emoji": "🫖" },
+        { "id": "chopsticks", "emoji": "🥢" }
+      ]
+    },
+    {
+      "id": "fantasy",
+      "icon": "🔮",
+      "items": [
+        { "id": "dragon", "emoji": "🐉" },
+        { "id": "unicorn", "emoji": "🦄" },
+        { "id": "fairy", "emoji": "🧚" },
+        { "id": "wizard", "emoji": "🧙" },
+        { "id": "mermaid", "emoji": "🧜‍♀️" },
+        { "id": "genie", "emoji": "🧞" }
+      ]
+    },
+    {
+      "id": "sports",
+      "icon": "🏅",
+      "items": [
+        { "id": "boxing", "emoji": "🥊" },
+        { "id": "skateboard", "emoji": "🛹" },
+        { "id": "ping_pong", "emoji": "🏓" },
+        { "id": "badminton", "emoji": "🏸" },
+        { "id": "goal", "emoji": "🥅" },
+        { "id": "ice_skate", "emoji": "⛸️" }
+      ]
+    },
+    {
+      "id": "clothes",
+      "icon": "👚",
+      "items": [
+        { "id": "shirt", "emoji": "👕" },
+        { "id": "jeans", "emoji": "👖" },
+        { "id": "coat", "emoji": "🧥" },
+        { "id": "dress", "emoji": "👗" },
+        { "id": "scarf", "emoji": "🧣" },
+        { "id": "gloves", "emoji": "🧤" }
+      ]
+    },
+    {
+      "id": "bakery",
+      "icon": "🧑‍🍳",
+      "items": [
+        { "id": "croissant", "emoji": "🥐" },
+        { "id": "baguette", "emoji": "🥖" },
+        { "id": "pretzel", "emoji": "🥨" },
+        { "id": "bagel", "emoji": "🥯" },
+        { "id": "waffle", "emoji": "🧇" },
+        { "id": "pancakes", "emoji": "🥞" }
+      ]
+    }
+  ],
+  "layout": {
+    "columns": [
+      ["ocean.shark","bakery.pretzel","sports.boxing","clothes.shirt","kitchen.knife","jungle.lion","jungle.giraffe","clothes.dress","fantasy.dragon","clothes.gloves","tech.phone","sports.ice_skate"],
+      ["ocean.crab","clothes.coat","bakery.croissant","ocean.octopus","jungle.tiger","sports.badminton","jungle.elephant","bakery.bagel","sports.skateboard","bakery.pancakes","kitchen.frying_pan","tech.printer"],
+      [],
+      ["ocean.dolphin","tech.headphones","tech.camera","fantasy.fairy","sports.ping_pong","clothes.scarf","ocean.whale","tech.laptop","tech.watch","jungle.monkey","bakery.waffle","fantasy.genie"],
+      ["kitchen.chopsticks","ocean.fish","fantasy.wizard","kitchen.teapot","bakery.baguette","jungle.zebra","kitchen.spoon","sports.goal","clothes.jeans","fantasy.unicorn","fantasy.mermaid","kitchen.cutlery"]
+    ],
+    "hidden": ["ocean.crab","ocean.dolphin","kitchen.chopsticks","clothes.coat","ocean.fish","sports.boxing","fantasy.wizard","clothes.shirt","kitchen.knife","sports.ping_pong","jungle.lion","clothes.scarf","ocean.whale","clothes.dress","bakery.bagel","fantasy.dragon","jungle.monkey","fantasy.unicorn","sports.ice_skate"],
+    "categoryOrder": ["ocean","jungle","tech","kitchen","clothes","sports","bakery","fantasy"]
+  }
+}

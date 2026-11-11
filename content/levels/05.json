@@ -1,0 +1,77 @@
+{
+  "id": 5,
+  "difficulty": "normal",
+  "moves": 41,
+  "categories": [
+    {
+      "id": "flowers",
+      "icon": "💐",
+      "items": [
+        { "id": "rose", "emoji": "🌹" },
+        { "id": "sunflower", "emoji": "🌻" },
+        { "id": "tulip", "emoji": "🌷" },
+        { "id": "blossom", "emoji": "🌸" },
+        { "id": "daisy", "emoji": "🌼" },
+        { "id": "lotus", "emoji": "🪷" }
+      ]
+    },
+    {
+      "id": "tech",
+      "icon": "🔌",
+      "items": [
+        { "id": "laptop", "emoji": "💻" },
+        { "id": "phone", "emoji": "📱" },
+        { "id": "watch", "emoji": "⌚" },
+        { "id": "headphones", "emoji": "🎧" },
+        { "id": "camera", "emoji": "📷" },
+        { "id": "printer", "emoji": "🖨️" }
+      ]
+    },
+    {
+      "id": "farm",
+      "icon": "🏡",
+      "items": [
+        { "id": "cow", "emoji": "🐄" },
+        { "id": "pig", "emoji": "🐖" },
+        { "id": "sheep", "emoji": "🐑" },
+        { "id": "hen", "emoji": "🐔" },
+        { "id": "horse", "emoji": "🐴" }
+      ]
+    },
+    {
+      "id": "bakery",
+      "icon": "🧑‍🍳",
+      "items": [
+        { "id": "croissant", "emoji": "🥐" },
+        { "id": "baguette", "emoji": "🥖" },
+        { "id": "pretzel", "emoji": "🥨" },
+        { "id": "bagel", "emoji": "🥯" },
+        { "id": "waffle", "emoji": "🧇" },
+        { "id": "pancakes", "emoji": "🥞" }
+      ]
+    },
+    {
+      "id": "party",
+      "icon": "🥳",
+      "items": [
+        { "id": "balloon", "emoji": "🎈" },
+        { "id": "popper", "emoji": "🎉" },
+        { "id": "gift", "emoji": "🎁" },
+        { "id": "confetti", "emoji": "🎊" },
+        { "id": "pinata", "emoji": "🪅" },
+        { "id": "fireworks", "emoji": "🎆" }
+      ]
+    }
+  ],
+  "layout": {
+    "columns": [
+      ["bakery.croissant","bakery.bagel","party.confetti","flowers.sunflower","farm.sheep","bakery.pretzel","farm.cow","farm.hen"],
+      ["flowers.blossom","bakery.pancakes","party.balloon","flowers.daisy","party.gift","party.pinata","tech.phone"],
+      [],
+      ["tech.headphones","flowers.lotus","tech.watch","party.popper","farm.pig","flowers.tulip","tech.laptop"],
+      ["bakery.baguette","tech.printer","farm.horse","tech.camera","flowers.rose","bakery.waffle","party.fireworks"]
+    ],
+    "hidden": ["bakery.baguette","flowers.lotus","tech.camera","party.gift","flowers.tulip"],
+    "categoryOrder": ["party","flowers","bakery","tech","farm"]
+  }
+}

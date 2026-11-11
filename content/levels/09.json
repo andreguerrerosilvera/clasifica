@@ -1,0 +1,94 @@
+{
+  "id": 9,
+  "difficulty": "hard",
+  "moves": 48,
+  "categories": [
+    {
+      "id": "tech",
+      "icon": "🔌",
+      "items": [
+        { "id": "laptop", "emoji": "💻" },
+        { "id": "phone", "emoji": "📱" },
+        { "id": "watch", "emoji": "⌚" },
+        { "id": "headphones", "emoji": "🎧" },
+        { "id": "camera", "emoji": "📷" },
+        { "id": "printer", "emoji": "🖨️" },
+        { "id": "joystick", "emoji": "🕹️" }
+      ]
+    },
+    {
+      "id": "school",
+      "icon": "🏫",
+      "items": [
+        { "id": "pencil", "emoji": "✏️" },
+        { "id": "ruler", "emoji": "📏" },
+        { "id": "books", "emoji": "📚" },
+        { "id": "backpack", "emoji": "🎒" },
+        { "id": "scissors", "emoji": "✂️" },
+        { "id": "crayon", "emoji": "🖍️" },
+        { "id": "set_square", "emoji": "📐" }
+      ]
+    },
+    {
+      "id": "tools",
+      "icon": "🧰",
+      "items": [
+        { "id": "hammer", "emoji": "🔨" },
+        { "id": "screwdriver", "emoji": "🪛" },
+        { "id": "wrench", "emoji": "🔧" },
+        { "id": "saw", "emoji": "🪚" },
+        { "id": "pickaxe", "emoji": "⛏️" },
+        { "id": "axe", "emoji": "🪓" }
+      ]
+    },
+    {
+      "id": "kitchen",
+      "icon": "🍳",
+      "items": [
+        { "id": "frying_pan", "emoji": "🍳" },
+        { "id": "spoon", "emoji": "🥄" },
+        { "id": "knife", "emoji": "🔪" },
+        { "id": "cutlery", "emoji": "🍴" },
+        { "id": "teapot", "emoji": "🫖" },
+        { "id": "chopsticks", "emoji": "🥢" },
+        { "id": "salt", "emoji": "🧂" }
+      ]
+    },
+    {
+      "id": "clothes",
+      "icon": "👚",
+      "items": [
+        { "id": "shirt", "emoji": "👕" },
+        { "id": "jeans", "emoji": "👖" },
+        { "id": "coat", "emoji": "🧥" },
+        { "id": "dress", "emoji": "👗" },
+        { "id": "scarf", "emoji": "🧣" },
+        { "id": "gloves", "emoji": "🧤" }
+      ]
+    },
+    {
+      "id": "house",
+      "icon": "🏠",
+      "items": [
+        { "id": "sofa", "emoji": "🛋️" },
+        { "id": "bed", "emoji": "🛏️" },
+        { "id": "chair", "emoji": "🪑" },
+        { "id": "door", "emoji": "🚪" },
+        { "id": "mirror", "emoji": "🪞" },
+        { "id": "bathtub", "emoji": "🛁" },
+        { "id": "toilet", "emoji": "🚽" }
+      ]
+    }
+  ],
+  "layout": {
+    "columns": [
+      ["house.mirror","tech.headphones","school.backpack","tech.laptop","school.pencil","tools.hammer","kitchen.frying_pan","school.scissors","tech.printer","house.toilet"],
+      ["clothes.shirt","clothes.dress","tools.wrench","tools.screwdriver","tools.axe","house.sofa","tech.camera","house.bathtub","kitchen.spoon","tech.phone"],
+      [],
+      ["kitchen.teapot","house.chair","house.bed","clothes.coat","school.set_square","school.ruler","clothes.gloves","house.door","kitchen.salt","clothes.scarf"],
+      ["kitchen.knife","tools.pickaxe","tools.saw","kitchen.cutlery","clothes.jeans","school.books","tech.joystick","tech.watch","school.crayon","kitchen.chopsticks"]
+    ],
+    "hidden": ["kitchen.knife","clothes.dress","house.chair","tools.pickaxe","tools.saw","tools.screwdriver","clothes.coat","kitchen.cutlery","school.pencil","school.set_square","kitchen.spoon","kitchen.salt","school.crayon"],
+    "categoryOrder": ["clothes","house","kitchen","tech","school","tools"]
+  }
+}

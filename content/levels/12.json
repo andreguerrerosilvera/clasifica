@@ -1,0 +1,105 @@
+{
+  "id": 12,
+  "difficulty": "hard",
+  "moves": 56,
+  "categories": [
+    {
+      "id": "fantasy",
+      "icon": "🔮",
+      "items": [
+        { "id": "dragon", "emoji": "🐉" },
+        { "id": "unicorn", "emoji": "🦄" },
+        { "id": "fairy", "emoji": "🧚" },
+        { "id": "wizard", "emoji": "🧙" },
+        { "id": "mermaid", "emoji": "🧜‍♀️" },
+        { "id": "genie", "emoji": "🧞" },
+        { "id": "ghost", "emoji": "👻" }
+      ]
+    },
+    {
+      "id": "flowers",
+      "icon": "💐",
+      "items": [
+        { "id": "rose", "emoji": "🌹" },
+        { "id": "sunflower", "emoji": "🌻" },
+        { "id": "tulip", "emoji": "🌷" },
+        { "id": "blossom", "emoji": "🌸" },
+        { "id": "daisy", "emoji": "🌼" },
+        { "id": "lotus", "emoji": "🪷" },
+        { "id": "hibiscus", "emoji": "🌺" }
+      ]
+    },
+    {
+      "id": "plants",
+      "icon": "🪴",
+      "items": [
+        { "id": "cactus", "emoji": "🌵" },
+        { "id": "pine", "emoji": "🌲" },
+        { "id": "palm", "emoji": "🌴" },
+        { "id": "clover", "emoji": "🍀" },
+        { "id": "maple", "emoji": "🍁" },
+        { "id": "mushroom", "emoji": "🍄" },
+        { "id": "herb", "emoji": "🌿" }
+      ]
+    },
+    {
+      "id": "weather",
+      "icon": "🌡️",
+      "items": [
+        { "id": "sun", "emoji": "☀️" },
+        { "id": "rain", "emoji": "🌧️" },
+        { "id": "snow", "emoji": "❄️" },
+        { "id": "storm", "emoji": "⛈️" },
+        { "id": "rainbow", "emoji": "🌈" }
+      ]
+    },
+    {
+      "id": "space",
+      "icon": "🔭",
+      "items": [
+        { "id": "rocket", "emoji": "🚀" },
+        { "id": "saturn", "emoji": "🪐" },
+        { "id": "moon", "emoji": "🌙" },
+        { "id": "comet", "emoji": "☄️" },
+        { "id": "ufo", "emoji": "🛸" },
+        { "id": "alien", "emoji": "👽" }
+      ]
+    },
+    {
+      "id": "places",
+      "icon": "🧭",
+      "items": [
+        { "id": "castle", "emoji": "🏰" },
+        { "id": "home", "emoji": "🏡" },
+        { "id": "hospital", "emoji": "🏥" },
+        { "id": "school_building", "emoji": "🏫" },
+        { "id": "tower", "emoji": "🗼" },
+        { "id": "stadium", "emoji": "🏟️" },
+        { "id": "tent", "emoji": "⛺" }
+      ]
+    },
+    {
+      "id": "music",
+      "icon": "🎼",
+      "items": [
+        { "id": "guitar", "emoji": "🎸" },
+        { "id": "piano", "emoji": "🎹" },
+        { "id": "trumpet", "emoji": "🎺" },
+        { "id": "drum", "emoji": "🥁" },
+        { "id": "violin", "emoji": "🎻" },
+        { "id": "accordion", "emoji": "🪗" }
+      ]
+    }
+  ],
+  "layout": {
+    "columns": [
+      ["places.school_building","space.comet","music.guitar","space.rocket","weather.sun","weather.snow","fantasy.unicorn","flowers.lotus","flowers.tulip","places.stadium","flowers.blossom","plants.maple"],
+      ["flowers.sunflower","music.trumpet","plants.mushroom","plants.cactus","flowers.daisy","music.violin","plants.clover","places.castle","space.saturn","space.ufo","flowers.rose"],
+      [],
+      ["space.moon","places.tent","fantasy.ghost","places.home","places.hospital","fantasy.fairy","flowers.hibiscus","weather.rain","plants.herb","places.tower","fantasy.wizard"],
+      ["weather.storm","fantasy.mermaid","music.piano","fantasy.dragon","plants.palm","space.alien","music.accordion","weather.rainbow","music.drum","fantasy.genie","plants.pine"]
+    ],
+    "hidden": ["flowers.sunflower","music.guitar","fantasy.ghost","plants.cactus","places.home","weather.sun","fantasy.fairy","music.accordion","weather.rain","weather.rainbow","flowers.tulip","space.saturn","space.ufo","plants.maple"],
+    "categoryOrder": ["music","fantasy","space","plants","flowers","weather","places"]
+  }
+}

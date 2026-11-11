@@ -1,0 +1,104 @@
+{
+  "id": 10,
+  "difficulty": "hard",
+  "moves": 55,
+  "categories": [
+    {
+      "id": "desserts",
+      "icon": "🍽️",
+      "items": [
+        { "id": "cake", "emoji": "🍰" },
+        { "id": "donut", "emoji": "🍩" },
+        { "id": "cookie", "emoji": "🍪" },
+        { "id": "cupcake", "emoji": "🧁" },
+        { "id": "chocolate", "emoji": "🍫" },
+        { "id": "ice_cream", "emoji": "🍦" }
+      ]
+    },
+    {
+      "id": "bakery",
+      "icon": "🧑‍🍳",
+      "items": [
+        { "id": "croissant", "emoji": "🥐" },
+        { "id": "baguette", "emoji": "🥖" },
+        { "id": "pretzel", "emoji": "🥨" },
+        { "id": "bagel", "emoji": "🥯" },
+        { "id": "waffle", "emoji": "🧇" },
+        { "id": "pancakes", "emoji": "🥞" },
+        { "id": "bread", "emoji": "🍞" }
+      ]
+    },
+    {
+      "id": "drinks",
+      "icon": "🫗",
+      "items": [
+        { "id": "coffee", "emoji": "☕" },
+        { "id": "juice", "emoji": "🧃" },
+        { "id": "soda", "emoji": "🥤" },
+        { "id": "tea", "emoji": "🍵" },
+        { "id": "bubble_tea", "emoji": "🧋" },
+        { "id": "milk", "emoji": "🥛" },
+        { "id": "tropical", "emoji": "🍹" }
+      ]
+    },
+    {
+      "id": "fastfood",
+      "icon": "🥡",
+      "items": [
+        { "id": "burger", "emoji": "🍔" },
+        { "id": "fries", "emoji": "🍟" },
+        { "id": "hot_dog", "emoji": "🌭" },
+        { "id": "pizza", "emoji": "🍕" },
+        { "id": "taco", "emoji": "🌮" },
+        { "id": "sandwich", "emoji": "🥪" }
+      ]
+    },
+    {
+      "id": "fruits",
+      "icon": "🧺",
+      "items": [
+        { "id": "apple", "emoji": "🍎" },
+        { "id": "banana", "emoji": "🍌" },
+        { "id": "grapes", "emoji": "🍇" },
+        { "id": "strawberry", "emoji": "🍓" },
+        { "id": "pineapple", "emoji": "🍍" }
+      ]
+    },
+    {
+      "id": "vegetables",
+      "icon": "🥗",
+      "items": [
+        { "id": "carrot", "emoji": "🥕" },
+        { "id": "broccoli", "emoji": "🥦" },
+        { "id": "corn", "emoji": "🌽" },
+        { "id": "eggplant", "emoji": "🍆" },
+        { "id": "cucumber", "emoji": "🥒" },
+        { "id": "pepper", "emoji": "🫑" },
+        { "id": "onion", "emoji": "🧅" }
+      ]
+    },
+    {
+      "id": "party",
+      "icon": "🥳",
+      "items": [
+        { "id": "balloon", "emoji": "🎈" },
+        { "id": "popper", "emoji": "🎉" },
+        { "id": "gift", "emoji": "🎁" },
+        { "id": "confetti", "emoji": "🎊" },
+        { "id": "pinata", "emoji": "🪅" },
+        { "id": "fireworks", "emoji": "🎆" }
+      ]
+    }
+  ],
+  "layout": {
+    "columns": [
+      ["vegetables.broccoli","vegetables.eggplant","fastfood.fries","drinks.tea","bakery.waffle","desserts.cupcake","drinks.soda","fruits.strawberry","fastfood.burger","fruits.grapes","party.balloon"],
+      ["fruits.apple","bakery.croissant","desserts.ice_cream","vegetables.pepper","vegetables.carrot","drinks.bubble_tea","desserts.donut","party.gift","bakery.pretzel","drinks.coffee","drinks.milk"],
+      [],
+      ["fastfood.sandwich","party.fireworks","party.popper","fastfood.hot_dog","bakery.pancakes","party.confetti","bakery.bagel","drinks.tropical","bakery.bread","desserts.cake","desserts.chocolate"],
+      ["drinks.juice","vegetables.corn","vegetables.cucumber","fastfood.taco","party.pinata","vegetables.onion","fruits.pineapple","fruits.banana","bakery.baguette","desserts.cookie","fastfood.pizza"]
+    ],
+    "hidden": ["fruits.apple","party.popper","drinks.tea","vegetables.pepper","fastfood.hot_dog","fastfood.taco","party.pinata","drinks.bubble_tea","bakery.bread","bakery.baguette","drinks.milk"],
+    "categoryOrder": ["vegetables","drinks","party","desserts","fastfood","bakery","fruits"]
+  }
+}

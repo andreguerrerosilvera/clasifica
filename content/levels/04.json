@@ -1,0 +1,76 @@
+{
+  "id": 4,
+  "difficulty": "normal",
+  "moves": 39,
+  "categories": [
+    {
+      "id": "jungle",
+      "icon": "🌴",
+      "items": [
+        { "id": "lion", "emoji": "🦁" },
+        { "id": "tiger", "emoji": "🐯" },
+        { "id": "monkey", "emoji": "🐒" },
+        { "id": "zebra", "emoji": "🦓" },
+        { "id": "giraffe", "emoji": "🦒" },
+        { "id": "elephant", "emoji": "🐘" }
+      ]
+    },
+    {
+      "id": "birds",
+      "icon": "🪺",
+      "items": [
+        { "id": "parrot", "emoji": "🦜" },
+        { "id": "owl", "emoji": "🦉" },
+        { "id": "penguin", "emoji": "🐧" },
+        { "id": "flamingo", "emoji": "🦩" },
+        { "id": "eagle", "emoji": "🦅" }
+      ]
+    },
+    {
+      "id": "drinks",
+      "icon": "🫗",
+      "items": [
+        { "id": "coffee", "emoji": "☕" },
+        { "id": "juice", "emoji": "🧃" },
+        { "id": "soda", "emoji": "🥤" },
+        { "id": "tea", "emoji": "🍵" },
+        { "id": "bubble_tea", "emoji": "🧋" },
+        { "id": "milk", "emoji": "🥛" }
+      ]
+    },
+    {
+      "id": "school",
+      "icon": "🏫",
+      "items": [
+        { "id": "pencil", "emoji": "✏️" },
+        { "id": "ruler", "emoji": "📏" },
+        { "id": "books", "emoji": "📚" },
+        { "id": "backpack", "emoji": "🎒" },
+        { "id": "scissors", "emoji": "✂️" },
+        { "id": "crayon", "emoji": "🖍️" }
+      ]
+    },
+    {
+      "id": "fruits",
+      "icon": "🧺",
+      "items": [
+        { "id": "apple", "emoji": "🍎" },
+        { "id": "banana", "emoji": "🍌" },
+        { "id": "grapes", "emoji": "🍇" },
+        { "id": "strawberry", "emoji": "🍓" },
+        { "id": "pineapple", "emoji": "🍍" }
+      ]
+    }
+  ],
+  "layout": {
+    "columns": [
+      ["drinks.juice","birds.eagle","jungle.giraffe","fruits.pineapple","school.ruler","jungle.elephant","school.scissors"],
+      ["fruits.apple","school.backpack","school.pencil","drinks.bubble_tea","drinks.milk","jungle.tiger","birds.flamingo"],
+      [],
+      ["drinks.soda","drinks.tea","birds.penguin","drinks.coffee","fruits.banana","jungle.monkey","school.books"],
+      ["jungle.zebra","birds.parrot","jungle.lion","fruits.strawberry","fruits.grapes","school.crayon","birds.owl"]
+    ],
+    "hidden": ["school.pencil","drinks.coffee","jungle.tiger"],
+    "categoryOrder": ["school","birds","jungle","fruits","drinks"]
+  }
+}
