@@ -7,12 +7,12 @@
       "id": "jungle",
       "icon": "🌴",
       "items": [
-        { "id": "lion", "emoji": "🦁" },
+        { "id": "gorilla", "emoji": "🦍" },
         { "id": "tiger", "emoji": "🐯" },
         { "id": "monkey", "emoji": "🐒" },
-        { "id": "zebra", "emoji": "🦓" },
-        { "id": "giraffe", "emoji": "🦒" },
-        { "id": "elephant", "emoji": "🐘" }
+        { "id": "sloth", "emoji": "🦥" },
+        { "id": "orangutan", "emoji": "🦧" },
+        { "id": "jaguar", "emoji": "🐆" }
       ]
     },
     {
@@ -64,11 +64,11 @@
   ],
   "layout": {
     "columns": [
-      ["drinks.juice","birds.eagle","jungle.giraffe","fruits.pineapple","school.ruler","jungle.elephant","school.scissors"],
+      ["drinks.juice","birds.eagle","jungle.orangutan","fruits.pineapple","school.ruler","jungle.jaguar","school.scissors"],
       ["fruits.apple","school.backpack","school.pencil","drinks.bubble_tea","drinks.milk","jungle.tiger","birds.flamingo"],
       [],
       ["drinks.soda","drinks.tea","birds.penguin","drinks.coffee","fruits.banana","jungle.monkey","school.books"],
-      ["jungle.zebra","birds.parrot","jungle.lion","fruits.strawberry","fruits.grapes","school.crayon","birds.owl"]
+      ["jungle.sloth","birds.parrot","jungle.gorilla","fruits.strawberry","fruits.grapes","school.crayon","birds.owl"]
     ],
     "hidden": ["school.pencil","drinks.coffee","jungle.tiger"],
     "categoryOrder": ["school","birds","jungle","fruits","drinks"]

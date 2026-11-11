@@ -22,4 +22,5 @@ export const COST = { hint: 30, undo: 40, magnet: 80, slot: 100, playOn: 100 } a
 export const PLAY_ON_MOVES = 10;
 export const HISTORY_LIMIT = 40;
 
-export const winReward = (movesLeft: number) => 50 + movesLeft * 2;
+/** Monedas por ganar un nivel: siempre las mismas, sin importar el nivel ni los movimientos sobrantes. */
+export const WIN_REWARD = 30;

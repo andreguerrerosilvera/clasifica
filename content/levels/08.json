@@ -7,13 +7,13 @@
       "id": "jungle",
       "icon": "🌴",
       "items": [
-        { "id": "lion", "emoji": "🦁" },
+        { "id": "gorilla", "emoji": "🦍" },
         { "id": "tiger", "emoji": "🐯" },
         { "id": "monkey", "emoji": "🐒" },
-        { "id": "zebra", "emoji": "🦓" },
-        { "id": "giraffe", "emoji": "🦒" },
-        { "id": "elephant", "emoji": "🐘" },
-        { "id": "hippo", "emoji": "🦛" }
+        { "id": "sloth", "emoji": "🦥" },
+        { "id": "orangutan", "emoji": "🦧" },
+        { "id": "jaguar", "emoji": "🐆" },
+        { "id": "frog", "emoji": "🐸" }
       ]
     },
     {
@@ -79,13 +79,13 @@
   ],
   "layout": {
     "columns": [
-      ["reptiles.trex","birds.duck","ocean.whale","birds.parrot","farm.cow","jungle.tiger","ocean.fish","jungle.hippo","ocean.shark","jungle.elephant"],
-      ["reptiles.lizard","bugs.ladybug","birds.owl","reptiles.snake","jungle.zebra","farm.hen","birds.swan","bugs.butterfly","reptiles.crocodile"],
+      ["reptiles.trex","birds.duck","ocean.whale","birds.parrot","farm.cow","jungle.tiger","ocean.fish","jungle.frog","ocean.shark","jungle.jaguar"],
+      ["reptiles.lizard","bugs.ladybug","birds.owl","reptiles.snake","jungle.sloth","farm.hen","birds.swan","bugs.butterfly","reptiles.crocodile"],
       [],
-      ["ocean.jellyfish","farm.horse","birds.penguin","bugs.ant","jungle.lion","reptiles.sauropod","ocean.dolphin","farm.sheep","birds.eagle"],
-      ["bugs.snail","birds.flamingo","ocean.octopus","jungle.giraffe","ocean.crab","farm.pig","jungle.monkey","reptiles.turtle","bugs.bee"]
+      ["ocean.jellyfish","farm.horse","birds.penguin","bugs.ant","jungle.gorilla","reptiles.sauropod","ocean.dolphin","farm.sheep","birds.eagle"],
+      ["bugs.snail","birds.flamingo","ocean.octopus","jungle.orangutan","ocean.crab","farm.pig","jungle.monkey","reptiles.turtle","bugs.bee"]
     ],
-    "hidden": ["reptiles.lizard","bugs.snail","birds.duck","bugs.ladybug","ocean.whale","birds.parrot","jungle.giraffe","farm.cow","reptiles.sauropod","bugs.butterfly","farm.sheep","birds.eagle","bugs.bee"],
+    "hidden": ["reptiles.lizard","bugs.snail","birds.duck","bugs.ladybug","ocean.whale","birds.parrot","jungle.orangutan","farm.cow","reptiles.sauropod","bugs.butterfly","farm.sheep","birds.eagle","bugs.bee"],
     "categoryOrder": ["bugs","farm","ocean","birds","reptiles","jungle"]
   }
 }

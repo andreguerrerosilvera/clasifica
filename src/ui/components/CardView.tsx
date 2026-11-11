@@ -103,6 +103,18 @@ function HiddenFace() {
   );
 }
 
+/**
+ * Tamaño de letra del nombre de una categoría: el normal, salvo que la palabra más larga
+ * no quepa a lo ancho de la carta; entonces se reduce para que entre entera.
+ * `cqw` = % del ancho de la columna (ColumnShell declara `container-type`).
+ */
+function labelFontSize(label: string, normal: string) {
+  const longest = Math.max(...label.split(/\s+/).map((w) => w.length));
+  // ~84% del ancho útil (descontando borde y padding) y ~0.55em por letra (Nunito 900 mide ~0.48em)
+  const fit = 84 / (longest * 0.55);
+  return `max(7px, min(${normal}, ${fit.toFixed(1)}cqw))`;
+}
+
 function CategoryFace({
   card,
   progress,
@@ -119,7 +131,10 @@ function CategoryFace({
   if (!lastItem)
     return (
       <div className="flex h-full w-full items-center justify-center overflow-hidden rounded-[10px] border-2 border-[#f2c230] bg-gradient-to-b from-[#fff3b0] to-[#fbd960] px-1 shadow-[0_3px_0_#c89614]">
-        <span className="max-w-full text-center [overflow-wrap:anywhere] text-[clamp(10px,3vw,14px)] font-black leading-[1.1] text-[#5b3d00]">
+        <span
+          className="max-w-full text-center [overflow-wrap:anywhere] font-black leading-[1.1] text-[#5b3d00]"
+          style={{ fontSize: labelFontSize(card.label, 'clamp(10px,3vw,14px)') }}
+        >
           {card.label}
         </span>
       </div>
@@ -145,7 +160,10 @@ function CategoryFace({
           {lastItem.emoji}
         </motion.span>
       </div>
-      <span className="max-w-full px-0.5 text-center [overflow-wrap:anywhere] text-[clamp(8px,2.4vw,11px)] font-black leading-[1.05] text-[#5b3d00]">
+      <span
+        className="max-w-full px-0.5 text-center [overflow-wrap:anywhere] font-black leading-[1.05] text-[#5b3d00]"
+        style={{ fontSize: labelFontSize(card.label, 'clamp(8px,2.4vw,11px)') }}
+      >
         {card.label}
       </span>
     </div>

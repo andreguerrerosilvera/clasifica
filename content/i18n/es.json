@@ -139,13 +139,8 @@
     "jobs.builder": "Obrero",
     "jobs.farmer": "Granjero",
     "jobs.painter": "Pintor",
-    "jungle.lion": "León",
     "jungle.tiger": "Tigre",
     "jungle.monkey": "Mono",
-    "jungle.zebra": "Cebra",
-    "jungle.giraffe": "Jirafa",
-    "jungle.elephant": "Elefante",
-    "jungle.hippo": "Hipopótamo",
     "birds.parrot": "Loro",
     "birds.owl": "Búho",
     "birds.penguin": "Pingüino",
@@ -242,7 +237,12 @@
     "plants.clover": "Trébol",
     "plants.maple": "Hoja de arce",
     "plants.mushroom": "Seta",
-    "plants.herb": "Hierba"
+    "plants.herb": "Hierba",
+    "jungle.gorilla": "Gorila",
+    "jungle.sloth": "Perezoso",
+    "jungle.orangutan": "Orangután",
+    "jungle.jaguar": "Jaguar",
+    "jungle.frog": "Rana"
   },
   "levels": {
     "1": {
@@ -259,7 +259,7 @@
     },
     "4": {
       "title": "Nivel 4",
-      "subtitle": "De safari"
+      "subtitle": "Expedición a la selva"
     },
     "5": {
       "title": "Nivel 5",

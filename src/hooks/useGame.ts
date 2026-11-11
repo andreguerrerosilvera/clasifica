@@ -13,7 +13,7 @@ import {
 } from '../logic/board';
 import { createLevel } from '../logic/generator';
 import { findHint, magnet } from '../logic/hints';
-import { BONUS_MOVES, COST, HISTORY_LIMIT, PLAY_ON_MOVES, ROWS, TRAY_SIZE, winReward } from '../logic/rules';
+import { BONUS_MOVES, COST, HISTORY_LIMIT, PLAY_ON_MOVES, ROWS, TRAY_SIZE, WIN_REWARD } from '../logic/rules';
 import type { Card, DropTarget, GameState, Hint } from '../models/types';
 
 export type Overlay = null | 'won' | 'lost' | 'stuck';
@@ -62,7 +62,7 @@ export function useGame({ levelId, spend, onWin, onCategoryComplete }: Options) 
     const t = window.setTimeout(
       () => {
         if (state.status === 'won') {
-          const r = winReward(state.moves);
+          const r = WIN_REWARD;
           setReward(r);
           onWin(levelId, r);
         }
