@@ -46,7 +46,7 @@
         { "id": "frying_pan", "emoji": "🍳" },
         { "id": "spoon", "emoji": "🥄" },
         { "id": "knife", "emoji": "🔪" },
-        { "id": "cutlery", "emoji": "🍴" },
+        { "id": "jar", "emoji": "🫙" },
         { "id": "teapot", "emoji": "🫖" },
         { "id": "chopsticks", "emoji": "🥢" }
       ]
@@ -59,7 +59,7 @@
         { "id": "unicorn", "emoji": "🦄" },
         { "id": "fairy", "emoji": "🧚" },
         { "id": "wizard", "emoji": "🧙" },
-        { "id": "mermaid", "emoji": "🧜‍♀️" },
+        { "id": "vampire", "emoji": "🧛" },
         { "id": "genie", "emoji": "🧞" }
       ]
     },
@@ -69,9 +69,9 @@
       "items": [
         { "id": "boxing", "emoji": "🥊" },
         { "id": "skateboard", "emoji": "🛹" },
-        { "id": "ping_pong", "emoji": "🏓" },
-        { "id": "badminton", "emoji": "🏸" },
-        { "id": "goal", "emoji": "🥅" },
+        { "id": "archery", "emoji": "🏹" },
+        { "id": "fencing", "emoji": "🤺" },
+        { "id": "weights", "emoji": "🏋️" },
         { "id": "ice_skate", "emoji": "⛸️" }
       ]
     },
@@ -95,20 +95,20 @@
         { "id": "baguette", "emoji": "🥖" },
         { "id": "pretzel", "emoji": "🥨" },
         { "id": "bagel", "emoji": "🥯" },
-        { "id": "waffle", "emoji": "🧇" },
-        { "id": "pancakes", "emoji": "🥞" }
+        { "id": "bread", "emoji": "🍞" },
+        { "id": "pita", "emoji": "🫓" }
       ]
     }
   ],
   "layout": {
     "columns": [
       ["ocean.shark","bakery.pretzel","sports.boxing","clothes.shirt","kitchen.knife","jungle.gorilla","jungle.orangutan","clothes.dress","fantasy.dragon","clothes.gloves","tech.phone","sports.ice_skate"],
-      ["ocean.crab","clothes.coat","bakery.croissant","ocean.octopus","jungle.tiger","sports.badminton","jungle.jaguar","bakery.bagel","sports.skateboard","bakery.pancakes","kitchen.frying_pan","tech.printer"],
+      ["ocean.crab","clothes.coat","bakery.croissant","ocean.octopus","jungle.tiger","sports.fencing","jungle.jaguar","bakery.bagel","sports.skateboard","bakery.pita","kitchen.frying_pan","tech.printer"],
       [],
-      ["ocean.dolphin","tech.headphones","tech.camera","fantasy.fairy","sports.ping_pong","clothes.scarf","ocean.whale","tech.laptop","tech.watch","jungle.monkey","bakery.waffle","fantasy.genie"],
-      ["kitchen.chopsticks","ocean.fish","fantasy.wizard","kitchen.teapot","bakery.baguette","jungle.sloth","kitchen.spoon","sports.goal","clothes.jeans","fantasy.unicorn","fantasy.mermaid","kitchen.cutlery"]
+      ["ocean.dolphin","tech.headphones","tech.camera","fantasy.fairy","sports.archery","clothes.scarf","ocean.whale","tech.laptop","tech.watch","jungle.monkey","bakery.bread","fantasy.genie"],
+      ["kitchen.chopsticks","ocean.fish","fantasy.wizard","kitchen.teapot","bakery.baguette","jungle.sloth","kitchen.spoon","sports.weights","clothes.jeans","fantasy.unicorn","fantasy.vampire","kitchen.jar"]
     ],
-    "hidden": ["ocean.crab","ocean.dolphin","kitchen.chopsticks","clothes.coat","ocean.fish","sports.boxing","fantasy.wizard","clothes.shirt","kitchen.knife","sports.ping_pong","jungle.gorilla","clothes.scarf","ocean.whale","clothes.dress","bakery.bagel","fantasy.dragon","jungle.monkey","fantasy.unicorn","sports.ice_skate"],
+    "hidden": ["ocean.crab","ocean.dolphin","kitchen.chopsticks","clothes.coat","ocean.fish","sports.boxing","fantasy.wizard","clothes.shirt","kitchen.knife","sports.archery","jungle.gorilla","clothes.scarf","ocean.whale","clothes.dress","bakery.bagel","fantasy.dragon","jungle.monkey","fantasy.unicorn","sports.ice_skate"],
     "categoryOrder": ["ocean","jungle","tech","kitchen","clothes","sports","bakery","fantasy"]
   }
 }

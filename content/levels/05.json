@@ -34,7 +34,7 @@
         { "id": "cow", "emoji": "🐄" },
         { "id": "pig", "emoji": "🐖" },
         { "id": "sheep", "emoji": "🐑" },
-        { "id": "hen", "emoji": "🐔" },
+        { "id": "goat", "emoji": "🐐" },
         { "id": "horse", "emoji": "🐴" }
       ]
     },
@@ -46,8 +46,8 @@
         { "id": "baguette", "emoji": "🥖" },
         { "id": "pretzel", "emoji": "🥨" },
         { "id": "bagel", "emoji": "🥯" },
-        { "id": "waffle", "emoji": "🧇" },
-        { "id": "pancakes", "emoji": "🥞" }
+        { "id": "bread", "emoji": "🍞" },
+        { "id": "pita", "emoji": "🫓" }
       ]
     },
     {
@@ -55,21 +55,21 @@
       "icon": "🥳",
       "items": [
         { "id": "balloon", "emoji": "🎈" },
-        { "id": "popper", "emoji": "🎉" },
+        { "id": "sparkler", "emoji": "🎇" },
         { "id": "gift", "emoji": "🎁" },
         { "id": "confetti", "emoji": "🎊" },
         { "id": "pinata", "emoji": "🪅" },
-        { "id": "fireworks", "emoji": "🎆" }
+        { "id": "candle", "emoji": "🕯️" }
       ]
     }
   ],
   "layout": {
     "columns": [
-      ["bakery.croissant","bakery.bagel","party.confetti","flowers.sunflower","farm.sheep","bakery.pretzel","farm.cow","farm.hen"],
-      ["flowers.blossom","bakery.pancakes","party.balloon","flowers.daisy","party.gift","party.pinata","tech.phone"],
+      ["bakery.croissant","bakery.bagel","party.confetti","flowers.sunflower","farm.sheep","bakery.pretzel","farm.cow","farm.goat"],
+      ["flowers.blossom","bakery.pita","party.balloon","flowers.daisy","party.gift","party.pinata","tech.phone"],
       [],
-      ["tech.headphones","flowers.lotus","tech.watch","party.popper","farm.pig","flowers.tulip","tech.laptop"],
-      ["bakery.baguette","tech.printer","farm.horse","tech.camera","flowers.rose","bakery.waffle","party.fireworks"]
+      ["tech.headphones","flowers.lotus","tech.watch","party.sparkler","farm.pig","flowers.tulip","tech.laptop"],
+      ["bakery.baguette","tech.printer","farm.horse","tech.camera","flowers.rose","bakery.bread","party.candle"]
     ],
     "hidden": ["bakery.baguette","flowers.lotus","tech.camera","party.gift","flowers.tulip"],
     "categoryOrder": ["party","flowers","bakery","tech","farm"]

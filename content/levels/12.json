@@ -1,7 +1,7 @@
 {
   "id": 12,
   "difficulty": "hard",
-  "moves": 56,
+  "moves": 53,
   "categories": [
     {
       "id": "fantasy",
@@ -11,7 +11,7 @@
         { "id": "unicorn", "emoji": "🦄" },
         { "id": "fairy", "emoji": "🧚" },
         { "id": "wizard", "emoji": "🧙" },
-        { "id": "mermaid", "emoji": "🧜‍♀️" },
+        { "id": "vampire", "emoji": "🧛" },
         { "id": "genie", "emoji": "🧞" },
         { "id": "ghost", "emoji": "👻" }
       ]
@@ -30,34 +30,10 @@
       ]
     },
     {
-      "id": "plants",
-      "icon": "🪴",
-      "items": [
-        { "id": "cactus", "emoji": "🌵" },
-        { "id": "pine", "emoji": "🌲" },
-        { "id": "palm", "emoji": "🌴" },
-        { "id": "clover", "emoji": "🍀" },
-        { "id": "maple", "emoji": "🍁" },
-        { "id": "mushroom", "emoji": "🍄" },
-        { "id": "herb", "emoji": "🌿" }
-      ]
-    },
-    {
-      "id": "weather",
-      "icon": "🌡️",
-      "items": [
-        { "id": "sun", "emoji": "☀️" },
-        { "id": "rain", "emoji": "🌧️" },
-        { "id": "snow", "emoji": "❄️" },
-        { "id": "storm", "emoji": "⛈️" },
-        { "id": "rainbow", "emoji": "🌈" }
-      ]
-    },
-    {
       "id": "space",
       "icon": "🔭",
       "items": [
-        { "id": "rocket", "emoji": "🚀" },
+        { "id": "star", "emoji": "⭐" },
         { "id": "saturn", "emoji": "🪐" },
         { "id": "moon", "emoji": "🌙" },
         { "id": "comet", "emoji": "☄️" },
@@ -70,7 +46,7 @@
       "icon": "🧭",
       "items": [
         { "id": "castle", "emoji": "🏰" },
-        { "id": "home", "emoji": "🏡" },
+        { "id": "museum", "emoji": "🏛️" },
         { "id": "hospital", "emoji": "🏥" },
         { "id": "school_building", "emoji": "🏫" },
         { "id": "tower", "emoji": "🗼" },
@@ -89,17 +65,41 @@
         { "id": "violin", "emoji": "🎻" },
         { "id": "accordion", "emoji": "🪗" }
       ]
+    },
+    {
+      "id": "party",
+      "icon": "🥳",
+      "items": [
+        { "id": "balloon", "emoji": "🎈" },
+        { "id": "sparkler", "emoji": "🎇" },
+        { "id": "gift", "emoji": "🎁" },
+        { "id": "confetti", "emoji": "🎊" },
+        { "id": "pinata", "emoji": "🪅" },
+        { "id": "candle", "emoji": "🕯️" }
+      ]
+    },
+    {
+      "id": "clothes",
+      "icon": "👚",
+      "items": [
+        { "id": "shirt", "emoji": "👕" },
+        { "id": "jeans", "emoji": "👖" },
+        { "id": "coat", "emoji": "🧥" },
+        { "id": "dress", "emoji": "👗" },
+        { "id": "scarf", "emoji": "🧣" },
+        { "id": "gloves", "emoji": "🧤" }
+      ]
     }
   ],
   "layout": {
     "columns": [
-      ["places.school_building","space.comet","music.guitar","space.rocket","weather.sun","weather.snow","fantasy.unicorn","flowers.lotus","flowers.tulip","places.stadium","flowers.blossom","plants.maple"],
-      ["flowers.sunflower","music.trumpet","plants.mushroom","plants.cactus","flowers.daisy","music.violin","plants.clover","places.castle","space.saturn","space.ufo","flowers.rose"],
+      ["music.trumpet","fantasy.ghost","flowers.lotus","flowers.sunflower","party.sparkler","places.castle","fantasy.wizard","party.gift","flowers.tulip","fantasy.fairy","space.saturn","party.balloon"],
+      ["fantasy.unicorn","clothes.coat","fantasy.dragon","space.star","places.school_building","music.guitar","clothes.shirt","party.candle","music.piano","clothes.jeans","space.moon"],
       [],
-      ["space.moon","places.tent","fantasy.ghost","places.home","places.hospital","fantasy.fairy","flowers.hibiscus","weather.rain","plants.herb","places.tower","fantasy.wizard"],
-      ["weather.storm","fantasy.mermaid","music.piano","fantasy.dragon","plants.palm","space.alien","music.accordion","weather.rainbow","music.drum","fantasy.genie","plants.pine"]
+      ["flowers.daisy","flowers.blossom","flowers.rose","fantasy.vampire","flowers.hibiscus","fantasy.genie","space.alien","clothes.gloves","places.stadium","party.pinata","music.accordion"],
+      ["clothes.dress","places.hospital","places.tower","places.museum","party.confetti","music.violin","clothes.scarf","space.comet","space.ufo","places.tent","music.drum"]
     ],
-    "hidden": ["flowers.sunflower","music.guitar","fantasy.ghost","plants.cactus","places.home","weather.sun","fantasy.fairy","music.accordion","weather.rain","weather.rainbow","flowers.tulip","space.saturn","space.ufo","plants.maple"],
-    "categoryOrder": ["music","fantasy","space","plants","flowers","weather","places"]
+    "hidden": ["music.trumpet","flowers.daisy","clothes.coat","flowers.blossom","places.hospital","flowers.lotus","party.sparkler","party.gift","party.candle","space.saturn","space.moon"],
+    "categoryOrder": ["fantasy","clothes","flowers","places","party","music","space"]
   }
 }

@@ -85,7 +85,10 @@ function ItemFace({ card, compact }: { card: Card; compact?: boolean }) {
         {card.emoji}
       </span>
       {!compact && (
-        <span className="mt-1 max-w-full truncate px-1 text-[clamp(8px,2.3vw,10px)] font-extrabold text-[#8a6a35]">
+        <span
+          className="mt-1 max-w-full truncate px-1 font-extrabold text-[#8a6a35]"
+          style={{ fontSize: labelFontSize(card.label, 'clamp(8px,2.3vw,10px)', false) }}
+        >
           {card.label}
         </span>
       )}
@@ -104,12 +107,13 @@ function HiddenFace() {
 }
 
 /**
- * Tamaño de letra del nombre de una categoría: el normal, salvo que la palabra más larga
- * no quepa a lo ancho de la carta; entonces se reduce para que entre entera.
+ * Tamaño de letra de un nombre: el normal, salvo que no quepa a lo ancho de la carta;
+ * entonces se reduce para que entre entero. Con `wraps`, solo cuenta la palabra más larga
+ * (el texto puede partirse en líneas); sin él, el nombre completo (va en una sola línea).
  * `cqw` = % del ancho de la columna (ColumnShell declara `container-type`).
  */
-function labelFontSize(label: string, normal: string) {
-  const longest = Math.max(...label.split(/\s+/).map((w) => w.length));
+function labelFontSize(label: string, normal: string, wraps = true) {
+  const longest = wraps ? Math.max(...label.split(/\s+/).map((w) => w.length)) : label.length;
   // ~84% del ancho útil (descontando borde y padding) y ~0.55em por letra (Nunito 900 mide ~0.48em)
   const fit = 84 / (longest * 0.55);
   return `max(7px, min(${normal}, ${fit.toFixed(1)}cqw))`;

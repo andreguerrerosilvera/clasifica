@@ -1,7 +1,7 @@
 {
   "id": 6,
   "difficulty": "hard",
-  "moves": 43,
+  "moves": 41,
   "categories": [
     {
       "id": "fantasy",
@@ -11,7 +11,7 @@
         { "id": "unicorn", "emoji": "🦄" },
         { "id": "fairy", "emoji": "🧚" },
         { "id": "wizard", "emoji": "🧙" },
-        { "id": "mermaid", "emoji": "🧜‍♀️" },
+        { "id": "vampire", "emoji": "🧛" },
         { "id": "genie", "emoji": "🧞" }
       ]
     },
@@ -22,7 +22,7 @@
         { "id": "frying_pan", "emoji": "🍳" },
         { "id": "spoon", "emoji": "🥄" },
         { "id": "knife", "emoji": "🔪" },
-        { "id": "cutlery", "emoji": "🍴" },
+        { "id": "jar", "emoji": "🫙" },
         { "id": "teapot", "emoji": "🫖" },
         { "id": "chopsticks", "emoji": "🥢" }
       ]
@@ -33,9 +33,9 @@
       "items": [
         { "id": "boxing", "emoji": "🥊" },
         { "id": "skateboard", "emoji": "🛹" },
-        { "id": "ping_pong", "emoji": "🏓" },
-        { "id": "badminton", "emoji": "🏸" },
-        { "id": "goal", "emoji": "🥅" },
+        { "id": "archery", "emoji": "🏹" },
+        { "id": "fencing", "emoji": "🤺" },
+        { "id": "weights", "emoji": "🏋️" },
         { "id": "ice_skate", "emoji": "⛸️" }
       ]
     },
@@ -57,9 +57,7 @@
         { "id": "crocodile", "emoji": "🐊" },
         { "id": "turtle", "emoji": "🐢" },
         { "id": "lizard", "emoji": "🦎" },
-        { "id": "snake", "emoji": "🐍" },
-        { "id": "trex", "emoji": "🦖" },
-        { "id": "sauropod", "emoji": "🦕" }
+        { "id": "snake", "emoji": "🐍" }
       ]
     },
     {
@@ -77,13 +75,13 @@
   ],
   "layout": {
     "columns": [
-      ["kitchen.knife","reptiles.crocodile","sports.badminton","bugs.ant","fantasy.genie","bugs.bee","kitchen.chopsticks","desserts.donut","desserts.cupcake"],
-      ["fantasy.mermaid","sports.boxing","kitchen.cutlery","bugs.ladybug","kitchen.teapot","desserts.cake","desserts.ice_cream","reptiles.lizard","bugs.snail"],
+      ["sports.skateboard","kitchen.frying_pan","desserts.cake","bugs.butterfly","desserts.cookie","kitchen.spoon","kitchen.jar","fantasy.dragon","kitchen.knife"],
+      ["reptiles.snake","fantasy.genie","sports.fencing","sports.ice_skate","fantasy.wizard","fantasy.unicorn","fantasy.fairy","bugs.ladybug"],
       [],
-      ["sports.ping_pong","reptiles.turtle","sports.skateboard","reptiles.trex","sports.ice_skate","desserts.cookie","reptiles.sauropod","bugs.butterfly","fantasy.fairy"],
-      ["fantasy.unicorn","kitchen.spoon","reptiles.snake","desserts.chocolate","sports.goal","fantasy.dragon","kitchen.frying_pan","fantasy.wizard"]
+      ["desserts.chocolate","bugs.ant","bugs.bee","reptiles.crocodile","fantasy.vampire","desserts.ice_cream","desserts.donut","sports.weights"],
+      ["kitchen.chopsticks","kitchen.teapot","reptiles.turtle","sports.boxing","sports.archery","desserts.cupcake","bugs.snail","reptiles.lizard"]
     ],
-    "hidden": ["sports.ping_pong","kitchen.cutlery","reptiles.snake","reptiles.trex","fantasy.genie","desserts.cake","desserts.donut","desserts.cupcake"],
-    "categoryOrder": ["kitchen","desserts","reptiles","sports","fantasy","bugs"]
+    "hidden": ["reptiles.snake","fantasy.genie","sports.boxing","desserts.cookie","bugs.ladybug","reptiles.lizard"],
+    "categoryOrder": ["desserts","fantasy","sports","reptiles","kitchen","bugs"]
   }
 }

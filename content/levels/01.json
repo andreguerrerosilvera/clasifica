@@ -21,7 +21,7 @@
         { "id": "cow", "emoji": "🐄" },
         { "id": "pig", "emoji": "🐖" },
         { "id": "sheep", "emoji": "🐑" },
-        { "id": "hen", "emoji": "🐔" },
+        { "id": "goat", "emoji": "🐐" },
         { "id": "horse", "emoji": "🐴" }
       ]
     },
@@ -32,7 +32,7 @@
         { "id": "soccer", "emoji": "⚽" },
         { "id": "basketball", "emoji": "🏀" },
         { "id": "tennis", "emoji": "🎾" },
-        { "id": "football", "emoji": "🏈" },
+        { "id": "rugby", "emoji": "🏉" },
         { "id": "volleyball", "emoji": "🏐" }
       ]
     },
@@ -49,10 +49,10 @@
   ],
   "layout": {
     "columns": [
-      ["balls.basketball","fruits.apple","balls.football","hats.cowboy_hat","fruits.banana"],
+      ["balls.basketball","fruits.apple","balls.rugby","hats.cowboy_hat","fruits.banana"],
       ["hats.cap","farm.pig","fruits.grapes","farm.sheep","farm.horse"],
       [],
-      ["hats.top_hat","balls.soccer","farm.hen","hats.sun_hat","fruits.strawberry"],
+      ["hats.top_hat","balls.soccer","farm.goat","hats.sun_hat","fruits.strawberry"],
       ["fruits.pineapple","balls.tennis","farm.cow","balls.volleyball"]
     ],
     "hidden": [],

@@ -20,7 +20,7 @@
       "icon": "🧭",
       "items": [
         { "id": "castle", "emoji": "🏰" },
-        { "id": "home", "emoji": "🏡" },
+        { "id": "museum", "emoji": "🏛️" },
         { "id": "hospital", "emoji": "🏥" },
         { "id": "school_building", "emoji": "🏫" },
         { "id": "tower", "emoji": "🗼" },
@@ -48,7 +48,7 @@
         { "id": "palm", "emoji": "🌴" },
         { "id": "clover", "emoji": "🍀" },
         { "id": "maple", "emoji": "🍁" },
-        { "id": "mushroom", "emoji": "🍄" }
+        { "id": "sprout", "emoji": "🌱" }
       ]
     },
     {
@@ -66,12 +66,12 @@
   "layout": {
     "columns": [
       ["house.bed","music.drum","plants.cactus","plants.maple","house.chair","house.mirror","music.piano","house.bathtub"],
-      ["places.home","music.guitar","plants.pine","weather.sun","house.door","places.stadium","plants.mushroom"],
+      ["places.museum","music.guitar","plants.pine","weather.sun","house.door","places.stadium","plants.sprout"],
       [],
       ["weather.snow","weather.storm","weather.rain","weather.rainbow","plants.clover","house.sofa","music.trumpet"],
       ["places.school_building","plants.palm","places.castle","music.accordion","places.tower","music.violin","places.hospital"]
     ],
-    "hidden": ["places.home","plants.cactus","music.accordion","music.trumpet","places.hospital"],
+    "hidden": ["places.museum","plants.cactus","music.accordion","music.trumpet","places.hospital"],
     "categoryOrder": ["music","plants","house","weather","places"]
   }
 }

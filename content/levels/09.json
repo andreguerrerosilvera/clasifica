@@ -48,7 +48,7 @@
         { "id": "frying_pan", "emoji": "🍳" },
         { "id": "spoon", "emoji": "🥄" },
         { "id": "knife", "emoji": "🔪" },
-        { "id": "cutlery", "emoji": "🍴" },
+        { "id": "jar", "emoji": "🫙" },
         { "id": "teapot", "emoji": "🫖" },
         { "id": "chopsticks", "emoji": "🥢" },
         { "id": "salt", "emoji": "🧂" }
@@ -86,9 +86,9 @@
       ["clothes.shirt","clothes.dress","tools.wrench","tools.screwdriver","tools.axe","house.sofa","tech.camera","house.bathtub","kitchen.spoon","tech.phone"],
       [],
       ["kitchen.teapot","house.chair","house.bed","clothes.coat","school.set_square","school.ruler","clothes.gloves","house.door","kitchen.salt","clothes.scarf"],
-      ["kitchen.knife","tools.pickaxe","tools.saw","kitchen.cutlery","clothes.jeans","school.books","tech.joystick","tech.watch","school.crayon","kitchen.chopsticks"]
+      ["kitchen.knife","tools.pickaxe","tools.saw","kitchen.jar","clothes.jeans","school.books","tech.joystick","tech.watch","school.crayon","kitchen.chopsticks"]
     ],
-    "hidden": ["kitchen.knife","clothes.dress","house.chair","tools.pickaxe","tools.saw","tools.screwdriver","clothes.coat","kitchen.cutlery","school.pencil","school.set_square","kitchen.spoon","kitchen.salt","school.crayon"],
+    "hidden": ["kitchen.knife","clothes.dress","house.chair","tools.pickaxe","tools.saw","tools.screwdriver","clothes.coat","kitchen.jar","school.pencil","school.set_square","kitchen.spoon","kitchen.salt","school.crayon"],
     "categoryOrder": ["clothes","house","kitchen","tech","school","tools"]
   }
 }

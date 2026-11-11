@@ -1,7 +1,7 @@
 {
   "id": 8,
   "difficulty": "hard",
-  "moves": 44,
+  "moves": 46,
   "categories": [
     {
       "id": "jungle",
@@ -33,25 +33,12 @@
       "id": "birds",
       "icon": "🪺",
       "items": [
-        { "id": "parrot", "emoji": "🦜" },
         { "id": "owl", "emoji": "🦉" },
-        { "id": "penguin", "emoji": "🐧" },
         { "id": "flamingo", "emoji": "🦩" },
         { "id": "eagle", "emoji": "🦅" },
-        { "id": "duck", "emoji": "🦆" },
-        { "id": "swan", "emoji": "🦢" }
-      ]
-    },
-    {
-      "id": "reptiles",
-      "icon": "🦎",
-      "items": [
-        { "id": "crocodile", "emoji": "🐊" },
-        { "id": "turtle", "emoji": "🐢" },
-        { "id": "lizard", "emoji": "🦎" },
-        { "id": "snake", "emoji": "🐍" },
-        { "id": "trex", "emoji": "🦖" },
-        { "id": "sauropod", "emoji": "🦕" }
+        { "id": "swan", "emoji": "🦢" },
+        { "id": "dove", "emoji": "🕊️" },
+        { "id": "peacock", "emoji": "🦚" }
       ]
     },
     {
@@ -72,20 +59,32 @@
         { "id": "cow", "emoji": "🐄" },
         { "id": "pig", "emoji": "🐖" },
         { "id": "sheep", "emoji": "🐑" },
-        { "id": "hen", "emoji": "🐔" },
+        { "id": "goat", "emoji": "🐐" },
         { "id": "horse", "emoji": "🐴" }
+      ]
+    },
+    {
+      "id": "fantasy",
+      "icon": "🔮",
+      "items": [
+        { "id": "dragon", "emoji": "🐉" },
+        { "id": "unicorn", "emoji": "🦄" },
+        { "id": "fairy", "emoji": "🧚" },
+        { "id": "wizard", "emoji": "🧙" },
+        { "id": "vampire", "emoji": "🧛" },
+        { "id": "genie", "emoji": "🧞" }
       ]
     }
   ],
   "layout": {
     "columns": [
-      ["reptiles.trex","birds.duck","ocean.whale","birds.parrot","farm.cow","jungle.tiger","ocean.fish","jungle.frog","ocean.shark","jungle.jaguar"],
-      ["reptiles.lizard","bugs.ladybug","birds.owl","reptiles.snake","jungle.sloth","farm.hen","birds.swan","bugs.butterfly","reptiles.crocodile"],
+      ["bugs.snail","jungle.jaguar","birds.eagle","ocean.crab","jungle.sloth","fantasy.vampire","birds.peacock","farm.sheep","bugs.butterfly"],
+      ["fantasy.wizard","birds.owl","ocean.whale","farm.horse","jungle.gorilla","farm.cow","ocean.dolphin","birds.swan","birds.dove"],
       [],
-      ["ocean.jellyfish","farm.horse","birds.penguin","bugs.ant","jungle.gorilla","reptiles.sauropod","ocean.dolphin","farm.sheep","birds.eagle"],
-      ["bugs.snail","birds.flamingo","ocean.octopus","jungle.orangutan","ocean.crab","farm.pig","jungle.monkey","reptiles.turtle","bugs.bee"]
+      ["bugs.ant","birds.flamingo","farm.goat","fantasy.genie","ocean.octopus","bugs.bee","jungle.monkey","fantasy.fairy","farm.pig"],
+      ["bugs.ladybug","fantasy.dragon","ocean.jellyfish","fantasy.unicorn","jungle.tiger","ocean.fish","jungle.frog","ocean.shark","jungle.orangutan"]
     ],
-    "hidden": ["reptiles.lizard","bugs.snail","birds.duck","bugs.ladybug","ocean.whale","birds.parrot","jungle.orangutan","farm.cow","reptiles.sauropod","bugs.butterfly","farm.sheep","birds.eagle","bugs.bee"],
-    "categoryOrder": ["bugs","farm","ocean","birds","reptiles","jungle"]
+    "hidden": ["bugs.snail","bugs.ant","jungle.jaguar","birds.owl","birds.flamingo","ocean.whale","farm.horse","jungle.sloth","jungle.gorilla","ocean.fish","fantasy.fairy","ocean.shark","jungle.orangutan"],
+    "categoryOrder": ["farm","ocean","birds","fantasy","bugs","jungle"]
   }
 }
