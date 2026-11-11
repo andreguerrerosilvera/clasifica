@@ -4,7 +4,6 @@ import { LEVELS } from '../../data/levels';
 import { useBursts } from '../../hooks/useBursts';
 import { useGame } from '../../hooks/useGame';
 import { COST, PLAY_ON_MOVES, TRAY_SIZE } from '../../logic/rules';
-import type { DifficultyId } from '../../models/types';
 import { Board } from '../components/Board';
 import { BoosterBar } from '../components/BoosterBar';
 import { Bursts } from '../components/Bursts';
@@ -15,7 +14,6 @@ import { OutOfMovesModal, SettingsModal, StuckModal, WinScreen } from '../modals
 
 interface Props {
   levelId: number;
-  difficulty: DifficultyId;
   coins: number;
   spend: (n: number) => boolean;
   onWin: (levelId: number, reward: number) => void;
@@ -23,9 +21,9 @@ interface Props {
   onExit: () => void;
 }
 
-export function GameScreen({ levelId, difficulty, coins, spend, onWin, onNext, onExit }: Props) {
+export function GameScreen({ levelId, coins, spend, onWin, onNext, onExit }: Props) {
   const { bursts, burstFor } = useBursts();
-  const game = useGame({ levelId, difficulty, spend, onWin, onCategoryComplete: burstFor });
+  const game = useGame({ levelId, spend, onWin, onCategoryComplete: burstFor });
   const [settings, setSettings] = useState(false);
 
   const { state, level, diff, overlay } = game;

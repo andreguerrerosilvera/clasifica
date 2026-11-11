@@ -1,0 +1,160 @@
+{
+  "id": 2,
+  "difficulty": "normal",
+  "moves": 38,
+  "categories": [
+    {
+      "id": "desserts",
+      "icon": "🍽️",
+      "items": [
+        {
+          "id": "cake",
+          "emoji": "🍰"
+        },
+        {
+          "id": "donut",
+          "emoji": "🍩"
+        },
+        {
+          "id": "cookie",
+          "emoji": "🍪"
+        },
+        {
+          "id": "cupcake",
+          "emoji": "🧁"
+        },
+        {
+          "id": "chocolate",
+          "emoji": "🍫"
+        },
+        {
+          "id": "ice_cream",
+          "emoji": "🍦"
+        }
+      ]
+    },
+    {
+      "id": "music",
+      "icon": "🎼",
+      "items": [
+        {
+          "id": "guitar",
+          "emoji": "🎸"
+        },
+        {
+          "id": "piano",
+          "emoji": "🎹"
+        },
+        {
+          "id": "trumpet",
+          "emoji": "🎺"
+        },
+        {
+          "id": "drum",
+          "emoji": "🥁"
+        },
+        {
+          "id": "violin",
+          "emoji": "🎻"
+        },
+        {
+          "id": "accordion",
+          "emoji": "🪗"
+        }
+      ]
+    },
+    {
+      "id": "weather",
+      "icon": "🌡️",
+      "items": [
+        {
+          "id": "sun",
+          "emoji": "☀️"
+        },
+        {
+          "id": "rain",
+          "emoji": "🌧️"
+        },
+        {
+          "id": "snow",
+          "emoji": "❄️"
+        },
+        {
+          "id": "storm",
+          "emoji": "⛈️"
+        },
+        {
+          "id": "rainbow",
+          "emoji": "🌈"
+        }
+      ]
+    },
+    {
+      "id": "transport",
+      "icon": "🗺️",
+      "items": [
+        {
+          "id": "car",
+          "emoji": "🚗"
+        },
+        {
+          "id": "bike",
+          "emoji": "🚲"
+        },
+        {
+          "id": "plane",
+          "emoji": "✈️"
+        },
+        {
+          "id": "train",
+          "emoji": "🚂"
+        },
+        {
+          "id": "ship",
+          "emoji": "🚢"
+        },
+        {
+          "id": "helicopter",
+          "emoji": "🚁"
+        }
+      ]
+    },
+    {
+      "id": "bugs",
+      "icon": "🔎",
+      "items": [
+        {
+          "id": "bee",
+          "emoji": "🐝"
+        },
+        {
+          "id": "butterfly",
+          "emoji": "🦋"
+        },
+        {
+          "id": "ladybug",
+          "emoji": "🐞"
+        },
+        {
+          "id": "ant",
+          "emoji": "🐜"
+        },
+        {
+          "id": "snail",
+          "emoji": "🐌"
+        }
+      ]
+    }
+  ],
+  "layout": {
+    "columns": [
+      ["bugs.snail","weather.storm","transport.plane","desserts.donut","weather.sun","transport.helicopter","bugs.bee"],
+      ["weather.rain","music.piano","weather.snow","transport.car","transport.train","bugs.ant","desserts.ice_cream"],
+      [],
+      ["weather.rainbow","music.accordion","music.trumpet","desserts.cake","music.drum","transport.ship","desserts.chocolate"],
+      ["transport.bike","bugs.ladybug","desserts.cookie","music.guitar","music.violin","desserts.cupcake","bugs.butterfly"]
+    ],
+    "hidden": ["bugs.snail","music.piano","desserts.cookie","music.drum","music.violin","desserts.ice_cream"],
+    "categoryOrder": ["bugs","music","transport","desserts","weather"]
+  }
+}

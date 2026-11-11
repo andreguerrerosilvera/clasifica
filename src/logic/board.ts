@@ -1,5 +1,5 @@
 import type { Card, GameState, Location } from '../models/types';
-import { BONUS_COL, BONUS_MOVES, COLS, ROWS, TRAY_SIZE } from './rules';
+import { BONUS_COL, BONUS_MOVES, COLS, ITEM_COLS, ROWS, TRAY_SIZE } from './rules';
 
 const clone = <T,>(v: T): T => structuredClone(v);
 
@@ -45,11 +45,25 @@ export function pickableBoardItems(s: GameState): Card[] {
   return out;
 }
 
+/** Prefijo del destino de arrastre que representa una columna con huecos. */
+export const COLUMN_DROP_PREFIX = 'col-';
+export const columnDropId = (col: number) => `${COLUMN_DROP_PREFIX}${col}`;
+export const parseColumnDrop = (target: string): number | null =>
+  target.startsWith(COLUMN_DROP_PREFIX) ? Number(target.slice(COLUMN_DROP_PREFIX.length)) : null;
+
+/** Una columna de objetos tiene huecos solo cuando ya no le quedan cartas por caer. */
+export const hasEmptySpace = (s: GameState, col: number) =>
+  ITEM_COLS.includes(col) && s.columns[col].length < visibleRows(s, col);
+
 export function hasAnyMove(s: GameState): boolean {
   if (s.tray.some((c) => c && canPlace(s, c))) return true;
   const items = pickableBoardItems(s);
   if (items.some((c) => canPlace(s, c))) return true;
-  return items.length > 0 && freeTraySlot(s) !== -1;
+  if (items.length > 0 && freeTraySlot(s) !== -1) return true;
+  // Mover una carta de otra columna a un hueco vacío
+  return ITEM_COLS.some(
+    (col) => hasEmptySpace(s, col) && ITEM_COLS.some((other) => other !== col && visibleCards(s, other).some((c) => c.kind === 'item' && !c.hidden)),
+  );
 }
 
 export const remainingCards = (s: GameState) =>
@@ -103,9 +117,13 @@ export function placeItem(prev: GameState, id: string, spendMove = true): PlaceR
   let completedCategory: Card | null = null;
   if (s.progress[card.cat] >= s.totals[card.cat]) {
     completedCategory = activeCategory(s, card.cat);
-    // La siguiente categoría ocupa la misma casilla; la casilla nunca se mueve.
+    // Gravedad: las categorías de encima bajan a ocupar la casilla y el hueco queda arriba,
+    // donde entra la siguiente categoría pendiente (si la hay).
     const slot = s.categories.findIndex((c) => c?.cat === card.cat);
-    if (slot !== -1) s.categories[slot] = s.pending.shift() ?? null;
+    if (slot !== -1) {
+      s.categories.splice(slot, 1);
+      s.categories.unshift(s.pending.shift() ?? null);
+    }
   }
   evaluate(s);
   return { state: s, completedCategory };
@@ -124,10 +142,28 @@ export function moveToTray(prev: GameState, id: string): GameState | null {
   return s;
 }
 
+/** Mueve una carta del tablero a un hueco vacío de otra columna. Cuenta como movimiento. */
+export function moveToColumn(prev: GameState, id: string, col: number): GameState | null {
+  const s = clone(prev);
+  const loc = locate(s, id);
+  if (!loc || loc.where !== 'board' || loc.col === col) return null;
+  if (loc.card.kind !== 'item' || loc.card.hidden || !hasEmptySpace(s, col)) return null;
+  const card = removeFromBoard(s, loc.col, loc.idx);
+  s.columns[col].push(card);
+  s.moves -= 1;
+  evaluate(s);
+  return s;
+}
+
 export function unlockBonus(prev: GameState): GameState {
   const s = clone(prev);
   s.bonusUnlocked = true;
   s.moves += BONUS_MOVES;
+  // La casilla GRATIS pasa a ser una casilla de categoría más: entra la siguiente pendiente.
+  const next = s.pending.shift();
+  // Sin categorías pendientes, las de encima caen a la nueva casilla y el hueco queda arriba.
+  if (next) s.categories.push(next);
+  else s.categories.unshift(null);
   evaluate(s);
   return s;
 }

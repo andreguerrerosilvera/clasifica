@@ -1,17 +1,26 @@
-import type { DifficultyId, Save } from '../models/types';
+import type { Save } from '../models/types';
 
 const KEY = 'clasifica-save-v1';
 
-export const DEFAULT_SAVE: Save = {
-  coins: 300,
-  difficulty: 'normal',
-  completed: { facil: [], normal: [], dificil: [] },
-};
+export const DEFAULT_SAVE: Save = { coins: 300, completed: [] };
+
+/** Acepta partidas guardadas con el formato anterior (progreso por dificultad). */
+function normalize(raw: unknown): Save {
+  const r = (raw ?? {}) as { coins?: unknown; completed?: unknown };
+  const coins = typeof r.coins === 'number' ? r.coins : DEFAULT_SAVE.coins;
+  const list = Array.isArray(r.completed)
+    ? r.completed
+    : r.completed && typeof r.completed === 'object'
+      ? Object.values(r.completed).flat()
+      : [];
+  const completed = [...new Set(list.filter((n): n is number => typeof n === 'number'))];
+  return { coins, completed };
+}
 
 export function loadSave(): Save {
   try {
     const raw = localStorage.getItem(KEY);
-    if (raw) return { ...DEFAULT_SAVE, ...JSON.parse(raw) };
+    if (raw) return normalize(JSON.parse(raw));
   } catch {
     /* almacenamiento no disponible */
   }
@@ -28,14 +37,8 @@ export function persistSave(save: Save) {
 
 export const withCoinsSpent = (save: Save, n: number): Save => ({ ...save, coins: save.coins - n });
 
-export const withDifficulty = (save: Save, difficulty: DifficultyId): Save => ({ ...save, difficulty });
-
-/** Registra un nivel ganado en la dificultad actual y suma la recompensa. */
-export function withWin(save: Save, levelId: number, reward: number): Save {
-  const done = save.completed[save.difficulty];
-  return {
-    ...save,
-    coins: save.coins + reward,
-    completed: { ...save.completed, [save.difficulty]: done.includes(levelId) ? done : [...done, levelId] },
-  };
-}
+/** Registra un nivel ganado y suma la recompensa. */
+export const withWin = (save: Save, levelId: number, reward: number): Save => ({
+  coins: save.coins + reward,
+  completed: save.completed.includes(levelId) ? save.completed : [...save.completed, levelId],
+});

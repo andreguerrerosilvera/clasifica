@@ -1,10 +1,12 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { getDifficulty, getLevel } from '../data/levels';
+import { difficultyOf, getLevel } from '../data/levels';
 import {
   addMoves,
   freeTraySlot,
   locate,
+  moveToColumn,
   moveToTray,
+  parseColumnDrop,
   placeItem,
   unlockBonus,
   unlockTraySlot,
@@ -12,13 +14,12 @@ import {
 import { createLevel } from '../logic/generator';
 import { findHint, magnet } from '../logic/hints';
 import { BONUS_MOVES, COST, HISTORY_LIMIT, PLAY_ON_MOVES, ROWS, TRAY_SIZE, winReward } from '../logic/rules';
-import type { Card, DifficultyId, DropTarget, GameState, Hint } from '../models/types';
+import type { Card, DropTarget, GameState, Hint } from '../models/types';
 
 export type Overlay = null | 'won' | 'lost' | 'stuck';
 
 interface Options {
   levelId: number;
-  difficulty: DifficultyId;
   spend: (n: number) => boolean;
   onWin: (levelId: number, reward: number) => void;
   /** se llama con las categorías que se acaban de completar (para efectos visuales) */
@@ -26,9 +27,9 @@ interface Options {
 }
 
 /** Orquesta una partida: estado, historial, potenciadores y fin de partida. */
-export function useGame({ levelId, difficulty, spend, onWin, onCategoryComplete }: Options) {
+export function useGame({ levelId, spend, onWin, onCategoryComplete }: Options) {
   const level = getLevel(levelId);
-  const diff = getDifficulty(difficulty);
+  const diff = difficultyOf(level);
   const fresh = useCallback(() => createLevel(level, diff), [level, diff]);
 
   const [state, setState] = useState<GameState>(fresh);
@@ -106,6 +107,13 @@ export function useGame({ levelId, difficulty, spend, onWin, onCategoryComplete 
       if (next) commit(next);
       return;
     }
+    const destCol = parseColumnDrop(target);
+    if (destCol !== null) {
+      if (loc.where !== 'board' || loc.col === destCol) return;
+      const next = moveToColumn(state, card.id, destCol);
+      if (next) commit(next);
+      return;
+    }
     const cat = state.categories.find((c) => c?.id === target);
     if (!cat) return;
     if (cat.cat !== card.cat) return say('Movimiento inválido: esta carta no pertenece a esta categoría');
@@ -165,7 +173,7 @@ export function useGame({ levelId, difficulty, spend, onWin, onCategoryComplete 
     state.columns.forEach((col, c) => col.slice(0, ROWS).forEach((card, i) => m.set(card.id, (ROWS - i) * 5 + c)));
     return m;
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [round, levelId, difficulty]);
+  }, [round, levelId]);
 
   const isHighlighted = (id: string) => !!hint && (hint.itemId === id || hint.target === id);
 

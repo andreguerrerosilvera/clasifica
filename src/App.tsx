@@ -7,16 +7,15 @@ import { HomeScreen } from './ui/screens/HomeScreen';
 type Screen = { name: 'home' } | { name: 'game'; levelId: number };
 
 export default function App() {
-  const { save, spend, setDifficulty, registerWin } = useSave();
+  const { save, spend, registerWin } = useSave();
   const [screen, setScreen] = useState<Screen>({ name: 'home' });
 
   if (screen.name === 'game') {
     const idx = LEVELS.findIndex((l) => l.id === screen.levelId);
     return (
       <GameScreen
-        key={`${screen.levelId}-${save.difficulty}`}
+        key={screen.levelId}
         levelId={screen.levelId}
-        difficulty={save.difficulty}
         coins={save.coins}
         spend={spend}
         onWin={registerWin}
@@ -31,9 +30,7 @@ export default function App() {
   return (
     <HomeScreen
       coins={save.coins}
-      difficulty={save.difficulty}
-      completed={save.completed[save.difficulty]}
-      onDifficulty={setDifficulty}
+      completed={save.completed}
       onPlay={(levelId) => setScreen({ name: 'game', levelId })}
     />
   );

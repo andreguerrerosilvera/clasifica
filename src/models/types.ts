@@ -12,6 +12,8 @@ export interface Card {
 }
 
 export interface ItemDef {
+  /** id estable dentro de su categoría (inglés); el texto sale de content/i18n */
+  id: string;
   emoji: string;
   name: string;
 }
@@ -23,26 +25,36 @@ export interface CategoryDef {
   items: ItemDef[];
 }
 
+/** Tablero fijo del nivel. Las cartas se referencian como `categoria.item`. */
+export interface LevelLayout {
+  /** columnas del tablero; índice 0 = carta más abajo. La columna central va vacía */
+  columns: string[][];
+  /** cartas boca abajo ("?") */
+  hidden: string[];
+  /** orden de las categorías: las primeras quedan reveladas, el resto entra al completar otra */
+  categoryOrder: string[];
+}
+
 export interface LevelDef {
   id: number;
   title: string;
   subtitle: string;
-  seed: number;
-  /** proporción base de cartas ocultas "?" */
-  hiddenRatio: number;
+  /** dificultad del nivel: la define el contenido, no el jugador */
+  difficulty: DifficultyId;
+  /** movimientos disponibles */
+  moves: number;
   categories: CategoryDef[];
+  layout: LevelLayout;
 }
 
-export type DifficultyId = 'facil' | 'normal' | 'dificil';
+/** Equivalente a un enum (no se usan enums por `erasableSyntaxOnly`). */
+export const Difficulty = { Easy: 'easy', Normal: 'normal', Hard: 'hard' } as const;
+export type DifficultyId = (typeof Difficulty)[keyof typeof Difficulty];
 
 export interface DifficultyDef {
   id: DifficultyId;
   label: string;
   description: string;
-  /** multiplicador sobre los movimientos de la solución de referencia */
-  moveFactor: number;
-  /** multiplicador sobre la proporción de cartas ocultas */
-  hiddenFactor: number;
   /** casillas abiertas en la bandeja (de 5) */
   openSlots: number;
 }
@@ -84,6 +96,6 @@ export type Hint = { itemId: string; target: string | 'tray' } | null;
 /** Progreso persistente del jugador */
 export interface Save {
   coins: number;
-  difficulty: DifficultyId;
-  completed: Record<DifficultyId, number[]>;
+  /** ids de los niveles superados */
+  completed: number[];
 }

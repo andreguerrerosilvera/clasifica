@@ -1,4 +1,4 @@
-import { visibleRows } from '../../logic/board';
+import { columnDropId, hasEmptySpace, visibleRows } from '../../logic/board';
 import type { Card, DropTarget, GameState } from '../../models/types';
 import { CardView } from './CardView';
 import { ColumnShell } from './ColumnShell';
@@ -20,7 +20,7 @@ export function ItemColumn({ state, col, locked, dealing, dealIndex, isHighlight
   const shown = cards.slice(0, vis);
 
   return (
-    <ColumnShell deck={cards.length - shown.length}>
+    <ColumnShell deck={cards.length - shown.length} dropId={hasEmptySpace(state, col) ? columnDropId(col) : undefined}>
       {shown.map((card, i) => (
         <CardView
           key={card.id}

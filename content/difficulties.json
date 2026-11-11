@@ -1,0 +1,11 @@
+{
+  "easy": {
+    "openSlots": 3
+  },
+  "normal": {
+    "openSlots": 3
+  },
+  "hard": {
+    "openSlots": 2
+  }
+}

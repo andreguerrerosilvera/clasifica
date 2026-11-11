@@ -19,11 +19,11 @@ function DeckIndicator({ count }: { count: number }) {
 }
 
 /** Marco común de una columna del tablero: indicador + rejilla de casillas vacías. */
-export function ColumnShell({ deck, children }: { deck: number; children: ReactNode }) {
+export function ColumnShell({ deck, dropId, children }: { deck: number; dropId?: string; children: ReactNode }) {
   return (
     <div className="flex flex-col" style={{ containerType: 'inline-size' }}>
       <DeckIndicator count={deck} />
-      <div className="grid gap-[6px]" style={{ gridTemplateRows: `repeat(${ROWS}, calc(100cqw * 1.25))` }}>
+      <div data-drop={dropId} className="grid gap-[6px]" style={{ gridTemplateRows: `repeat(${ROWS}, calc(100cqw * 1.25))` }}>
         {Array.from({ length: ROWS }, (_, r) => (
           <div
             key={`slot-${r}`}

@@ -57,7 +57,8 @@ export function CardView({
         const ev = e as PointerEvent;
         const x = 'clientX' in ev ? ev.clientX : 0;
         const y = 'clientY' in ev ? ev.clientY : 0;
-        onDrop?.(dropTargetAt(x, y));
+        const self = document.querySelector(`[data-card="${card.id}"]`);
+        onDrop?.(dropTargetAt(x, y, self));
       }}
       style={{ touchAction: 'none', ...style }}
       className={[
@@ -118,7 +119,7 @@ function CategoryFace({
   if (!lastItem)
     return (
       <div className="flex h-full w-full items-center justify-center overflow-hidden rounded-[10px] border-2 border-[#f2c230] bg-gradient-to-b from-[#fff3b0] to-[#fbd960] px-1 shadow-[0_3px_0_#c89614]">
-        <span className="max-w-full break-words text-center text-[clamp(10px,3vw,14px)] font-black leading-[1.1] text-[#5b3d00]">
+        <span className="max-w-full text-center [overflow-wrap:anywhere] text-[clamp(10px,3vw,14px)] font-black leading-[1.1] text-[#5b3d00]">
           {card.label}
         </span>
       </div>
@@ -144,7 +145,7 @@ function CategoryFace({
           {lastItem.emoji}
         </motion.span>
       </div>
-      <span className="max-w-full px-0.5 text-center text-[clamp(8px,2.4vw,11px)] font-black leading-[1.05] text-[#5b3d00]">
+      <span className="max-w-full px-0.5 text-center [overflow-wrap:anywhere] text-[clamp(8px,2.4vw,11px)] font-black leading-[1.05] text-[#5b3d00]">
         {card.label}
       </span>
     </div>

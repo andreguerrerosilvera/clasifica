@@ -8,6 +8,8 @@ export const CATEGORY_COL = 2;
 /** Categorías reveladas al iniciar (la 4ª casilla de la columna es GRATIS). */
 export const CATEGORY_SLOTS = 3;
 /** La casilla "GRATIS" es la última casilla de la columna central. */
+/** Mínimo de categorías distintas por nivel (3 reveladas + la que entra con GRATIS). */
+export const MIN_CATEGORIES = 4;
 export const BONUS_COL = CATEGORY_COL;
 export const BONUS_MOVES = 5;
 

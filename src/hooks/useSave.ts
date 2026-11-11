@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from 'react';
-import { loadSave, persistSave, withCoinsSpent, withDifficulty, withWin } from '../logic/save';
-import type { DifficultyId, Save } from '../models/types';
+import { loadSave, persistSave, withCoinsSpent, withWin } from '../logic/save';
+import type { Save } from '../models/types';
 
 export function useSave() {
   const [save, setSave] = useState<Save>(loadSave);
@@ -14,8 +14,7 @@ export function useSave() {
     return true;
   };
 
-  const setDifficulty = useCallback((d: DifficultyId) => setSave((s) => withDifficulty(s, d)), []);
   const registerWin = useCallback((levelId: number, reward: number) => setSave((s) => withWin(s, levelId, reward)), []);
 
-  return { save, spend, setDifficulty, registerWin };
+  return { save, spend, registerWin };
 }
