@@ -1,5 +1,5 @@
 import type { Card, DifficultyDef, GameState, LevelDef } from '../models/types';
-import { CATEGORY_SLOTS, TRAY_SIZE } from './rules';
+import { CATEGORY_SLOTS, FREE_SLOT_ENABLED, TRAY_SIZE } from './rules';
 
 /** Id de carta de un objeto: `categoria.item` (así se referencia en el layout). */
 export const itemKey = (catId: string, itemId: string) => `${catId}.${itemId}`;
@@ -48,7 +48,7 @@ export function createLevel(level: LevelDef, diff: DifficultyDef): GameState {
     startMoves: level.moves,
     totalItems: items.size,
     placedCount: 0,
-    bonusUnlocked: false,
+    bonusUnlocked: !FREE_SLOT_ENABLED,
     status: 'playing',
   };
 }

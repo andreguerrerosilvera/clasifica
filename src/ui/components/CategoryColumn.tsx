@@ -1,4 +1,4 @@
-import { ROWS } from '../../logic/rules';
+import { FREE_SLOT_ENABLED, ROWS } from '../../logic/rules';
 import type { GameState } from '../../models/types';
 import { CardView } from './CardView';
 import { ColumnShell } from './ColumnShell';
@@ -28,7 +28,7 @@ export function CategoryColumn({ state, locked, isHighlighted, onClaimBonus }: P
           />
         ) : null,
       )}
-      {!state.bonusUnlocked && (
+      {FREE_SLOT_ENABLED && !state.bonusUnlocked && (
         <button
           onClick={onClaimBonus}
           style={{ gridRow: ROWS, gridColumn: 1 }}

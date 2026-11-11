@@ -1,7 +1,7 @@
 {
   "id": 13,
   "difficulty": "hard",
-  "moves": 57,
+  "moves": 59,
   "categories": [
     {
       "id": "jungle",
@@ -102,13 +102,13 @@
   ],
   "layout": {
     "columns": [
-      ["ocean.shark","bakery.pretzel","sports.boxing","clothes.shirt","kitchen.knife","jungle.gorilla","jungle.orangutan","clothes.dress","fantasy.dragon","clothes.gloves","tech.phone","sports.ice_skate"],
-      ["ocean.crab","clothes.coat","bakery.croissant","ocean.octopus","jungle.tiger","sports.fencing","jungle.jaguar","bakery.bagel","sports.skateboard","bakery.pita","kitchen.frying_pan","tech.printer"],
+      ["bakery.bagel","bakery.pita","tech.headphones","tech.phone","ocean.octopus","jungle.tiger","clothes.scarf","kitchen.knife","sports.weights","jungle.jaguar","bakery.bread","jungle.gorilla"],
+      ["kitchen.teapot","bakery.baguette","sports.skateboard","ocean.whale","clothes.coat","ocean.crab","bakery.pretzel","tech.printer","kitchen.frying_pan","tech.laptop","fantasy.wizard","tech.camera"],
       [],
-      ["ocean.dolphin","tech.headphones","tech.camera","fantasy.fairy","sports.archery","clothes.scarf","ocean.whale","tech.laptop","tech.watch","jungle.monkey","bakery.bread","fantasy.genie"],
-      ["kitchen.chopsticks","ocean.fish","fantasy.wizard","kitchen.teapot","bakery.baguette","jungle.sloth","kitchen.spoon","sports.weights","clothes.jeans","fantasy.unicorn","fantasy.vampire","kitchen.jar"]
+      ["kitchen.spoon","jungle.orangutan","fantasy.fairy","clothes.jeans","sports.boxing","sports.archery","clothes.shirt","fantasy.genie","sports.fencing","bakery.croissant","fantasy.dragon","kitchen.chopsticks"],
+      ["fantasy.unicorn","sports.ice_skate","ocean.dolphin","tech.watch","clothes.dress","kitchen.jar","clothes.gloves","fantasy.vampire","jungle.sloth","ocean.shark","jungle.monkey","ocean.fish"]
     ],
-    "hidden": ["ocean.crab","ocean.dolphin","kitchen.chopsticks","clothes.coat","ocean.fish","sports.boxing","fantasy.wizard","clothes.shirt","kitchen.knife","sports.archery","jungle.gorilla","clothes.scarf","ocean.whale","clothes.dress","bakery.bagel","fantasy.dragon","jungle.monkey","fantasy.unicorn","sports.ice_skate"],
-    "categoryOrder": ["ocean","jungle","tech","kitchen","clothes","sports","bakery","fantasy"]
+    "hidden": ["kitchen.teapot","kitchen.spoon","fantasy.unicorn","bakery.baguette","jungle.orangutan","sports.skateboard","ocean.dolphin","ocean.whale","sports.boxing","ocean.crab","kitchen.jar","kitchen.knife","sports.weights","jungle.sloth","bakery.bread","fantasy.wizard","kitchen.chopsticks"],
+    "categoryOrder": ["ocean","sports","fantasy","tech","kitchen","clothes","bakery","jungle"]
   }
 }

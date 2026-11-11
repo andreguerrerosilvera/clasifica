@@ -5,10 +5,14 @@ export const COLS = 5;
 
 /** Columna central: aquí viven, ancladas, las cartas de categoría (nunca contiene objetos). */
 export const CATEGORY_COL = 2;
-/** Categorías reveladas al iniciar (la 4ª casilla de la columna es GRATIS). */
-export const CATEGORY_SLOTS = 3;
-/** La casilla "GRATIS" es la última casilla de la columna central. */
-/** Mínimo de categorías distintas por nivel (3 reveladas + la que entra con GRATIS). */
+/**
+ * Casilla GRATIS (la última de la columna central). Desactivada para el piloto: la lógica sigue,
+ * pero no se muestra y la columna empieza con sus 4 casillas ocupadas por categorías.
+ */
+export const FREE_SLOT_ENABLED = false;
+/** Categorías reveladas al iniciar: 3 + GRATIS si está activa; si no, las 4 casillas. */
+export const CATEGORY_SLOTS = FREE_SLOT_ENABLED ? ROWS - 1 : ROWS;
+/** Mínimo de categorías distintas por nivel (las 4 casillas de la columna central). */
 export const MIN_CATEGORIES = 4;
 export const BONUS_COL = CATEGORY_COL;
 export const BONUS_MOVES = 5;

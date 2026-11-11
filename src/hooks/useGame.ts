@@ -13,7 +13,7 @@ import {
 } from '../logic/board';
 import { createLevel } from '../logic/generator';
 import { findHint, magnet } from '../logic/hints';
-import { BONUS_MOVES, COST, HISTORY_LIMIT, PLAY_ON_MOVES, ROWS, TRAY_SIZE, WIN_REWARD } from '../logic/rules';
+import { BONUS_MOVES, COST, FREE_SLOT_ENABLED, HISTORY_LIMIT, PLAY_ON_MOVES, ROWS, TRAY_SIZE, WIN_REWARD } from '../logic/rules';
 import type { Card, DropTarget, GameState, Hint } from '../models/types';
 
 export type Overlay = null | 'won' | 'lost' | 'stuck';
@@ -155,7 +155,7 @@ export function useGame({ levelId, spend, onWin, onCategoryComplete }: Options) 
   };
 
   const claimBonus = () => {
-    if (locked || state.bonusUnlocked) return;
+    if (!FREE_SLOT_ENABLED || locked || state.bonusUnlocked) return;
     commit(unlockBonus(state));
     say(`¡+${BONUS_MOVES} movimientos y una casilla más!`);
   };

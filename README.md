@@ -23,7 +23,7 @@ Las dependencias van siempre hacia abajo: `ui → hooks → logic → data → m
 
 ## Reglas
 - Arrastra y suelta cada carta sobre su categoría (los clics sobre las cartas no hacen nada; cada colocación gasta 1 movimiento).
-- La columna central tiene 3 categorías reveladas y la casilla GRATIS; al completar una, la siguiente ocupa su lugar.
+- La columna central tiene 3 categorías reveladas y la casilla GRATIS (desactivada en el piloto con `FREE_SLOT_ENABLED` en `src/logic/rules.ts`); al completar una, las de encima bajan y la siguiente entra arriba.
 - Si su categoría aún no está revelada, la carta va a la bandeja (3 casillas abiertas, 2 bloqueadas por monedas).
 - Las columnas caen al liberar huecos; las rayas sobre cada columna indican cartas pendientes.
 - Las cartas "?" se revelan al retirar una carta vecina.
