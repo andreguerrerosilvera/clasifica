@@ -168,6 +168,14 @@
     ["gestos", "cuerpo"],
     ["fantasia", "japon"],
     ["mar", "aves"],
-    ["juguetes", "retro"]
+    ["juguetes", "retro"],
+    ["sopas", "japon"],
+    ["cafe", "electrodomesticos"],
+    ["electrodomesticos", "limpieza"],
+    ["piratas", "banderas"],
+    ["piratas", "sombreros"],
+    ["ropa", "boda"],
+    ["boda", "flores"],
+    ["camping", "herramientas"]
   ]
 }
