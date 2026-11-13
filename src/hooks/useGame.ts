@@ -15,6 +15,7 @@ import { createLevel } from '../logic/generator';
 import { findHint, magnet } from '../logic/hints';
 import { BONUS_MOVES, COST, FREE_SLOT_ENABLED, HISTORY_LIMIT, PLAY_ON_MOVES, ROWS, TRAY_SIZE, WIN_REWARD } from '../logic/rules';
 import type { Card, DropTarget, GameState, Hint, LevelDef } from '../models/types';
+import { t } from '../data/i18n';
 
 export type Overlay = null | 'won' | 'lost' | 'stuck';
 
@@ -102,7 +103,7 @@ export function useGame({ level, spend, onWin, onCategoryComplete }: Options) {
     if (!loc) return;
     if (target === 'tray') {
       if (loc.where === 'tray') return;
-      if (freeTraySlot(state) === -1) return say('¡La bandeja está llena!');
+      if (freeTraySlot(state) === -1) return say(t('trayFull'));
       const next = moveToTray(state, card.id);
       if (next) commit(next);
       return;
@@ -116,7 +117,7 @@ export function useGame({ level, spend, onWin, onCategoryComplete }: Options) {
     }
     const cat = state.categories.find((c) => c?.id === target);
     if (!cat) return;
-    if (cat.cat !== card.cat) return say('Movimiento inválido: esta carta no pertenece a esta categoría');
+    if (cat.cat !== card.cat) return say(t('wrongCategory'));
     place(card.id);
   };
 
@@ -124,16 +125,16 @@ export function useGame({ level, spend, onWin, onCategoryComplete }: Options) {
   const showHint = () => {
     if (locked) return;
     const h = findHint(state);
-    if (!h) return say('No hay jugadas disponibles');
-    if (!spend(COST.hint)) return say('No tienes monedas suficientes');
+    if (!h) return say(t('noMoves'));
+    if (!spend(COST.hint)) return say(t('notEnoughCoins'));
     setHint(h);
     window.setTimeout(() => setHint((cur) => (cur === h ? null : cur)), 3000);
   };
 
   const undo = () => {
     if (dealing || state.status === 'won') return;
-    if (!history.length) return say('No hay nada que deshacer');
-    if (!spend(COST.undo)) return say('No tienes monedas suficientes');
+    if (!history.length) return say(t('nothingToUndo'));
+    if (!spend(COST.undo)) return say(t('notEnoughCoins'));
     setState(history[history.length - 1]);
     setHistory((h) => h.slice(0, -1));
     setHint(null);
@@ -142,26 +143,26 @@ export function useGame({ level, spend, onWin, onCategoryComplete }: Options) {
   const fireMagnet = () => {
     if (locked) return;
     const r = magnet(state);
-    if (!r) return say('El imán necesita una categoría con cartas disponibles');
-    if (!spend(COST.magnet)) return say('No tienes monedas suficientes');
+    if (!r) return say(t('magnetNeedsCategory'));
+    if (!spend(COST.magnet)) return say(t('notEnoughCoins'));
     onCategoryComplete(r.completed);
     commit(r.state);
   };
 
   const unlockSlot = () => {
     if (state.openSlots >= TRAY_SIZE || state.status === 'won') return;
-    if (!spend(COST.slot)) return say('No tienes monedas suficientes');
+    if (!spend(COST.slot)) return say(t('notEnoughCoins'));
     setState(unlockTraySlot(state));
   };
 
   const claimBonus = () => {
     if (!FREE_SLOT_ENABLED || locked || state.bonusUnlocked) return;
     commit(unlockBonus(state));
-    say(`¡+${BONUS_MOVES} movimientos y una casilla más!`);
+    say(t('bonus', { n: BONUS_MOVES }));
   };
 
   const playOn = () => {
-    if (!spend(COST.playOn)) return say('No tienes monedas suficientes');
+    if (!spend(COST.playOn)) return say(t('notEnoughCoins'));
     setState(addMoves(state, PLAY_ON_MOVES));
   };
 

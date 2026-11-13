@@ -40,7 +40,11 @@ No hay niveles fijos: los niveles son infinitos. Cada uno se genera en el moment
   - `difficulties`: por dificultad, los rangos `[mín, máx]` de `categories` (mínimo 4), `itemsPerCategory` y `hidden` (proporción de "?"), y `margin` (moves = pasos del solver × margin).
   - `maxItems` tope de cartas en el tablero y `conflicts` pares de categorías de temas parecidos que no pueden salir juntas porque alguna carta encajaría en las dos. Además, dos categorías que comparten algún objeto nunca salen juntas (se calcula solo).
 - `content/difficulties.json` – parámetros por dificultad (`openSlots`).
-- `content/i18n/es.json` – textos de las dificultades (los nombres de categorías y objetos salen de `categorias_thiings.json`).
+- Iconos de la interfaz (`src/ui/components/Icons.tsx`): la moneda (`public/coin.webp`, de [emoji-1fa99](https://www.thiings.co/things/emoji-1fa99)) el engranaje de ajustes (`public/settings.webp`, de [cogwheel](https://www.thiings.co/things/cogwheel)), el candado de lo bloqueado (`public/lock.webp`, de [lock-symbol](https://www.thiings.co/things/lock-symbol)), la bombilla de la pista (`public/hint.webp`, de [idea](https://www.thiings.co/things/idea)), el imán (`public/magnet.webp`, de [simple-bar-magnet](https://www.thiings.co/things/simple-bar-magnet)) y la flecha de deshacer (`public/undo.webp`, de [left-arrow](https://www.thiings.co/things/left-arrow)), a 128 px. Sus originales están en `assets/thiings/raw/`.
+- `content/i18n/{es,en,pt}.json` – textos de la interfaz y de las dificultades en cada idioma.
+- `content/i18n/catalog.{en,pt}.json` – nombres traducidos de categorías (por id) y cartas (por `categoria.slug`). En español los nombres salen de `categorias_thiings.json`; si falta una traducción se usa el español. Al añadir objetos al catálogo, añade también su traducción.
+
+El idioma (español por defecto, inglés o portugués) se elige en el inicio y se guarda en `localStorage` (`clasifica-lang`). El nivel se traduce al empezar a jugarlo.
 
 Categoría nueva: añádela a `content/categorias_thiings.json` y, si alguna de sus cartas podría confundirse con otra categoría, añade el par a `conflicts`.
 

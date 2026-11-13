@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { t } from '../../data/i18n';
 import type { Burst } from '../../hooks/useBursts';
 
 /** Destellos de categoría completada */
@@ -15,9 +16,13 @@ export function Bursts({ bursts }: { bursts: Burst[] }) {
           transition={{ duration: 0.9, times: [0, 0.35, 1] }}
         >
           <span className="text-center text-[11px] leading-tight">
-            ¡{b.label}
-            <br />
-            completo!
+            {t('categoryDone', { name: b.label })
+              .split('<br>')
+              .map((line, i) => (
+                <span key={i} className="block">
+                  {line}
+                </span>
+              ))}
           </span>
         </motion.div>
       ))}

@@ -1,0 +1,55 @@
+{
+  "difficulty": {
+    "easy": {
+      "label": "Easy",
+      "description": "Lots of moves and few hidden cards"
+    },
+    "normal": {
+      "label": "Normal",
+      "description": "The balanced challenge"
+    },
+    "hard": {
+      "label": "Hard",
+      "description": "Tight moves and more \"?\""
+    }
+  },
+  "ui": {
+    "language": "Language",
+    "tagline": "Sort every card into its category",
+    "playLevel": "PLAY LEVEL {n}",
+    "level": "Level {n}",
+    "moves": "moves",
+    "settings": "Settings",
+    "hint": "Hint",
+    "undo": "Undo",
+    "magnet": "Magnet",
+    "pendingCards": "{n} cards left to drop",
+    "outOfMoves": "Out of moves!",
+    "extraMoves": "Get {n} extra moves to keep going",
+    "continue": "▶ Continue",
+    "notEnoughCoins": "Not enough coins",
+    "retry": "Retry",
+    "stuck": "No moves left!",
+    "stuckText": "The tray is full and no card fits the visible categories.",
+    "extraSlot": "Extra slot",
+    "undoButton": "↩ Undo",
+    "restart": "↻ Restart level",
+    "exit": "🏠 Back to home",
+    "close": "Close",
+    "peek": "Press and hold to see the board",
+    "howTo1": "🟨 Move each card to its <b>category</b>.",
+    "howTo2": "📦 Not there yet? Keep it in the <b>tray</b>.",
+    "howTo3": "⬇️ Free up space and more cards will fall.",
+    "howTo4": "❓ <b>?</b> cards flip when you move their neighbors.",
+    "howTo5": "🏁 Clear the board before you run out of moves.",
+    "levelComplete": "{level} complete!",
+    "next": "NEXT",
+    "trayFull": "The tray is full!",
+    "wrongCategory": "Invalid move: this card doesn't belong to this category",
+    "noMoves": "No moves available",
+    "nothingToUndo": "Nothing to undo",
+    "magnetNeedsCategory": "The magnet needs a category with available cards",
+    "categoryDone": "{name}<br>done!",
+    "bonus": "+{n} moves and an extra slot!"
+  }
+}

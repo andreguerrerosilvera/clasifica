@@ -1,6 +1,7 @@
 import { COST } from '../../logic/rules';
 import type { Card, DropTarget, GameState } from '../../models/types';
 import { CardView } from './CardView';
+import { Coin, LockIcon } from './Icons';
 
 interface Props {
   state: GameState;
@@ -25,8 +26,11 @@ export function Tray({ state, locked, highlighted, isHighlighted, onDrop, onUnlo
                 onClick={onUnlockSlot}
                 className="flex h-full w-full flex-col items-center justify-center rounded-lg border border-white/15 bg-[#5d2fae] text-white/80 active:scale-95"
               >
-                <span className="text-base leading-none">🔒</span>
-                <span className="mt-0.5 text-[10px] font-black">🪙{COST.slot}</span>
+                <LockIcon className="h-6 w-6 drop-shadow-[0_2px_0_rgba(0,0,0,.3)]" />
+                <span className="mt-0.5 flex items-center gap-0.5 text-[10px] font-black">
+                  <Coin />
+                  {COST.slot}
+                </span>
               </button>
             ) : (
               card && (

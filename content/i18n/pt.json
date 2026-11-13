@@ -1,0 +1,55 @@
+{
+  "difficulty": {
+    "easy": {
+      "label": "Fácil",
+      "description": "Muitos movimentos e poucas cartas ocultas"
+    },
+    "normal": {
+      "label": "Normal",
+      "description": "O desafio equilibrado"
+    },
+    "hard": {
+      "label": "Difícil",
+      "description": "Movimentos contados e mais \"?\""
+    }
+  },
+  "ui": {
+    "language": "Idioma",
+    "tagline": "Coloque cada carta na sua categoria",
+    "playLevel": "JOGAR NÍVEL {n}",
+    "level": "Nível {n}",
+    "moves": "movimentos",
+    "settings": "Ajustes",
+    "hint": "Dica",
+    "undo": "Desfazer",
+    "magnet": "Ímã",
+    "pendingCards": "{n} cartas para cair",
+    "outOfMoves": "Sem movimentos!",
+    "extraMoves": "Use {n} movimentos extras para continuar",
+    "continue": "▶ Continuar",
+    "notEnoughCoins": "Você não tem moedas suficientes",
+    "retry": "Tentar de novo",
+    "stuck": "Sem jogadas!",
+    "stuckText": "A bandeja está cheia e nenhuma carta encaixa nas categorias visíveis.",
+    "extraSlot": "Espaço extra",
+    "undoButton": "↩ Desfazer",
+    "restart": "↻ Reiniciar nível",
+    "exit": "🏠 Voltar ao início",
+    "close": "Fechar",
+    "peek": "Mantenha pressionado para ver o tabuleiro",
+    "howTo1": "🟨 Leve cada carta para a sua <b>categoria</b>.",
+    "howTo2": "📦 Ainda não apareceu? Guarde na <b>bandeja</b>.",
+    "howTo3": "⬇️ Libere espaço e mais cartas vão cair.",
+    "howTo4": "❓ As cartas <b>?</b> se revelam ao mover as vizinhas.",
+    "howTo5": "🏁 Esvazie o tabuleiro antes de ficar sem movimentos.",
+    "levelComplete": "{level} concluído!",
+    "next": "PRÓXIMO",
+    "trayFull": "A bandeja está cheia!",
+    "wrongCategory": "Movimento inválido: esta carta não pertence a esta categoria",
+    "noMoves": "Não há jogadas disponíveis",
+    "nothingToUndo": "Não há nada para desfazer",
+    "magnetNeedsCategory": "O ímã precisa de uma categoria com cartas disponíveis",
+    "categoryDone": "{name}<br>completo!",
+    "bonus": "+{n} movimentos e um espaço extra!"
+  }
+}

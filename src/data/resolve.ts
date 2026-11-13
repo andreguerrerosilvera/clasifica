@@ -2,7 +2,7 @@ import type { DifficultyDef, DifficultyId, LevelDef, RawLevel } from '../models/
 import { Difficulty } from '../models/types';
 import { CATEGORY_COL, COLS, MIN_CATEGORIES } from '../logic/rules';
 import { itemKey } from '../logic/generator';
-import type { Texts } from './i18n';
+import { type Texts, t as ui } from './i18n';
 
 export type { RawLevel };
 
@@ -68,7 +68,7 @@ export function resolveLevel(raw: RawLevel, file: string, t: Texts): LevelDef {
   validateLayout(raw, file);
   return {
     id: raw.id,
-    title: `Nivel ${raw.id}`,
+    title: ui('level', { n: raw.id }),
     difficulty: raw.difficulty as DifficultyId,
     moves: raw.moves,
     categories,

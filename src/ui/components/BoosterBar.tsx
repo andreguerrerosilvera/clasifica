@@ -1,4 +1,7 @@
+import type { ReactNode } from 'react';
 import { COST } from '../../logic/rules';
+import { HintIcon, MagnetIcon, UndoIcon } from './Icons';
+import { t } from '../../data/i18n';
 
 interface Props {
   canUndo: boolean;
@@ -10,15 +13,25 @@ interface Props {
 export function BoosterBar({ canUndo, onHint, onUndo, onMagnet }: Props) {
   return (
     <footer className="mb-6 mt-4 flex items-center justify-center gap-6">
-      <Booster label="Pista" cost={COST.hint} onClick={onHint} className="from-[#ffd84a] to-[#f5a300]" icon="💡" />
       <Booster
-        label="Deshacer"
+        label={t('hint')}
+        cost={COST.hint}
+        onClick={onHint}
+        icon={<HintIcon className="h-9 w-9 drop-shadow-[0_2px_1px_rgba(0,0,0,.35)]" />}
+      />
+      <Booster
+        label={t('undo')}
         cost={COST.undo}
         onClick={onUndo}
-        className={canUndo ? 'from-[#ffb36b] to-[#f07a1a]' : 'from-[#9aa4b8] to-[#6b768c]'}
-        icon="↩️"
+        disabled={!canUndo}
+        icon={<UndoIcon className="h-9 w-9 drop-shadow-[0_2px_1px_rgba(0,0,0,.35)]" />}
       />
-      <Booster label="Imán" cost={COST.magnet} onClick={onMagnet} className="from-[#ff6b6b] to-[#d62828]" icon="🧲" />
+      <Booster
+        label={t('magnet')}
+        cost={COST.magnet}
+        onClick={onMagnet}
+        icon={<MagnetIcon className="h-9 w-9 drop-shadow-[0_2px_1px_rgba(0,0,0,.35)]" />}
+      />
     </footer>
   );
 }
@@ -27,22 +40,22 @@ function Booster({
   label,
   cost,
   icon,
-  className,
+  disabled = false,
   onClick,
 }: {
   label: string;
   cost: number;
-  icon: string;
-  className: string;
+  icon: ReactNode;
+  disabled?: boolean;
   onClick: () => void;
 }) {
   return (
     <button onClick={onClick} className="group flex flex-col items-center active:scale-90" aria-label={label}>
       <span
-        className={`relative flex h-14 w-14 items-center justify-center rounded-full border-[3px] border-white/70 bg-gradient-to-b ${className} text-2xl shadow-[0_4px_0_rgba(0,0,0,.3)]`}
+        className={`relative flex h-14 w-14 items-center justify-center rounded-full border-[3px] border-white bg-gradient-to-b from-white to-[#ece4f7] text-2xl shadow-[0_4px_0_rgba(0,0,0,.3)] ${disabled ? 'opacity-50 grayscale' : ''}`}
       >
         {icon}
-        <span className="absolute -right-2 -top-2 rounded-full border-2 border-white bg-[#22c55e] px-1.5 text-[10px] font-black text-white">
+        <span className="absolute -right-2 -top-2 flex h-[26px] w-[26px] items-center justify-center rounded-full border-2 border-white bg-[#22c55e] text-[10px] font-black leading-none text-white shadow-[0_2px_0_rgba(0,0,0,.25)]">
           {cost}
         </span>
       </span>

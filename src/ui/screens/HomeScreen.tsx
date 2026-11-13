@@ -1,9 +1,13 @@
 import { motion } from 'framer-motion';
 import { useMemo } from 'react';
+import { type Lang, t } from '../../data/i18n';
+import { LanguagePicker } from '../components/LanguagePicker';
 import { Logo } from '../modals/Modals';
 
 interface Props {
   nextLevelId: number;
+  lang: Lang;
+  onLangChange: (lang: Lang) => void;
   onPlay: () => void;
 }
 
@@ -32,7 +36,7 @@ function makeFloaters() {
   });
 }
 
-export function HomeScreen({ nextLevelId, onPlay }: Props) {
+export function HomeScreen({ nextLevelId, lang, onLangChange, onPlay }: Props) {
   const floaters = useMemo(() => makeFloaters(), []);
 
   return (
@@ -60,17 +64,18 @@ export function HomeScreen({ nextLevelId, onPlay }: Props) {
             <div className="inline-block -rotate-3">
               <Logo size="lg" />
             </div>
-            <p className="mt-2 font-display text-lg text-white [text-shadow:0_2px_0_#4a2290,0_0_10px_rgba(74,34,144,0.55)]">Ordena cada carta en su categoría</p>
+            <p className="mt-2 font-display text-lg text-white [text-shadow:0_2px_0_#4a2290,0_0_10px_rgba(74,34,144,0.55)]">{t('tagline')}</p>
           </motion.div>
 
-          {/* Siempre se juega el nivel en curso (el primero sin completar) */}
-          <div className="mt-10 flex flex-col items-center gap-2 text-center">
+          {/* Siempre se juega el nivel en curso (el primero sin completar). El idioma va debajo, con el mismo ancho. */}
+          <div className="mt-10 flex flex-col items-stretch gap-6 text-center">
             <button
               onClick={onPlay}
               className="pointer-events-auto rounded-full border-b-4 border-[#b84d00] bg-gradient-to-b from-[#ffa53a] to-[#ff7a00] px-12 py-3 font-display text-2xl tracking-wide text-white shadow-xl active:translate-y-0.5 active:border-b-2"
             >
-              JUGAR NIVEL {nextLevelId}
+              {t('playLevel', { n: nextLevelId })}
             </button>
+            <LanguagePicker lang={lang} onChange={onLangChange} />
           </div>
         </div>
       </div>

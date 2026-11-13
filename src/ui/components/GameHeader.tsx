@@ -1,5 +1,7 @@
 import { motion } from 'framer-motion';
 import { CoinPill } from './CoinPill';
+import { SettingsIcon } from './Icons';
+import { t } from '../../data/i18n';
 
 interface Props {
   title: string;
@@ -23,15 +25,15 @@ export function GameHeader({ title, difficultyLabel, coins, moves, progressPct, 
           className={`flex items-center gap-2 rounded-full bg-[#4a2490] px-4 py-1 shadow-inner ${low ? 'animate-shake' : ''}`}
           key={low ? moves : 'ok'}
         >
-          <span className="font-display text-lg text-white">movimientos</span>
+          <span className="font-display text-lg text-white">{t('moves')}</span>
           <span className={`font-display text-xl ${low ? 'text-red-400' : 'text-white'}`}>{moves}</span>
         </div>
         <button
-          aria-label="Ajustes"
+          aria-label={t('settings')}
           onClick={onSettings}
           className="flex h-9 w-9 items-center justify-center rounded-full bg-[#4a2490] text-xl text-white active:scale-90"
         >
-          ⚙️
+          <SettingsIcon className="h-7 w-7 drop-shadow-[0_2px_0_rgba(0,0,0,.25)]" />
         </button>
       </div>
       <div className="mx-auto mt-3 h-2.5 w-[82%] overflow-hidden rounded-full bg-[#3f1f82]">

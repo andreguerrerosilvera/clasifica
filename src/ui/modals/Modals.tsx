@@ -1,6 +1,8 @@
 import confetti from 'canvas-confetti';
 import { motion } from 'framer-motion';
 import { useEffect, useRef, useState, type ReactNode } from 'react';
+import { t } from '../../data/i18n';
+import { Coin, LockIcon } from '../components/Icons';
 
 function Backdrop({ children, peek = false }: { children: ReactNode; peek?: boolean }) {
   return (
@@ -16,7 +18,8 @@ function Backdrop({ children, peek = false }: { children: ReactNode; peek?: bool
 }
 
 function Panel({ title, children, tone = 'red' }: { title: string; children: ReactNode; tone?: 'red' | 'blue' }) {
-  const head = tone === 'red' ? 'from-[#ff5a3c] to-[#e62e1f] border-[#c41f12]' : 'from-[#a56cff] to-[#7a3cd6] border-[#5a22a8]';
+  const head =
+    tone === 'red' ? 'from-[#ff5a3c] to-[#e62e1f] border-[#c41f12]' : 'from-[#a56cff] to-[#7a3cd6] border-[#5a22a8]';
   return (
     <motion.div
       initial={{ scale: 0.7, y: 30 }}
@@ -35,7 +38,15 @@ function Panel({ title, children, tone = 'red' }: { title: string; children: Rea
   );
 }
 
-function OrangeButton({ children, onClick, disabled }: { children: ReactNode; onClick: () => void; disabled?: boolean }) {
+function OrangeButton({
+  children,
+  onClick,
+  disabled,
+}: {
+  children: ReactNode;
+  onClick: () => void;
+  disabled?: boolean;
+}) {
   return (
     <button
       onClick={onClick}
@@ -56,7 +67,7 @@ function PeekHint({ onPeek }: { onPeek: (v: boolean) => void }) {
       onPointerLeave={() => onPeek(false)}
       onPointerCancel={() => onPeek(false)}
     >
-      Mantén presionado para ver el tablero
+      {t('peek')}
     </p>
   );
 }
@@ -78,14 +89,18 @@ export function OutOfMovesModal({
   return (
     <Backdrop peek={peek}>
       <div className="w-full max-w-[340px]">
-        <Panel title="¡Sin movimientos!">
-          <p className="mb-5 font-black text-[#5c4520]">Usa {extra} movimientos extra para continuar</p>
+        <Panel title={t('outOfMoves')}>
+          <p className="mb-5 font-black text-[#5c4520]">{t('extraMoves', { n: extra })}</p>
           <OrangeButton onClick={onPlayOn} disabled={!canAfford}>
-            ▶ Seguir <span className="text-base opacity-90">🪙{cost}</span>
+            {t('continue')}{' '}
+            <span className="flex items-center gap-1 text-base opacity-90">
+              <Coin />
+              {cost}
+            </span>
           </OrangeButton>
-          {!canAfford && <p className="mt-2 text-xs font-bold text-[#a1452a]">No tienes monedas suficientes</p>}
+          {!canAfford && <p className="mt-2 text-xs font-bold text-[#a1452a]">{t('notEnoughCoins')}</p>}
           <button onClick={onRetry} className="mt-5 font-display text-lg text-[#5c4520] underline underline-offset-4">
-            Reintentar
+            {t('retry')}
           </button>
         </Panel>
         <PeekHint onPeek={setPeek} />
@@ -115,22 +130,29 @@ export function StuckModal({
   return (
     <Backdrop peek={peek}>
       <div className="w-full max-w-[340px]">
-        <Panel title="¡Sin jugadas!">
-          <p className="mb-5 font-black text-[#5c4520]">
-            La bandeja está llena y ninguna carta encaja en las categorías visibles.
-          </p>
+        <Panel title={t('stuck')}>
+          <p className="mb-5 font-black text-[#5c4520]">{t('stuckText')}</p>
           <div className="flex flex-col gap-3">
             {canUnlock && (
               <OrangeButton onClick={onUnlock}>
-                🔓 Casilla extra <span className="text-base opacity-90">🪙{slotCost}</span>
+                <LockIcon className="h-6 w-6" />
+                {t('extraSlot')}{' '}
+                <span className="flex items-center gap-1 text-base opacity-90">
+                  <Coin />
+                  {slotCost}
+                </span>
               </OrangeButton>
             )}
             <OrangeButton onClick={onUndo} disabled={!canUndo}>
-              ↩ Deshacer <span className="text-base opacity-90">🪙{undoCost}</span>
+              {t('undoButton')}{' '}
+              <span className="flex items-center gap-1 text-base opacity-90">
+                <Coin />
+                {undoCost}
+              </span>
             </OrangeButton>
           </div>
           <button onClick={onRetry} className="mt-5 font-display text-lg text-[#5c4520] underline underline-offset-4">
-            Reintentar
+            {t('retry')}
           </button>
         </Panel>
         <PeekHint onPeek={setPeek} />
@@ -151,14 +173,14 @@ export function SettingsModal({
   return (
     <Backdrop>
       <div className="w-full max-w-[340px]">
-        <Panel title="Ajustes" tone="blue">
+        <Panel title={t('settings')} tone="blue">
           <div className="flex flex-col gap-3">
-            <OrangeButton onClick={onRestart}>↻ Reiniciar nivel</OrangeButton>
-            <OrangeButton onClick={onExit}>🏠 Volver al mapa</OrangeButton>
+            <OrangeButton onClick={onRestart}>{t('restart')}</OrangeButton>
+            <OrangeButton onClick={onExit}>{t('exit')}</OrangeButton>
           </div>
           <HowToPlay />
           <button onClick={onClose} className="mt-4 font-display text-lg text-[#5c4520] underline underline-offset-4">
-            Cerrar
+            {t('close')}
           </button>
         </Panel>
       </div>
@@ -166,28 +188,30 @@ export function SettingsModal({
   );
 }
 
+const HOW_TO = ['howTo1', 'howTo2', 'howTo3', 'howTo4', 'howTo5'] as const;
+
+/** Convierte los tramos `<b>…</b>` de un texto traducido en negritas. */
+const withBold = (s: string) => s.split(/<b>(.*?)<\/b>/).map((part, i) => (i % 2 ? <b key={i}>{part}</b> : part));
+
 export function HowToPlay({ light = false }: { light?: boolean }) {
   const c = light ? 'text-white/85' : 'text-[#5c4520]';
   return (
-    <ul className={`mt-5 space-y-1.5 text-left text-[13px] font-bold leading-snug ${c}`}>
-      <li>🟨 Toca o arrastra cada carta hasta su <b>categoría amarilla</b>.</li>
-      <li>📦 Si su categoría aún no aparece, guárdala en la <b>bandeja</b>.</li>
-      <li>⬇️ Las cartas caen por columnas: libera huecos para ver más.</li>
-      <li>❓ Las cartas <b>?</b> se revelan al retirar una carta vecina.</li>
-      <li>🏁 Vacía el tablero antes de quedarte sin movimientos.</li>
+    <ul className={`mt-5 space-y-3 text-left text-[14px] font-bold leading-snug ${c}`}>
+      {HOW_TO.map((key) => {
+        // El emoji va en su propia columna para que los textos queden alineados.
+        const [icon, ...rest] = t(key).split(' ');
+        return (
+          <li key={key} className="flex items-start gap-2.5">
+            <span className="w-5 shrink-0 text-center">{icon}</span>
+            <span>{withBold(rest.join(' '))}</span>
+          </li>
+        );
+      })}
     </ul>
   );
 }
 
-export function WinScreen({
-  levelTitle,
-  reward,
-  onNext,
-}: {
-  levelTitle: string;
-  reward: number;
-  onNext: () => void;
-}) {
+export function WinScreen({ levelTitle, reward, onNext }: { levelTitle: string; reward: number; onNext: () => void }) {
   const canvas = useRef<HTMLCanvasElement>(null);
   useEffect(() => {
     if (!canvas.current) return;
@@ -235,15 +259,15 @@ export function WinScreen({
         transition={{ delay: 0.5 }}
         className="relative mt-4 font-display text-2xl text-white"
       >
-        ¡{levelTitle} completado!
+        {t('levelComplete', { level: levelTitle })}
       </motion.p>
       <motion.p
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.8 }}
-        className="relative mt-2 rounded-full bg-white/10 px-4 py-1 font-display text-lg text-[#ffd23f]"
+        className="relative mt-2 flex items-center gap-1.5 rounded-full bg-white/10 px-4 py-1 font-display text-lg text-[#ffd23f]"
       >
-        +{reward} 🪙
+        +{reward} <Coin className="h-6 w-6" />
       </motion.p>
       <motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -251,7 +275,7 @@ export function WinScreen({
         transition={{ delay: 1 }}
         className="relative mt-16"
       >
-        <OrangeButton onClick={onNext}>SIGUIENTE</OrangeButton>
+        <OrangeButton onClick={onNext}>{t('next')}</OrangeButton>
       </motion.div>
     </motion.div>
   );

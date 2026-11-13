@@ -1,12 +1,13 @@
 import { motion } from 'framer-motion';
 import type { ReactNode } from 'react';
 import { ROWS } from '../../logic/rules';
+import { t } from '../../data/i18n';
 
 /** Indicador de cartas pendientes de caer sobre la columna */
 function DeckIndicator({ count }: { count: number }) {
   const bars = Math.min(count, 5);
   return (
-    <div className="mb-1 flex h-[22px] flex-col justify-end gap-[2px] px-1" title={`${count} cartas por caer`}>
+    <div className="mb-1 flex h-[22px] flex-col justify-end gap-[2px] px-1" title={t('pendingCards', { n: count })}>
       {Array.from({ length: bars }, (_, i) => (
         <motion.div
           key={i}

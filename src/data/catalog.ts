@@ -1,7 +1,9 @@
 import thiingsJson from '../../content/categorias_thiings.json';
+import catalogEn from '../../content/i18n/catalog.en.json';
+import catalogPt from '../../content/i18n/catalog.pt.json';
 import type { Catalog } from '../logic/levelGen';
 import { itemKey } from '../logic/generator';
-import type { Texts } from './i18n';
+import { type Lang, type Texts, baseTexts, getLang } from './i18n';
 
 /** Formato de content/categorias_thiings.json (catálogo armado con los gráficos de thiings.co). */
 interface ThiingsFile {
@@ -55,8 +57,27 @@ const built = buildCatalog(thiingsJson as ThiingsFile);
 
 export const CATALOG: Catalog = built.catalog;
 
-/** Textos de categorías y objetos del catálogo (los nombres vienen del propio JSON). */
-export const catalogTexts = (base: Texts): Texts => ({ ...base, categories: built.categories, items: built.items });
+/** Traducciones del catálogo: nombre de cada categoría (por id) y de cada carta (por `categoria.slug`). */
+interface CatalogTranslation {
+  categories: Record<string, string>;
+  items: Record<string, string>;
+}
+const TRANSLATIONS: Partial<Record<Lang, CatalogTranslation>> = { en: catalogEn, pt: catalogPt };
+
+/**
+ * Textos del juego en el idioma actual. En español los nombres vienen del propio catálogo; en los
+ * demás idiomas, de su traducción (si faltara alguno, se usa el español).
+ */
+const textsCache: Partial<Record<Lang, Texts>> = {};
+export function catalogTexts(): Texts {
+  const lang = getLang();
+  const tr = TRANSLATIONS[lang];
+  return (textsCache[lang] ??= {
+    ...baseTexts(),
+    categories: { ...built.categories, ...tr?.categories },
+    items: { ...built.items, ...tr?.items },
+  });
+}
 
 /**
  * Pares de categorías que comparten algún objeto: no pueden salir juntas, porque esa carta
