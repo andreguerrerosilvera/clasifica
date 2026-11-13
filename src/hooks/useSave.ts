@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from 'react';
-import { loadSave, persistSave, withCoinsSpent, withWin } from '../logic/save';
-import type { Save } from '../models/types';
+import { levelFor } from '../data/levels';
+import { loadSave, persistSave, withCoinsSpent, withGenerated, withWin } from '../logic/save';
+import type { LevelDef, Save } from '../models/types';
 
 export function useSave() {
   const [save, setSave] = useState<Save>(loadSave);
@@ -16,5 +17,12 @@ export function useSave() {
 
   const registerWin = useCallback((levelId: number, reward: number) => setSave((s) => withWin(s, levelId, reward)), []);
 
-  return { save, spend, registerWin };
+  /** Nivel listo para jugar: si hay que generarlo, se guarda para que no cambie hasta superarlo. */
+  const startLevel = (id: number): LevelDef => {
+    const { level, created } = levelFor(id, save.generated);
+    if (created) setSave((s) => withGenerated(s, created));
+    return level;
+  };
+
+  return { save, spend, registerWin, startLevel };
 }

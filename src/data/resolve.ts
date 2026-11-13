@@ -1,17 +1,10 @@
-import type { DifficultyDef, DifficultyId, LevelDef } from '../models/types';
+import type { DifficultyDef, DifficultyId, LevelDef, RawLevel } from '../models/types';
 import { Difficulty } from '../models/types';
 import { CATEGORY_COL, COLS, MIN_CATEGORIES } from '../logic/rules';
 import { itemKey } from '../logic/generator';
 import type { Texts } from './i18n';
 
-/** Forma del JSON de un nivel (content/levels/NN.json). */
-export interface RawLevel {
-  id: number;
-  difficulty: string;
-  moves: number;
-  categories: { id: string; icon: string; items: { id: string; emoji: string }[] }[];
-  layout?: { columns: string[][]; hidden: string[]; categoryOrder: string[] };
-}
+export type { RawLevel };
 
 export type RawDifficulties = Record<string, { openSlots: number }>;
 
@@ -44,7 +37,7 @@ export function validateLayout(raw: RawLevel, file: string) {
     fail(file, '"layout.categoryOrder" debe contener cada categoría exactamente una vez');
 }
 
-/** Valida un nivel y lo completa con sus textos traducidos. */
+/** Valida un nivel generado y lo completa con sus textos traducidos. */
 export function resolveLevel(raw: RawLevel, file: string, t: Texts): LevelDef {
   if (!Number.isInteger(raw.id) || raw.id < 1) fail(file, '"id" debe ser un entero positivo');
   if (!DIFFICULTY_IDS.includes(raw.difficulty))
@@ -73,11 +66,9 @@ export function resolveLevel(raw: RawLevel, file: string, t: Texts): LevelDef {
   });
 
   validateLayout(raw, file);
-  const lt = text(t.levels[String(raw.id)], `levels.${raw.id}`);
   return {
     id: raw.id,
-    title: lt.title,
-    subtitle: lt.subtitle,
+    title: `Nivel ${raw.id}`,
     difficulty: raw.difficulty as DifficultyId,
     moves: raw.moves,
     categories,

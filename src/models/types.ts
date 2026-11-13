@@ -12,7 +12,7 @@ export interface Card {
 }
 
 export interface ItemDef {
-  /** id estable dentro de su categoría (inglés); el texto sale de content/i18n */
+  /** id estable dentro de su categoría (slug de thiings.co); el texto sale de content/categorias_thiings.json */
   id: string;
   emoji: string;
   name: string;
@@ -38,7 +38,6 @@ export interface LevelLayout {
 export interface LevelDef {
   id: number;
   title: string;
-  subtitle: string;
   /** dificultad del nivel: la define el contenido, no el jugador */
   difficulty: DifficultyId;
   /** movimientos disponibles */
@@ -93,9 +92,20 @@ export type DropTarget = string | 'tray' | null;
 /** Jugada sugerida por la pista */
 export type Hint = { itemId: string; target: string | 'tray' } | null;
 
+/** Nivel generado en datos planos (ids de categorías y cartas): así se guarda hasta superarlo. */
+export interface RawLevel {
+  id: number;
+  difficulty: string;
+  moves: number;
+  categories: { id: string; icon: string; items: { id: string; emoji: string }[] }[];
+  layout?: { columns: string[][]; hidden: string[]; categoryOrder: string[] };
+}
+
 /** Progreso persistente del jugador */
 export interface Save {
   coins: number;
   /** ids de los niveles superados */
   completed: number[];
+  /** nivel generado en curso: se mantiene igual hasta superarlo */
+  generated: RawLevel | null;
 }

@@ -1,8 +1,8 @@
 import { AnimatePresence, LayoutGroup } from 'framer-motion';
 import { useState } from 'react';
-import { LEVELS } from '../../data/levels';
 import { useBursts } from '../../hooks/useBursts';
 import { useGame } from '../../hooks/useGame';
+import type { LevelDef } from '../../models/types';
 import { COST, PLAY_ON_MOVES, TRAY_SIZE } from '../../logic/rules';
 import { Board } from '../components/Board';
 import { BoosterBar } from '../components/BoosterBar';
@@ -13,7 +13,7 @@ import { Tray } from '../components/Tray';
 import { OutOfMovesModal, SettingsModal, StuckModal, WinScreen } from '../modals/Modals';
 
 interface Props {
-  levelId: number;
+  level: LevelDef;
   coins: number;
   spend: (n: number) => boolean;
   onWin: (levelId: number, reward: number) => void;
@@ -21,14 +21,13 @@ interface Props {
   onExit: () => void;
 }
 
-export function GameScreen({ levelId, coins, spend, onWin, onNext, onExit }: Props) {
+export function GameScreen({ level: levelDef, coins, spend, onWin, onNext, onExit }: Props) {
   const { bursts, burstFor } = useBursts();
-  const game = useGame({ levelId, spend, onWin, onCategoryComplete: burstFor });
+  const game = useGame({ level: levelDef, spend, onWin, onCategoryComplete: burstFor });
   const [settings, setSettings] = useState(false);
 
   const { state, level, diff, overlay } = game;
   const progressPct = Math.round((state.placedCount / state.totalItems) * 100);
-  const isLast = levelId === LEVELS[LEVELS.length - 1].id;
 
   const restart = () => {
     setSettings(false);
@@ -97,7 +96,7 @@ export function GameScreen({ levelId, coins, spend, onWin, onNext, onExit }: Pro
           />
         )}
         {overlay === 'won' && (
-          <WinScreen key="won" levelTitle={level.title} reward={game.reward} isLast={isLast} onNext={onNext} />
+          <WinScreen key="won" levelTitle={level.title} reward={game.reward} onNext={onNext} />
         )}
         {settings && (
           <SettingsModal key="settings" onClose={() => setSettings(false)} onRestart={restart} onExit={onExit} />

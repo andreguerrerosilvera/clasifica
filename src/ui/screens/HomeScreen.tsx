@@ -1,11 +1,10 @@
 import { motion } from 'framer-motion';
 import { useMemo } from 'react';
-import { LEVELS } from '../../data/levels';
 import { Logo } from '../modals/Modals';
 
 interface Props {
-  completed: number[];
-  onPlay: (levelId: number) => void;
+  nextLevelId: number;
+  onPlay: () => void;
 }
 
 const EMOJIS = ['🍎', '🎸', '🐙', '🚀', '🧁', '🐝', '🎩', '⚽', '🍌', '🐄', '🎹', '🦋', '🍕', '🌈', '🚲', '🐳', '🧢', '🍇'];
@@ -33,9 +32,8 @@ function makeFloaters() {
   });
 }
 
-export function HomeScreen({ completed, onPlay }: Props) {
+export function HomeScreen({ nextLevelId, onPlay }: Props) {
   const floaters = useMemo(() => makeFloaters(), []);
-  const next = LEVELS.find((l) => !completed.includes(l.id)) ?? LEVELS[LEVELS.length - 1];
 
   return (
     <div className="relative h-full w-full overflow-hidden bg-gradient-to-b from-[#c9a2ff] via-[#9d6af0] to-[#6a35c4]">
@@ -68,10 +66,10 @@ export function HomeScreen({ completed, onPlay }: Props) {
           {/* Siempre se juega el nivel en curso (el primero sin completar) */}
           <div className="mt-10 flex flex-col items-center gap-2 text-center">
             <button
-              onClick={() => onPlay(next.id)}
+              onClick={onPlay}
               className="pointer-events-auto rounded-full border-b-4 border-[#b84d00] bg-gradient-to-b from-[#ffa53a] to-[#ff7a00] px-12 py-3 font-display text-2xl tracking-wide text-white shadow-xl active:translate-y-0.5 active:border-b-2"
             >
-              JUGAR {next.title.toUpperCase()}
+              JUGAR NIVEL {nextLevelId}
             </button>
           </div>
         </div>

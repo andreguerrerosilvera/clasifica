@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { difficultyOf, getLevel } from '../data/levels';
+import { difficultyOf } from '../data/levels';
 import {
   addMoves,
   freeTraySlot,
@@ -14,12 +14,12 @@ import {
 import { createLevel } from '../logic/generator';
 import { findHint, magnet } from '../logic/hints';
 import { BONUS_MOVES, COST, FREE_SLOT_ENABLED, HISTORY_LIMIT, PLAY_ON_MOVES, ROWS, TRAY_SIZE, WIN_REWARD } from '../logic/rules';
-import type { Card, DropTarget, GameState, Hint } from '../models/types';
+import type { Card, DropTarget, GameState, Hint, LevelDef } from '../models/types';
 
 export type Overlay = null | 'won' | 'lost' | 'stuck';
 
 interface Options {
-  levelId: number;
+  level: LevelDef;
   spend: (n: number) => boolean;
   onWin: (levelId: number, reward: number) => void;
   /** se llama con las categorías que se acaban de completar (para efectos visuales) */
@@ -27,8 +27,8 @@ interface Options {
 }
 
 /** Orquesta una partida: estado, historial, potenciadores y fin de partida. */
-export function useGame({ levelId, spend, onWin, onCategoryComplete }: Options) {
-  const level = getLevel(levelId);
+export function useGame({ level, spend, onWin, onCategoryComplete }: Options) {
+  const levelId = level.id;
   const diff = difficultyOf(level);
   const fresh = useCallback(() => createLevel(level, diff), [level, diff]);
 

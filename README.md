@@ -14,10 +14,11 @@ npm run build:single # un único index.html autocontenido
 Las dependencias van siempre hacia abajo: `ui → hooks → logic → data → models`.
 
 - `src/models/`  – tipos del dominio (`Card`, `GameState`, `LevelDef`, `Save`…). Sin lógica.
-- `src/data/`    – carga y valida el contenido de `content/` (`levels.ts`, `resolve.ts`) y sus textos (`i18n.ts`).
+- `src/data/`    – carga el contenido de `content/` y genera los niveles (`levels.ts`, `resolve.ts`) y sus textos (`i18n.ts`).
 - `src/logic/`   – reglas puras, sin React:
   - `rules.ts` constantes y economía · `board.ts` consultas y movimientos · `hints.ts` pista e imán
-  - `generator.ts` estado inicial desde el tablero fijo · `solver.ts` solver · `rng.ts` aleatorio con semilla · `save.ts` persistencia
+  - `generator.ts` estado inicial desde el tablero · `layout.ts` arma un tablero resoluble · `levelGen.ts` genera niveles nuevos
+  - `solver.ts` solver · `rng.ts` aleatorio con semilla · `save.ts` persistencia
 - `src/hooks/`   – estado de React: `useGame` (partida), `useSave` (progreso), `useBursts` (efectos)
 - `src/ui/`      – presentación: `screens/` (inicio y partida), `components/` (tablero, columnas, bandeja…), `modals/`
 
@@ -31,18 +32,16 @@ Las dependencias van siempre hacia abajo: `ui → hooks → logic → data → m
 - Sin movimientos → "Seguir (+10)" o "Reintentar". Bandeja llena sin jugadas → "Sin jugadas".
 
 ## Contenido (`content/`)
-Los niveles son estáticos: cada uno es un JSON con su tablero ya armado.
+No hay niveles fijos: los niveles son infinitos. Cada uno se genera en el momento en que el jugador lo va a jugar (combinando categorías del catálogo y comprobando con el solver que tenga solución) y se guarda tal cual hasta que lo supera: si sale y vuelve, o reintenta, es el mismo tablero. Se llaman "Nivel N".
 
-- `content/levels/NN.json` – un nivel: `id`, `difficulty` (`easy` | `normal` | `hard`), `moves`, `categories` (ids en inglés, mínimo 4 distintas) y `layout` (`columns`, `hidden`, `categoryOrder`). Las cartas se referencian como `categoria.item`.
+- `content/categorias_thiings.json` – catálogo de categorías (100 × 12 objetos) con los gráficos de [thiings.co](https://www.thiings.co/things): nombre en español, slug, link a la página e imagen de cada objeto. El id de cada categoría es su nombre sin tildes en minúsculas (`Bebé` → `bebe`) y el de cada objeto su slug; las cartas se referencian como `categoria.slug`. Las cartas muestran la imagen (se carga desde thiings.co, hace falta conexión).
+- `content/generation.json` – cómo se generan:
+  - `introDifficulties` dificultad de los primeros niveles (uno por nivel) y `difficultyCycle` la de los siguientes, en ciclo.
+  - `difficulties`: por dificultad, los rangos `[mín, máx]` de `categories` (mínimo 4), `itemsPerCategory` y `hidden` (proporción de "?"), y `margin` (moves = pasos del solver × margin).
+  - `maxItems` tope de cartas en el tablero y `conflicts` pares de categorías de temas parecidos que no pueden salir juntas porque alguna carta encajaría en las dos. Además, dos categorías que comparten algún objeto nunca salen juntas (se calcula solo).
 - `content/difficulties.json` – parámetros por dificultad (`openSlots`).
-- `content/i18n/es.json` – todos los textos: dificultades, títulos de nivel, categorías e items.
+- `content/i18n/es.json` – textos de las dificultades (los nombres de categorías y objetos salen de `categorias_thiings.json`).
 
-Nivel nuevo: crea `content/levels/04.json` con `id`, `difficulty`, `categories` y las traducciones en `es.json`, y genera el tablero con
+Categoría nueva: añádela a `content/categorias_thiings.json` y, si alguna de sus cartas podría confundirse con otra categoría, añade el par a `conflicts`.
 
-```
-npm run level:layout -- content/levels/04.json [--seed N] [--hidden 0.2] [--margin 1.3]
-```
-
-El script mezcla, comprueba con el solver que tenga solución y escribe `layout` y `moves` (solución × margin). Después puedes retocar el JSON a mano. Al cargar, el juego valida los archivos y el error indica archivo y campo.
-
-El inicio solo muestra "Jugar": se juega el primer nivel sin completar. Se guarda el progreso de niveles y las monedas, no la partida en curso.
+El inicio solo muestra "Jugar": se juega el primer nivel sin completar. Se guarda el progreso de niveles, las monedas y el nivel generado en curso (no la partida a medias).

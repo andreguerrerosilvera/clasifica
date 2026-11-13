@@ -1,36 +1,32 @@
 import { useState } from 'react';
-import { LEVELS } from './data/levels';
+import { nextLevelId } from './data/levels';
 import { useSave } from './hooks/useSave';
+import type { LevelDef } from './models/types';
 import { GameScreen } from './ui/screens/GameScreen';
 import { HomeScreen } from './ui/screens/HomeScreen';
 
-type Screen = { name: 'home' } | { name: 'game'; levelId: number };
+type Screen = { name: 'home' } | { name: 'game'; level: LevelDef };
 
 export default function App() {
-  const { save, spend, registerWin } = useSave();
+  const { save, spend, registerWin, startLevel } = useSave();
   const [screen, setScreen] = useState<Screen>({ name: 'home' });
 
+  /** Siempre se juega el primer nivel sin completar; si no existe aún, se genera en este momento. */
+  const playNext = () => setScreen({ name: 'game', level: startLevel(nextLevelId(save.completed)) });
+
   if (screen.name === 'game') {
-    const idx = LEVELS.findIndex((l) => l.id === screen.levelId);
     return (
       <GameScreen
-        key={screen.levelId}
-        levelId={screen.levelId}
+        key={screen.level.id}
+        level={screen.level}
         coins={save.coins}
         spend={spend}
         onWin={registerWin}
         onExit={() => setScreen({ name: 'home' })}
-        onNext={() =>
-          setScreen(idx < LEVELS.length - 1 ? { name: 'game', levelId: LEVELS[idx + 1].id } : { name: 'home' })
-        }
+        onNext={playNext}
       />
     );
   }
 
-  return (
-    <HomeScreen
-      completed={save.completed}
-      onPlay={(levelId) => setScreen({ name: 'game', levelId })}
-    />
-  );
+  return <HomeScreen nextLevelId={nextLevelId(save.completed)} onPlay={playNext} />;
 }

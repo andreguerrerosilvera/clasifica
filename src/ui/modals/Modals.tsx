@@ -182,12 +182,10 @@ export function HowToPlay({ light = false }: { light?: boolean }) {
 export function WinScreen({
   levelTitle,
   reward,
-  isLast,
   onNext,
 }: {
   levelTitle: string;
   reward: number;
-  isLast: boolean;
   onNext: () => void;
 }) {
   const canvas = useRef<HTMLCanvasElement>(null);
@@ -253,7 +251,7 @@ export function WinScreen({
         transition={{ delay: 1 }}
         className="relative mt-16"
       >
-        <OrangeButton onClick={onNext}>{isLast ? 'VOLVER AL MAPA' : 'SIGUIENTE'}</OrangeButton>
+        <OrangeButton onClick={onNext}>SIGUIENTE</OrangeButton>
       </motion.div>
     </motion.div>
   );

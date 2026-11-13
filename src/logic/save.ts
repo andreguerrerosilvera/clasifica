@@ -1,12 +1,12 @@
-import type { Save } from '../models/types';
+import type { RawLevel, Save } from '../models/types';
 
 const KEY = 'clasifica-save-v1';
 
-export const DEFAULT_SAVE: Save = { coins: 300, completed: [] };
+export const DEFAULT_SAVE: Save = { coins: 300, completed: [], generated: null };
 
 /** Acepta partidas guardadas con el formato anterior (progreso por dificultad). */
 function normalize(raw: unknown): Save {
-  const r = (raw ?? {}) as { coins?: unknown; completed?: unknown };
+  const r = (raw ?? {}) as { coins?: unknown; completed?: unknown; generated?: unknown };
   const coins = typeof r.coins === 'number' ? r.coins : DEFAULT_SAVE.coins;
   const list = Array.isArray(r.completed)
     ? r.completed
@@ -14,7 +14,10 @@ function normalize(raw: unknown): Save {
       ? Object.values(r.completed).flat()
       : [];
   const completed = [...new Set(list.filter((n): n is number => typeof n === 'number'))];
-  return { coins, completed };
+  // Si el nivel guardado no encaja con el contenido actual, se descarta al jugarlo (ver levelFor).
+  const g = r.generated as RawLevel | null | undefined;
+  const generated = g && typeof g === 'object' && typeof g.id === 'number' && g.layout ? g : null;
+  return { coins, completed, generated };
 }
 
 export function loadSave(): Save {
@@ -37,8 +40,12 @@ export function persistSave(save: Save) {
 
 export const withCoinsSpent = (save: Save, n: number): Save => ({ ...save, coins: save.coins - n });
 
-/** Registra un nivel ganado y suma la recompensa. */
+/** Registra un nivel ganado y suma la recompensa. Un nivel generado ya superado se descarta. */
 export const withWin = (save: Save, levelId: number, reward: number): Save => ({
   coins: save.coins + reward,
   completed: save.completed.includes(levelId) ? save.completed : [...save.completed, levelId],
+  generated: save.generated?.id === levelId ? null : save.generated,
 });
+
+/** Guarda el nivel recién generado para que no cambie hasta superarlo. */
+export const withGenerated = (save: Save, level: RawLevel): Save => ({ ...save, generated: level });

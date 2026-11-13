@@ -81,9 +81,11 @@ export function CardView({
 function ItemFace({ card, compact }: { card: Card; compact?: boolean }) {
   return (
     <div className="flex h-full w-full flex-col items-center justify-center overflow-hidden rounded-[10px] border border-[#ead9ae] bg-cream shadow-[0_3px_0_#cdb683]">
-      <span className={compact ? 'text-[clamp(18px,6vw,28px)] leading-none' : 'text-[clamp(24px,8.5vw,40px)] leading-none'}>
-        {card.emoji}
-      </span>
+      <Art
+        src={card.emoji}
+        className={compact ? 'text-[clamp(18px,6vw,28px)] leading-none' : 'text-[clamp(24px,8.5vw,40px)] leading-none'}
+        size={compact ? 'clamp(22px,7vw,34px)' : 'clamp(30px,10.5vw,50px)'}
+      />
       {!compact && (
         <span
           className="mt-1 max-w-full truncate px-1 font-extrabold text-[#8a6a35]"
@@ -93,6 +95,21 @@ function ItemFace({ card, compact }: { card: Card; compact?: boolean }) {
         </span>
       )}
     </div>
+  );
+}
+
+/** Dibujo de un objeto: imagen si `src` es una URL (catálogo de thiings.co), si no, emoji. */
+function Art({ src, size, className }: { src: string; size: string; className?: string }) {
+  if (!/^https?:\/\//.test(src)) return <span className={className}>{src}</span>;
+  return (
+    <img
+      src={src}
+      alt=""
+      draggable={false}
+      decoding="async"
+      className="pointer-events-none select-none object-contain"
+      style={{ width: size, height: size }}
+    />
   );
 }
 
@@ -161,7 +178,7 @@ function CategoryFace({
           className="text-[clamp(20px,7vw,34px)] leading-none"
           transition={{ type: 'spring', stiffness: 380, damping: 30 }}
         >
-          {lastItem.emoji}
+          <Art src={lastItem.emoji} size="clamp(24px,8.5vw,42px)" />
         </motion.span>
       </div>
       <span
