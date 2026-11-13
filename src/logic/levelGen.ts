@@ -3,7 +3,7 @@ import { buildLayout } from './layout';
 import { mulberry32, shuffle } from './rng';
 import { MIN_CATEGORIES } from './rules';
 
-/** Catálogo de categorías (se arma desde content/categorias_thiings.json): id → icono y objetos. `emoji` puede ser una URL de imagen. */
+/** Catálogo de categorías (se arma desde content/categorias_thiings.json): id → icono y objetos. `emoji` puede ser la ruta de una imagen. */
 export type Catalog = Record<string, { icon: string; items: { id: string; emoji: string }[] }>;
 
 type Range = [number, number];

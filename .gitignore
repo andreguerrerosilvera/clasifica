@@ -24,3 +24,6 @@ dist-ssr
 *.sw?
 IMG_9614.MP4
 IMG_9616.MP4
+
+# Imágenes originales de thiings.co (~1,8 GB): se regeneran con `npm run images`
+assets/thiings/raw/

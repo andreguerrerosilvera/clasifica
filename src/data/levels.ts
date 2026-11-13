@@ -60,6 +60,6 @@ export function levelFor(id: number, saved: RawLevel | null): { level: LevelDef;
 function preload(level: LevelDef): LevelDef {
   if (typeof Image !== 'undefined')
     for (const c of level.categories)
-      for (const i of c.items) if (/^https?:\/\//.test(i.emoji)) new Image().src = i.emoji;
+      for (const i of c.items) if (i.emoji.includes('/')) new Image().src = i.emoji;
   return level;
 }

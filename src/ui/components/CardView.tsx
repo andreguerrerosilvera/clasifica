@@ -98,9 +98,9 @@ function ItemFace({ card, compact }: { card: Card; compact?: boolean }) {
   );
 }
 
-/** Dibujo de un objeto: imagen si `src` es una URL (catálogo de thiings.co), si no, emoji. */
+/** Dibujo de un objeto: imagen si `src` es una ruta o URL (catálogo de thiings.co), si no, emoji. */
 function Art({ src, size, className }: { src: string; size: string; className?: string }) {
-  if (!/^https?:\/\//.test(src)) return <span className={className}>{src}</span>;
+  if (!src.includes('/')) return <span className={className}>{src}</span>;
   return (
     <img
       src={src}

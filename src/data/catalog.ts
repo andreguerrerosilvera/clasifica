@@ -7,7 +7,7 @@ import type { Texts } from './i18n';
 interface ThiingsFile {
   categorias: {
     categoria: string;
-    objetos: { nombre: string; slug: string; imagen: string }[];
+    objetos: { nombre: string; slug: string }[];
   }[];
 }
 
@@ -15,9 +15,13 @@ interface ThiingsFile {
 export const categoryId = (name: string) =>
   name
     .normalize('NFD')
-    .replace(/[̀-ͯ]/g, '')
+    .replace(/[\u0300-\u036f]/g, '')
     .toLowerCase()
     .replace(/[^a-z0-9]+/g, '-');
+
+/** Imagen optimizada local de un objeto (la genera `npm run images` en public/thiings/). */
+const BASE_URL: string = import.meta.env?.BASE_URL ?? '/';
+export const imagePath = (slug: string) => `${BASE_URL}thiings/${slug}.webp`;
 
 const fail = (msg: string): never => {
   throw new Error(`[content] categorias_thiings.json: ${msg}`);
@@ -25,7 +29,7 @@ const fail = (msg: string): never => {
 
 /**
  * Catálogo de generación y sus textos. Cada objeto usa su slug de thiings.co como id
- * y la URL de su imagen en el campo `emoji` (la carta la dibuja como imagen).
+ * y la ruta de su imagen local en el campo `emoji` (la carta la dibuja como imagen).
  */
 function buildCatalog(file: ThiingsFile) {
   const catalog: Catalog = {};
@@ -40,7 +44,8 @@ function buildCatalog(file: ThiingsFile) {
       seen.add(o.slug);
       items[itemKey(id, o.slug)] = o.nombre;
     }
-    catalog[id] = { icon: c.objetos[0]?.imagen ?? '', items: c.objetos.map((o) => ({ id: o.slug, emoji: o.imagen })) };
+    const objs = c.objetos.map((o) => ({ id: o.slug, emoji: imagePath(o.slug) }));
+    catalog[id] = { icon: objs[0]?.emoji ?? '', items: objs };
     categories[id] = c.categoria;
   }
   return { catalog, categories, items };
