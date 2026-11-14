@@ -91,7 +91,7 @@
       ]
     },
     {
-      "categoria": "Verduras",
+      "categoria": "Vegetales",
       "objetos": [
         {
           "nombre": "Zanahoria",
@@ -108,18 +108,18 @@
           "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-uX9AW902K7ZKm2YgQfTyya0AsD3j6Z.png"
         },
         {
-          "nombre": "Tomate",
-          "nombre_original": "Tomato",
-          "slug": "tomato",
-          "url": "https://www.thiings.co/things/tomato",
-          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-v4Bz5uvOIDciAdqa3qIpabpC0VrOkp.png"
+          "nombre": "Apio",
+          "nombre_original": "Celery",
+          "slug": "celery",
+          "url": "https://www.thiings.co/things/celery",
+          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-TPM0SNGrMP0dC2LwkEJXtheSpyEV30.png"
         },
         {
-          "nombre": "Papa",
-          "nombre_original": "Potato",
-          "slug": "potato",
-          "url": "https://www.thiings.co/things/potato",
-          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-SxGhEwCGCF6pg0bm8ZqXN8NXOpt7nV.png"
+          "nombre": "Alcachofa",
+          "nombre_original": "Artichoke",
+          "slug": "artichoke",
+          "url": "https://www.thiings.co/things/artichoke",
+          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-1YEICMUBE0cs3ZFWbytrmquTVGWbsK.png"
         },
         {
           "nombre": "Cebolla",
@@ -574,11 +574,11 @@
           "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-6zF2dnScnDV7ippqEiM6YlrSSJDbUz.png"
         },
         {
-          "nombre": "Moka",
-          "nombre_original": "Moka Pot",
-          "slug": "moka-pot",
-          "url": "https://www.thiings.co/things/moka-pot",
-          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-REfAii6Ze8TwP5HWQixuWzWBNiLKgM.png"
+          "nombre": "Chai latte",
+          "nombre_original": "Chai Latte",
+          "slug": "chai-latte",
+          "url": "https://www.thiings.co/things/chai-latte",
+          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-Tk9L4hyW5yG460mwVWKv4LPfu0LMSo.png"
         },
         {
           "nombre": "Frappé",
@@ -595,11 +595,11 @@
           "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-gqDg3LVsfWxfxh22kvjAH3LgbguaZO.png"
         },
         {
-          "nombre": "Taza",
-          "nombre_original": "Coffee mug",
-          "slug": "coffee-mug",
-          "url": "https://www.thiings.co/things/coffee-mug",
-          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-Et8V2nihjdbUDvyBTTUuuGOgXG91gh.png"
+          "nombre": "Cold brew",
+          "nombre_original": "Nitro Cold Brew Coffee",
+          "slug": "nitro-cold-brew-coffee",
+          "url": "https://www.thiings.co/things/nitro-cold-brew-coffee",
+          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-irq6LSSqKhOnyLVIvexeRUDRXie3Oh.png"
         },
         {
           "nombre": "Filtro",
@@ -617,10 +617,10 @@
         },
         {
           "nombre": "Mocaccino",
-          "nombre_original": "Mocha",
-          "slug": "mocha",
-          "url": "https://www.thiings.co/things/mocha",
-          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-INx9vRCql0cTs5XYACsYuboDcZN0GZ.png"
+          "nombre_original": "Mochaccino",
+          "slug": "mochaccino",
+          "url": "https://www.thiings.co/things/mochaccino",
+          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-JeKJYO3rLmjjO2o6FELAfN4tLNQslx.png"
         }
       ]
     },
@@ -628,32 +628,32 @@
       "categoria": "Mariscos",
       "objetos": [
         {
-          "nombre": "Camarón",
-          "nombre_original": "Shrimp",
-          "slug": "shrimp-925i6g",
-          "url": "https://www.thiings.co/things/shrimp-925i6g",
-          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-h8XGQwYFzq2Njl4VCo6XyzjawfX561.png"
+          "nombre": "Camarones al ajillo",
+          "nombre_original": "Garlic Butter Shrimp",
+          "slug": "garlic-butter-shrimp",
+          "url": "https://www.thiings.co/things/garlic-butter-shrimp",
+          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-qcgf9yx6htnoN8mdSptBZqg010gl4G.png"
         },
         {
-          "nombre": "Langosta",
-          "nombre_original": "Lobster",
-          "slug": "lobster",
-          "url": "https://www.thiings.co/things/lobster",
-          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-F7iqUVLCHr7tWB5bg4OUWjm9KCg3o2.png"
+          "nombre": "Pan de langosta",
+          "nombre_original": "Lobster Roll",
+          "slug": "lobster-roll",
+          "url": "https://www.thiings.co/things/lobster-roll",
+          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-GTWbaFYmOWPz5j4nLeoOkUbrQBe9bJ.png"
         },
         {
-          "nombre": "Cangrejo",
-          "nombre_original": "Crab",
-          "slug": "crab",
-          "url": "https://www.thiings.co/things/crab",
-          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-szWxGsFuFyZNbDj3Fc6022IVVLNJK6.png"
+          "nombre": "Cazuela de camarón",
+          "nombre_original": "Shrimp and Grits",
+          "slug": "shrimp-and-grits",
+          "url": "https://www.thiings.co/things/shrimp-and-grits",
+          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-9xLZ7SxyTrAMIuaUwMDYUh2v9RC693.png"
         },
         {
-          "nombre": "Almeja",
-          "nombre_original": "Giant Clam",
-          "slug": "giant-clam",
-          "url": "https://www.thiings.co/things/giant-clam",
-          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-XT46PXKHZwKbbR5PTE1Ngq8nbrW8ao.png"
+          "nombre": "Pasta marinera",
+          "nombre_original": "Seafood Pasta",
+          "slug": "seafood-pasta",
+          "url": "https://www.thiings.co/things/seafood-pasta",
+          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-SQJkuOhqwrixH6r6x12t5WRHNHqkKF.png"
         },
         {
           "nombre": "Langostinos",
@@ -670,32 +670,32 @@
           "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-Vhy3ERAvoohtFv3GFqxSm5lrkMcPF4.png"
         },
         {
-          "nombre": "Vieira",
-          "nombre_original": "Scallop",
-          "slug": "scallop",
-          "url": "https://www.thiings.co/things/scallop",
-          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-2IQ5MPyO02E6Rj9u2zvNGSPPZcWWpY.png"
+          "nombre": "Camarón frito",
+          "nombre_original": "Coconut Shrimp",
+          "slug": "coconut-shrimp",
+          "url": "https://www.thiings.co/things/coconut-shrimp",
+          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-MLG4gKZMJ62mxIpevn1y3KtsKmyQGM.png"
         },
         {
-          "nombre": "Calamar",
-          "nombre_original": "Squid",
-          "slug": "squid",
-          "url": "https://www.thiings.co/things/squid",
-          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-SLWE9DeV8M3hZ2uJHXwkfbFm1REthT.png"
+          "nombre": "Pasta negra",
+          "nombre_original": "Squid Ink Pasta",
+          "slug": "squid-ink-pasta",
+          "url": "https://www.thiings.co/things/squid-ink-pasta",
+          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-jtcZjXLdKPjvBiBaQ7NoDNbZQEnqRJ.png"
         },
         {
-          "nombre": "Pulpo",
-          "nombre_original": "Octopus",
-          "slug": "octopus",
-          "url": "https://www.thiings.co/things/octopus",
-          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-USdj9hSJZA7BQEllYnM1wzbsB3zodk.png"
+          "nombre": "Pulpo asado",
+          "nombre_original": "Charred Octopus",
+          "slug": "charred-octopus",
+          "url": "https://www.thiings.co/things/charred-octopus",
+          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-FUP4bMiK2VamRGewgOw3tPQfXMjv87.png"
         },
         {
-          "nombre": "Erizo de mar",
-          "nombre_original": "Sea Urchin",
-          "slug": "sea-urchin",
-          "url": "https://www.thiings.co/things/sea-urchin",
-          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-sW1SgSurtqNELBig042onndNT7fXSi.png"
+          "nombre": "Sándwich de ostras",
+          "nombre_original": "Fried Oyster Po' Boy",
+          "slug": "fried-oyster-po-boy",
+          "url": "https://www.thiings.co/things/fried-oyster-po-boy",
+          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-j5SRS90PIRlKrK1IrBfs75M9sVUGeJ.png"
         },
         {
           "nombre": "Calamares",
@@ -862,18 +862,18 @@
           "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-SCkdU0qtZIqXaTun1HwnLSbhk0eGMA.png"
         },
         {
-          "nombre": "Hot dog",
-          "nombre_original": "Hot Dog",
-          "slug": "hot-dog",
-          "url": "https://www.thiings.co/things/hot-dog",
-          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-x8VJeXeqBoMDXDLAy9nXTDLN6zfirR.png"
+          "nombre": "Pavo",
+          "nombre_original": "Turkey Platter",
+          "slug": "turkey-platter",
+          "url": "https://www.thiings.co/things/turkey-platter",
+          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-iIGUy1gOf1nOnbeCxzoiGQfHRp85cx.png"
         },
         {
-          "nombre": "Brocheta",
-          "nombre_original": "Kebab",
-          "slug": "kebab",
-          "url": "https://www.thiings.co/things/kebab",
-          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-rMglzq62kPRcjih2cHi82iCF8H1WDm.png"
+          "nombre": "Wellington",
+          "nombre_original": "Beef Wellington",
+          "slug": "beef-wellington",
+          "url": "https://www.thiings.co/things/beef-wellington",
+          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-O9XQ7S0fZKUfqFAVEaVokJqPidY79T.png"
         },
         {
           "nombre": "Panceta",
@@ -1136,11 +1136,11 @@
           "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-Hil9wxFFVmfu85DIcvx3xJP6TnKEEY.png"
         },
         {
-          "nombre": "Cecina",
-          "nombre_original": "Beef Jerky",
-          "slug": "beef-jerky",
-          "url": "https://www.thiings.co/things/beef-jerky",
-          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-g4M7NgDSqKjtc28u6FCXg8VqLocYNc.png"
+          "nombre": "Galletas saladas",
+          "nombre_original": "Saltine Cracker",
+          "slug": "saltine-cracker",
+          "url": "https://www.thiings.co/things/saltine-cracker",
+          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-0j80OB5DlXtjkjcImFLeCHSDxK6BpD.png"
         },
         {
           "nombre": "Barrita",
@@ -2122,18 +2122,18 @@
           "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-whwx70afXubhnE5SkaB5yVqX1vFpXV.png"
         },
         {
-          "nombre": "Patines",
-          "nombre_original": "Ice Skate",
-          "slug": "ice-skate",
-          "url": "https://www.thiings.co/things/ice-skate",
-          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-PlFBGe84Vd3OmEmZm0QrDFyb2oHVbM.png"
+          "nombre": "Alpargatas",
+          "nombre_original": "Espadrilles",
+          "slug": "espadrilles",
+          "url": "https://www.thiings.co/things/espadrilles",
+          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-rZVWsKwUcy0ycwgWVTJpLiz7XZYyXL.png"
         },
         {
-          "nombre": "Rollers",
-          "nombre_original": "Roller skate",
-          "slug": "roller-skate",
-          "url": "https://www.thiings.co/things/roller-skate",
-          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-kPZxGmnzkj6U9Q0vbHVVw3AJq42LNI.png"
+          "nombre": "Botas de trabajo",
+          "nombre_original": "Work Boots",
+          "slug": "work-boots",
+          "url": "https://www.thiings.co/things/work-boots",
+          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-gULM760tH5Qtldq0bYxRwvPKmRmniF.png"
         }
       ]
     },
@@ -2553,18 +2553,18 @@
           "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-QS96zqOmuvWq0NRF7opWKSnb68e3tf.png"
         },
         {
-          "nombre": "Matrioska",
-          "nombre_original": "Matryoshka Doll",
-          "slug": "matryoshka-doll",
-          "url": "https://www.thiings.co/things/matryoshka-doll",
-          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-FpvwtuX9Gtl4JLuujsDZtaI210cLXQ.png"
+          "nombre": "Caleidoscopio",
+          "nombre_original": "Kaleidoscope",
+          "slug": "kaleidoscope",
+          "url": "https://www.thiings.co/things/kaleidoscope",
+          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-1KGrr7ex31J1bqJyGzminTE8rVjYeO.png"
         },
         {
-          "nombre": "Canicas",
-          "nombre_original": "Marble",
-          "slug": "marble",
-          "url": "https://www.thiings.co/things/marble",
-          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-K63rNx2LSOFr4BuaRtfNXLHxp6UIVy.png"
+          "nombre": "Burbujas",
+          "nombre_original": "Bubble Wand",
+          "slug": "bubble-wand",
+          "url": "https://www.thiings.co/things/bubble-wand",
+          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-SCn5L06Uyp7dAQwvfQR0KqfKNFJj7a.png"
         },
         {
           "nombre": "Cuerda",
@@ -2574,11 +2574,11 @@
           "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-ajiUqziJLZuEUQh5ZY3075PyhrBM1X.png"
         },
         {
-          "nombre": "Robot",
-          "nombre_original": "Tin Robot",
-          "slug": "tin-robot",
-          "url": "https://www.thiings.co/things/tin-robot",
-          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-DtcTRk4wBBSvdlkhnqeRw6be55oQGK.png"
+          "nombre": "Resorte",
+          "nombre_original": "Coil Spring Toy",
+          "slug": "coil-spring-toy",
+          "url": "https://www.thiings.co/things/coil-spring-toy",
+          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-QUZ7mNwYWSowZFDt3Q1HoGTnbNy0Y7.png"
         }
       ]
     },
@@ -2689,11 +2689,11 @@
           "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-JNZ3AZvnuR7v6G01gt7Ax6MxRfEG0L.png"
         },
         {
-          "nombre": "Joystick",
-          "nombre_original": "Joystick",
-          "slug": "joystick",
-          "url": "https://www.thiings.co/things/joystick",
-          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-qgkOcWB4IzZKUUxYCC7FtmT84Kzzgm.png"
+          "nombre": "Silla gamer",
+          "nombre_original": "E-sports Gaming Chair",
+          "slug": "e-sports-gaming-chair",
+          "url": "https://www.thiings.co/things/e-sports-gaming-chair",
+          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-YxADdhUZsFbmGvFdzyzwUPHKLA6K14.png"
         },
         {
           "nombre": "Portátil",
@@ -2731,18 +2731,18 @@
           "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-O7hwnE1ntUyj5HfsOjDRAWcTzxvdji.png"
         },
         {
-          "nombre": "Ficha",
-          "nombre_original": "Arcade Token",
-          "slug": "arcade-token",
-          "url": "https://www.thiings.co/things/arcade-token",
-          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-6eYi9i1kMManNeMVZqMWwhpYyujJcq.png"
+          "nombre": "Tamagotchi",
+          "nombre_original": "Retro Virtual Pet",
+          "slug": "retro-virtual-pet",
+          "url": "https://www.thiings.co/things/retro-virtual-pet",
+          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-i1A00TNvlWSZOVwUn1v2n1UilV5tGt.png"
         },
         {
-          "nombre": "Teclado",
-          "nombre_original": "Mechanical Keyboard",
-          "slug": "mechanical-keyboard",
-          "url": "https://www.thiings.co/things/mechanical-keyboard",
-          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-hqZ4DKKmhQwmpiggbT37pDeRwChxrN.png"
+          "nombre": "Laptop gamer",
+          "nombre_original": "Gaming Laptop",
+          "slug": "gaming-laptop",
+          "url": "https://www.thiings.co/things/gaming-laptop",
+          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-18CRi69lDzJKMJWgH1Mxw41v78Cq20.png"
         },
         {
           "nombre": "Consola",
@@ -2853,14 +2853,14 @@
       "categoria": "Deportes",
       "objetos": [
         {
-          "nombre": "Raqueta",
+          "nombre": "Tenis",
           "nombre_original": "Tennis Racket",
           "slug": "tennis-racket",
           "url": "https://www.thiings.co/things/tennis-racket",
           "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-BBXTV4LAEedO5jo0W6YkMkVyTlmflS.png"
         },
         {
-          "nombre": "Bate",
+          "nombre": "Béisbol",
           "nombre_original": "Baseball Bat",
           "slug": "baseball-bat",
           "url": "https://www.thiings.co/things/baseball-bat",
@@ -2874,14 +2874,14 @@
           "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-X1lYgSqR3DJsTOyMQufKWw93pDPMZ1.png"
         },
         {
-          "nombre": "Palo de golf",
+          "nombre": "Golf",
           "nombre_original": "Golf Club",
           "slug": "golf-club",
           "url": "https://www.thiings.co/things/golf-club",
           "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-rM02JhvFwn6gY0v8BGTjSYFhQQ8bfq.png"
         },
         {
-          "nombre": "Guantes",
+          "nombre": "Boxeo",
           "nombre_original": "Boxing Gloves",
           "slug": "boxing-gloves",
           "url": "https://www.thiings.co/things/boxing-gloves",
@@ -2895,21 +2895,21 @@
           "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-DfIZ0gKxLEj0jFfHgnRszKyIY3KrCo.png"
         },
         {
-          "nombre": "Patineta",
+          "nombre": "Skate",
           "nombre_original": "Skateboard",
           "slug": "skateboard",
           "url": "https://www.thiings.co/things/skateboard",
           "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-HYpysztJEDvDYnQq1mnQGKHXPAjems.png"
         },
         {
-          "nombre": "Esquís",
+          "nombre": "Esquí",
           "nombre_original": "Skis",
           "slug": "skis",
           "url": "https://www.thiings.co/things/skis",
           "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-azm43T0mhfEc38UkcEkG0qJp8tAXSk.png"
         },
         {
-          "nombre": "Bolo",
+          "nombre": "Bolos",
           "nombre_original": "Bowling pin",
           "slug": "bowling-pin",
           "url": "https://www.thiings.co/things/bowling-pin",
@@ -2923,14 +2923,14 @@
           "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-IPe6fFeR1w6DVZ2143Y6YCLibSOdq7.png"
         },
         {
-          "nombre": "Canasta",
+          "nombre": "Básquetbol",
           "nombre_original": "Basketball Hoop",
           "slug": "basketball-hoop",
           "url": "https://www.thiings.co/things/basketball-hoop",
           "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-E21FgT9Pz5kNyIGOcEphh9pLFySpZG.png"
         },
         {
-          "nombre": "Portería",
+          "nombre": "Fútbol",
           "nombre_original": "Soccer Goal",
           "slug": "soccer-goal",
           "url": "https://www.thiings.co/things/soccer-goal",
@@ -2984,11 +2984,11 @@
           "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-ajiUqziJLZuEUQh5ZY3075PyhrBM1X.png"
         },
         {
-          "nombre": "Elástico",
-          "nombre_original": "Resistance band",
-          "slug": "resistance-band",
-          "url": "https://www.thiings.co/things/resistance-band",
-          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-gmyTkzXNEE6aQG4UfbRSYpdZJXs0mo.png"
+          "nombre": "Bicicleta",
+          "nombre_original": "Indoor Cycling Bike",
+          "slug": "indoor-cycling-bike",
+          "url": "https://www.thiings.co/things/indoor-cycling-bike",
+          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-t2YEGjX61s3lvJah7Plyu8ZG6unGn8.png"
         },
         {
           "nombre": "Rodillo",
@@ -3012,11 +3012,11 @@
           "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-rvyytPdH53nUtxYqLdNqBuRLVTb4Wu.png"
         },
         {
-          "nombre": "Cronómetro",
-          "nombre_original": "Stopwatch",
-          "slug": "stopwatch",
-          "url": "https://www.thiings.co/things/stopwatch",
-          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-VssSUjp7tvqQZndCA7aaNBblydpBgj.png"
+          "nombre": "Shaker",
+          "nombre_original": "Protein Shaker",
+          "slug": "protein-shaker",
+          "url": "https://www.thiings.co/things/protein-shaker",
+          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-Y1u6wq4SpDk3rru0D6EX9fP5h6Axt4.png"
         },
         {
           "nombre": "Remadora",
@@ -3176,11 +3176,11 @@
           "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-fmxQQWi1GX12lUQFGHn6ExrGK4F6GB.png"
         },
         {
-          "nombre": "Megáfono",
-          "nombre_original": "Megaphone",
-          "slug": "megaphone",
-          "url": "https://www.thiings.co/things/megaphone",
-          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-SvsQzp9loTopQTNCj70C36xeF3x7p2.png"
+          "nombre": "Autocine",
+          "nombre_original": "Drive-in Theater",
+          "slug": "drive-in-theater",
+          "url": "https://www.thiings.co/things/drive-in-theater",
+          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-nHeWFZJkXh77yeL4c02MMqT5BmEnhX.png"
         },
         {
           "nombre": "Sala de cine",
@@ -3244,11 +3244,11 @@
           "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-YimA3sxsT00vWqiUyzyLUshxsSZvll.png"
         },
         {
-          "nombre": "Lanzaconfeti",
-          "nombre_original": "Party Popper",
-          "slug": "party-popper",
-          "url": "https://www.thiings.co/things/party-popper",
-          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-a8Rmm5MutROTpDBGw2SPLVgjX1k8wT.png"
+          "nombre": "Banderines",
+          "nombre_original": "Flag Bunting",
+          "slug": "flag-bunting",
+          "url": "https://www.thiings.co/things/flag-bunting",
+          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-ndfbxj6K4nsljme2dxauVCznxazxNk.png"
         },
         {
           "nombre": "Bola disco",
@@ -3272,11 +3272,11 @@
           "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-Fcce5H2onAr83vAl3dk9Y5eZFh0JVo.png"
         },
         {
-          "nombre": "Espantasuegras",
-          "nombre_original": "Party Blower",
-          "slug": "party-blower",
-          "url": "https://www.thiings.co/things/party-blower",
-          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-zvyG5v6X1whqXQonlu8SNaZ2Vqq0SN.png"
+          "nombre": "Perrito de globo",
+          "nombre_original": "Balloon Dog",
+          "slug": "balloon-dog",
+          "url": "https://www.thiings.co/things/balloon-dog",
+          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-hJpscc6DyPpJ9Pb60OB5KJrG4tGGh1.png"
         },
         {
           "nombre": "Arco",
@@ -3473,91 +3473,91 @@
       ]
     },
     {
-      "categoria": "Pascua",
+      "categoria": "Circo",
       "objetos": [
         {
-          "nombre": "Huevo",
-          "nombre_original": "Easter Egg",
-          "slug": "easter-egg",
-          "url": "https://www.thiings.co/things/easter-egg",
-          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-R1spcYLpFqcdOoeIsqV13hvV5aMsop.png"
+          "nombre": "Carpa de circo",
+          "nombre_original": "Circus Tent",
+          "slug": "circus",
+          "url": "https://www.thiings.co/things/circus",
+          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-ip3nE4cehylDvsDJ3VOGGnDlmPidMl.png"
         },
         {
-          "nombre": "Conejo",
-          "nombre_original": "Easter Bunny",
-          "slug": "easter-bunny",
-          "url": "https://www.thiings.co/things/easter-bunny",
-          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-hKcvCQaksHAPprZuVTLYjSZ5yoAGJq.png"
+          "nombre": "Payaso",
+          "nombre_original": "Clown",
+          "slug": "clown",
+          "url": "https://www.thiings.co/things/clown",
+          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-AtkgxQrRnJwHPFFI9b7Hn2ZkrpxVur.png"
         },
         {
-          "nombre": "Canasta",
-          "nombre_original": "Easter Basket",
-          "slug": "easter-basket",
-          "url": "https://www.thiings.co/things/easter-basket",
-          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-L9l7QJ0mMFBfmBPwu03VUOFfRqPJu5.png"
+          "nombre": "Monociclo",
+          "nombre_original": "Unicycle",
+          "slug": "unicycle",
+          "url": "https://www.thiings.co/things/unicycle",
+          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-1XMrEV1oNcLDc4f6EwYHyDQ9ttYdxv.png"
         },
         {
-          "nombre": "Conejito",
-          "nombre_original": "Chocolate Bunny",
-          "slug": "chocolate-bunny",
-          "url": "https://www.thiings.co/things/chocolate-bunny",
-          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-1OZkEqcvVoOsvE1AulNWiQELZfBenJ.png"
+          "nombre": "Malabares",
+          "nombre_original": "Juggling Clubs",
+          "slug": "juggling-clubs",
+          "url": "https://www.thiings.co/things/juggling-clubs",
+          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-v98NliEU5SGnuIly9i1DzeYkF69gYm.png"
         },
         {
-          "nombre": "Pollito",
-          "nombre_original": "Chick",
-          "slug": "chick",
-          "url": "https://www.thiings.co/things/chick",
-          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-9Be3vPrwLlkNA90W04bLIBzD67rt4O.png"
+          "nombre": "Zancos",
+          "nombre_original": "Stilt Walker",
+          "slug": "stilt-walker",
+          "url": "https://www.thiings.co/things/stilt-walker",
+          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-pwcbBwE9vwPApa3BR3PDiq8LUrkMB5.png"
         },
         {
-          "nombre": "Bollo",
-          "nombre_original": "Hot Cross Bun",
-          "slug": "hot-cross-bun",
-          "url": "https://www.thiings.co/things/hot-cross-bun",
-          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-aUDUV1Cxlc1Gb4WNQReILVQfKETQkn.png"
+          "nombre": "Hombre bala",
+          "nombre_original": "Human Cannonball",
+          "slug": "human-cannonball",
+          "url": "https://www.thiings.co/things/human-cannonball",
+          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-ylL0WF6mAubscXME7GlXpBwru3ENRR.png"
         },
         {
-          "nombre": "Lirio",
-          "nombre_original": "Lily",
-          "slug": "lily",
-          "url": "https://www.thiings.co/things/lily",
-          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-Qc48eJRle9Po8qZbnvhAbc9ER5cztx.png"
+          "nombre": "Cuerda floja",
+          "nombre_original": "Circus Tightrope",
+          "slug": "circus-tightrope",
+          "url": "https://www.thiings.co/things/circus-tightrope",
+          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-nmmnHN75OOsVtfkTQYZ5ZrVK2ubact.png"
         },
         {
-          "nombre": "Malvavisco",
-          "nombre_original": "Marshmallow Chick",
-          "slug": "marshmallow-chick",
-          "url": "https://www.thiings.co/things/marshmallow-chick",
-          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-fzENS2FvNsyTnz0wqLmTDZh5nIxMMi.png"
+          "nombre": "Foca",
+          "nombre_original": "Seal Balancing Ball",
+          "slug": "seal-balancing-ball",
+          "url": "https://www.thiings.co/things/seal-balancing-ball",
+          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-1smKMTiI2rQVBlS3YX28lG82nFyABl.png"
         },
         {
-          "nombre": "Chocolate",
-          "nombre_original": "Chocolate Egg",
-          "slug": "chocolate-egg",
-          "url": "https://www.thiings.co/things/chocolate-egg",
-          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-k6PwyvF5cFa40c5Y370OKTD0WP4taX.png"
+          "nombre": "Carrusel",
+          "nombre_original": "Carousel",
+          "slug": "carousel",
+          "url": "https://www.thiings.co/things/carousel",
+          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-HDX3H27dMcIL8KAWfK2cDAIVgznMN1.png"
         },
         {
-          "nombre": "Cordero",
-          "nombre_original": "Lamb",
-          "slug": "lamb",
-          "url": "https://www.thiings.co/things/lamb",
-          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-DnUS728dUQkNihIDtm4JxmHcctNxyR.png"
+          "nombre": "Zapatos de payaso",
+          "nombre_original": "Clown Shoes",
+          "slug": "clown-shoes",
+          "url": "https://www.thiings.co/things/clown-shoes",
+          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-gZUYyO7ccj1RalHagNsla8JcxmU7hJ.png"
         },
         {
-          "nombre": "Narciso",
-          "nombre_original": "Daffodil",
-          "slug": "daffodil",
-          "url": "https://www.thiings.co/things/daffodil",
-          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-JX55fVZUokfVeKIauKgc2RV0K9FmKh.png"
+          "nombre": "Auto de payaso",
+          "nombre_original": "Clown Car",
+          "slug": "clown-car",
+          "url": "https://www.thiings.co/things/clown-car",
+          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-OdCR1bIZFwNxk9a1NCXNBKP7KOnnF7.png"
         },
         {
-          "nombre": "Huevito",
-          "nombre_original": "Plastic Easter Egg",
-          "slug": "plastic-easter-egg",
-          "url": "https://www.thiings.co/things/plastic-easter-egg",
-          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-YQULGA4IrRyweM83EFGkwKLgRB5HC7.png"
+          "nombre": "Aro",
+          "nombre_original": "Hoop",
+          "slug": "exercise-hoop",
+          "url": "https://www.thiings.co/things/exercise-hoop",
+          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-QA1Fiuu8pcN5j19dWzgBgrWNJ3ntnc.png"
         }
       ]
     },
@@ -4134,11 +4134,11 @@
           "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-RzbYaSyQWxlY9EtcMwdaESo5ZVR2O3.png"
         },
         {
-          "nombre": "Escarabajo",
-          "nombre_original": "Scarab",
-          "slug": "scarab",
-          "url": "https://www.thiings.co/things/scarab",
-          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-VCLFetSmhayeTTKy7fM8Fa9vGsxJ2M.png"
+          "nombre": "Cleopatra",
+          "nombre_original": "Queen Cleopatra",
+          "slug": "queen-cleopatra",
+          "url": "https://www.thiings.co/things/queen-cleopatra",
+          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-Nqs2rDRGtMg0me37zGLXUdgvIelKVv.png"
         },
         {
           "nombre": "Papiro",
@@ -4422,11 +4422,11 @@
           "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-EtL22dWO3JcSDofiqZDtBD4jDyxBoW.png"
         },
         {
-          "nombre": "Antifaz",
-          "nombre_original": "Venetian Carnival Mask",
-          "slug": "venetian-carnival-mask",
-          "url": "https://www.thiings.co/things/venetian-carnival-mask",
-          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-4fueCeqNyUvJ7zru36CgpGTcclUXgi.png"
+          "nombre": "Vespa",
+          "nombre_original": "Pizza Delivery Scooter",
+          "slug": "pizza-delivery-scooter",
+          "url": "https://www.thiings.co/things/pizza-delivery-scooter",
+          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-zaVr65Q5ZvG2L1uLYgaDFbx1BS4MPy.png"
         },
         {
           "nombre": "Tiramisú",
@@ -4436,11 +4436,11 @@
           "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-Uu5rxk0eoDEmoy77HZfTOmTJYdf0Ja.png"
         },
         {
-          "nombre": "Aceite",
-          "nombre_original": "Olive Oil",
-          "slug": "olive-oil",
-          "url": "https://www.thiings.co/things/olive-oil",
-          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-wAUZm788o4PsBgmD7JKahSJBCTJEk7.png"
+          "nombre": "Ñoquis",
+          "nombre_original": "Gnocchi",
+          "slug": "gnocchi",
+          "url": "https://www.thiings.co/things/gnocchi",
+          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-b84QvwmDBmY6JQrpgX9XZQDko1OzlE.png"
         },
         {
           "nombre": "Pasta",
@@ -4785,11 +4785,11 @@
           "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-r8JnpjAEXKNUiRmksY3MYcbBveVgqJ.png"
         },
         {
-          "nombre": "Espantapájaros",
-          "nombre_original": "Scarecrow",
-          "slug": "scarecrow",
-          "url": "https://www.thiings.co/things/scarecrow",
-          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-E9ia5xNHfuj9QNIKeEHjR9NxsxV1hj.png"
+          "nombre": "Tractor",
+          "nombre_original": "Tractor",
+          "slug": "tractor",
+          "url": "https://www.thiings.co/things/tractor",
+          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-3PFkKRK39sVVla9trHzAKKJFJNG6Sc.png"
         },
         {
           "nombre": "Burro",
@@ -4799,100 +4799,100 @@
           "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-wp8y5Eryn6a9PgU2lEgVNjCsmVsBHs.png"
         },
         {
-          "nombre": "Pavo",
-          "nombre_original": "Turkey",
-          "slug": "turkey-ko72p3",
-          "url": "https://www.thiings.co/things/turkey-ko72p3",
-          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-sIZsICFRGAPfrFWKM5QgISnhWxEknB.png"
+          "nombre": "Silo",
+          "nombre_original": "Grain Silo",
+          "slug": "grain-silo",
+          "url": "https://www.thiings.co/things/grain-silo",
+          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-9XCjJIB2VZbRonsTjr8PfMxFDdWV9r.png"
         }
       ]
     },
     {
-      "categoria": "Mascotas",
+      "categoria": "Comida rápida",
       "objetos": [
         {
-          "nombre": "Hámster",
-          "nombre_original": "Hamster",
-          "slug": "hamster",
-          "url": "https://www.thiings.co/things/hamster",
-          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-beSVCs0pnZeT1MP6UJ4pBK2cNO4fxy.png"
+          "nombre": "Hamburguesa",
+          "nombre_original": "Hamburger",
+          "slug": "hamburger",
+          "url": "https://www.thiings.co/things/hamburger",
+          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-azbkcojk7G9xRKqA75hmDxp8KWWgDZ.png"
         },
         {
-          "nombre": "Pececito",
-          "nombre_original": "Goldfish",
-          "slug": "goldfish",
-          "url": "https://www.thiings.co/things/goldfish",
-          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-NuBWc0dR8IIIIyXqO91ySbHJvETk1Y.png"
+          "nombre": "Hot dog",
+          "nombre_original": "Hot Dog",
+          "slug": "hot-dog",
+          "url": "https://www.thiings.co/things/hot-dog",
+          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-x8VJeXeqBoMDXDLAy9nXTDLN6zfirR.png"
         },
         {
-          "nombre": "Loro",
-          "nombre_original": "Parrot",
-          "slug": "parrot",
-          "url": "https://www.thiings.co/things/parrot",
-          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-uBu8lsgfmiiDkiBzdbF4ZWWKschPVR.png"
+          "nombre": "Papas fritas",
+          "nombre_original": "French Fries",
+          "slug": "french-fries",
+          "url": "https://www.thiings.co/things/french-fries",
+          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-1Dl7jHKSCiA1Ez3RTcZwJaJkTCqtH5.png"
         },
         {
-          "nombre": "Conejo",
-          "nombre_original": "Rabbit",
-          "slug": "rabbit",
-          "url": "https://www.thiings.co/things/rabbit",
-          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-DlvptRxKLd42bAoSB6HYj0GFIICRHh.png"
+          "nombre": "Pizza",
+          "nombre_original": "Pepperoni Pizza Slice",
+          "slug": "pepperoni-pizza-slice",
+          "url": "https://www.thiings.co/things/pepperoni-pizza-slice",
+          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-UdEv9kXUHTwRfjFmldumOB7twPCACZ.png"
         },
         {
-          "nombre": "Cobayo",
-          "nombre_original": "Guinea Pig",
-          "slug": "guinea-pig",
-          "url": "https://www.thiings.co/things/guinea-pig",
-          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-Kh1uVI3GZt0AzWJL94mDwOI50wlJdK.png"
+          "nombre": "Pollo frito",
+          "nombre_original": "Fried Chicken",
+          "slug": "chicken-fried",
+          "url": "https://www.thiings.co/things/chicken-fried",
+          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-odVnLFkrL5eGiSzOAkNOacimjB4f3H.png"
         },
         {
-          "nombre": "Hurón",
-          "nombre_original": "Ferret",
-          "slug": "ferret",
-          "url": "https://www.thiings.co/things/ferret",
-          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-PZ1sbgJ3zuLS5sc42LXkOr6gCUl6kr.png"
+          "nombre": "Nuggets",
+          "nombre_original": "Nugget",
+          "slug": "nugget",
+          "url": "https://www.thiings.co/things/nugget",
+          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-J7BEQT0tYiVrIbmHXJFgN0Y0u1btoA.png"
         },
         {
-          "nombre": "Erizo",
-          "nombre_original": "Hedgehog",
-          "slug": "hedgehog",
-          "url": "https://www.thiings.co/things/hedgehog",
-          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-RxKIsUQua5G40s0aDNEDUH9kTLrD0G.png"
+          "nombre": "Kebab",
+          "nombre_original": "Döner Kebab",
+          "slug": "dner-kebab",
+          "url": "https://www.thiings.co/things/dner-kebab",
+          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-iJEBLN6LwXPETdHKW1sxqZwaGaaX1F.png"
         },
         {
-          "nombre": "Tortuga",
-          "nombre_original": "Tortoise",
-          "slug": "tortoise",
-          "url": "https://www.thiings.co/things/tortoise",
-          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-QU389GyxQXftqJJVABips6FFJwZIow.png"
+          "nombre": "Pescado frito",
+          "nombre_original": "Fish and Chips",
+          "slug": "fish-and-chips",
+          "url": "https://www.thiings.co/things/fish-and-chips",
+          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-hMbpCSKclyTX3ThYA8tUThVpvtiMdh.png"
         },
         {
-          "nombre": "Chinchilla",
-          "nombre_original": "Chinchilla",
-          "slug": "chinchilla",
-          "url": "https://www.thiings.co/things/chinchilla",
-          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-jfapZwou7DlNfE3Gas1QXbGSJ5BURH.png"
+          "nombre": "Sándwich de pollo",
+          "nombre_original": "Chicken Sandwich",
+          "slug": "chicken-sandwich",
+          "url": "https://www.thiings.co/things/chicken-sandwich",
+          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-4q1jJZ7mfxYBSzDd6NWYl89MpM6RrV.png"
         },
         {
-          "nombre": "Correa",
-          "nombre_original": "Dog Leash",
-          "slug": "dog-leash",
-          "url": "https://www.thiings.co/things/dog-leash",
-          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-RqYvBf1B6nq3aAxEGVAkPIvefonKSi.png"
+          "nombre": "Corn dog",
+          "nombre_original": "Korean Corn Dog",
+          "slug": "korean-corn-dog",
+          "url": "https://www.thiings.co/things/korean-corn-dog",
+          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-Vax67AHvcEn9wQgjyIrRczKL29hVif.png"
         },
         {
-          "nombre": "Camita",
-          "nombre_original": "Dog Bed",
-          "slug": "dog-bed",
-          "url": "https://www.thiings.co/things/dog-bed",
-          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-wmFhDBVVvejE4lvjy80Y8jwUTzzDH5.png"
+          "nombre": "Malteada",
+          "nombre_original": "Milkshake",
+          "slug": "milkshake",
+          "url": "https://www.thiings.co/things/milkshake",
+          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-byBRCyc6PiHlepue6FAlkEDhxeRuxl.png"
         },
         {
-          "nombre": "Pecera",
-          "nombre_original": "Fish Tank",
-          "slug": "fish-tank",
-          "url": "https://www.thiings.co/things/fish-tank",
-          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-PCKQ6zFfylxTzAhRTtBC4W4N3JUNHV.png"
+          "nombre": "Aros de cebolla",
+          "nombre_original": "Onion Rings",
+          "slug": "onion-rings",
+          "url": "https://www.thiings.co/things/onion-rings",
+          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-B7xyvC15yRy8Fvw0sjvjnlJ2aMgj2o.png"
         }
       ]
     },
@@ -5155,11 +5155,11 @@
           "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-PzYE0xNoXEHufCOMyOHq43p18ZIO54.png"
         },
         {
-          "nombre": "Baobab",
-          "nombre_original": "Baobab Tree",
-          "slug": "baobab-tree",
-          "url": "https://www.thiings.co/things/baobab-tree",
-          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-a4NE1EJuRuG6MgB9TvkkgJ7XJ5uutK.png"
+          "nombre": "Gacela",
+          "nombre_original": "Gazelle",
+          "slug": "gazelle",
+          "url": "https://www.thiings.co/things/gazelle",
+          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-arLPGFLBVfIxsD3KJQtLq3yonEdQJC.png"
         }
       ]
     },
@@ -5743,11 +5743,11 @@
           "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-OkIWi8maolWQmRe5HZXQ4gCn3AXb36.png"
         },
         {
-          "nombre": "Parasaurolophus",
-          "nombre_original": "Parasaurolophus",
-          "slug": "parasaurolophus",
-          "url": "https://www.thiings.co/things/parasaurolophus",
-          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-SMx0AzlIs5XlEuT1DY4MUBgBMKC5hz.png"
+          "nombre": "Pterodáctilo",
+          "nombre_original": "Pterosaur",
+          "slug": "pterosaur",
+          "url": "https://www.thiings.co/things/pterosaur",
+          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-jgn5NuXR447Te4gDMNC0UfOLBOkH7n.png"
         },
         {
           "nombre": "Diplodocus",
@@ -5771,11 +5771,11 @@
           "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-dfzYfySQTQh4uAbQd3rJX9TCrJAsfi.png"
         },
         {
-          "nombre": "Paquicefalosaurio",
-          "nombre_original": "Pachycephalosaurus",
-          "slug": "pachycephalosaurus",
-          "url": "https://www.thiings.co/things/pachycephalosaurus",
-          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-CBvZNYzuvLZoxfqhM74xOmV1lMMwff.png"
+          "nombre": "Plesiosaurio",
+          "nombre_original": "Plesiosaur",
+          "slug": "plesiosaur",
+          "url": "https://www.thiings.co/things/plesiosaur",
+          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-G4w4ZbavMeGOvgja2fgpQ7h2gxkLKN.png"
         },
         {
           "nombre": "Mosasaurio",
@@ -5928,11 +5928,11 @@
           "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-W3qXGBiYgbA31EugFCyIZNO8VduOV4.png"
         },
         {
-          "nombre": "Bumerán",
-          "nombre_original": "Boomerang",
-          "slug": "boomerang-e6c1xl",
-          "url": "https://www.thiings.co/things/boomerang-e6c1xl",
-          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-J5hwL1EizETKisN38xu1SAGsJR7tKc.png"
+          "nombre": "Demonio de Tasmania",
+          "nombre_original": "Tasmanian Devil",
+          "slug": "tasmanian-devil",
+          "url": "https://www.thiings.co/things/tasmanian-devil",
+          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-84VJa6u60TvPJuho50Ma9AsYCXOUIf.png"
         },
         {
           "nombre": "Dingo",
@@ -6499,91 +6499,91 @@
       ]
     },
     {
-      "categoria": "Planetas",
+      "categoria": "Lácteos",
       "objetos": [
         {
-          "nombre": "Mercurio",
-          "nombre_original": "Mercury",
-          "slug": "mercury",
-          "url": "https://www.thiings.co/things/mercury",
-          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-AmbFRnufp86dp40QLUC34c2uigy4Yj.png"
+          "nombre": "Leche",
+          "nombre_original": "Milk",
+          "slug": "milk",
+          "url": "https://www.thiings.co/things/milk",
+          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-nkcassY3FIZAdFy5rp0OO7t522CHj1.png"
         },
         {
-          "nombre": "Venus",
-          "nombre_original": "Venus",
-          "slug": "venus",
-          "url": "https://www.thiings.co/things/venus",
-          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-Bx9RhR01p7oQQyT6C4EJNvCiXxvsfP.png"
+          "nombre": "Queso",
+          "nombre_original": "Cheese",
+          "slug": "cheese",
+          "url": "https://www.thiings.co/things/cheese",
+          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-8ysCNWCXSEUz8gev3IoCnzMXrG4Dgv.png"
         },
         {
-          "nombre": "Tierra",
-          "nombre_original": "Earth",
-          "slug": "earth",
-          "url": "https://www.thiings.co/things/earth",
-          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-TjlQjzEjOBahJ7XJYI49jbifgXpz41.png"
+          "nombre": "Mozzarella",
+          "nombre_original": "Mozzarella Cheese",
+          "slug": "mozzarella-cheese",
+          "url": "https://www.thiings.co/things/mozzarella-cheese",
+          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-4wPMBlShRSxexXQEXx9s9ESc0hWajh.png"
         },
         {
-          "nombre": "Marte",
-          "nombre_original": "Mars",
-          "slug": "mars",
-          "url": "https://www.thiings.co/things/mars",
-          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-B0K9LFC7FWtNS2SaTDjKVCtXCmdFh2.png"
+          "nombre": "Brie",
+          "nombre_original": "Brie Cheese",
+          "slug": "brie-cheese",
+          "url": "https://www.thiings.co/things/brie-cheese",
+          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-bcvvv4wwQS3f67dGMOn0mGvOc75S3S.png"
         },
         {
-          "nombre": "Júpiter",
-          "nombre_original": "Jupiter",
-          "slug": "jupiter",
-          "url": "https://www.thiings.co/things/jupiter",
-          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-MfTyUQzzjCM6joWvEW27OUR2vWLTZP.png"
+          "nombre": "Mantequilla",
+          "nombre_original": "Butter",
+          "slug": "butter",
+          "url": "https://www.thiings.co/things/butter",
+          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-VjaFekZH9sPWoqpxI5GfJzkoq55agF.png"
         },
         {
-          "nombre": "Saturno",
-          "nombre_original": "Rings of Saturn",
-          "slug": "rings-of-saturn",
-          "url": "https://www.thiings.co/things/rings-of-saturn",
-          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-H6o0PEDri9Xjh3bI4u0LWUoNQjuQHZ.png"
+          "nombre": "Yogur",
+          "nombre_original": "Greek Yogurt",
+          "slug": "greek-yogurt",
+          "url": "https://www.thiings.co/things/greek-yogurt",
+          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-jZfUoldamqg5JPKsmrOiohXNAZ0Bb3.png"
         },
         {
-          "nombre": "Urano",
-          "nombre_original": "Uranus",
-          "slug": "uranus",
-          "url": "https://www.thiings.co/things/uranus",
-          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-Ed2YpW2egEie9u5OJL1FT5V4ERUOL5.png"
+          "nombre": "Crema batida",
+          "nombre_original": "Whipped Cream",
+          "slug": "whipped-cream",
+          "url": "https://www.thiings.co/things/whipped-cream",
+          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-riSL7nhPXszBHeuDuDUXFvSx2oMNfC.png"
         },
         {
-          "nombre": "Neptuno",
-          "nombre_original": "Neptune",
-          "slug": "neptune",
-          "url": "https://www.thiings.co/things/neptune",
-          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-7xT9thl5RSWz03BvPMy0vhx9mKBTpf.png"
+          "nombre": "Queso crema",
+          "nombre_original": "Cream Cheese",
+          "slug": "cream-cheese",
+          "url": "https://www.thiings.co/things/cream-cheese",
+          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-sseFpGsudcfFHdF8BkFTsMekW3yrI0.png"
         },
         {
-          "nombre": "Plutón",
-          "nombre_original": "Pluto",
-          "slug": "pluto",
-          "url": "https://www.thiings.co/things/pluto",
-          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-4fec45F7HxV0HqVSjKt7wfliB9q6Sa.png"
+          "nombre": "Leche condensada",
+          "nombre_original": "Condensed Milk",
+          "slug": "condensed-milk",
+          "url": "https://www.thiings.co/things/condensed-milk",
+          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-EpVZcSYh7wpcPn1LTgM9oZahl8xjaA.png"
         },
         {
-          "nombre": "Sol",
-          "nombre_original": "Sun",
-          "slug": "sun",
-          "url": "https://www.thiings.co/things/sun",
-          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-o53JuZpiN3JOy3N3lXQMLmskV0OslK.png"
+          "nombre": "Dulce de leche",
+          "nombre_original": "Dulce de Leche",
+          "slug": "dulce-de-leche",
+          "url": "https://www.thiings.co/things/dulce-de-leche",
+          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-T2Mp8CiCtGpmDmzt3uIE6bOB06jlo3.png"
         },
         {
-          "nombre": "Luna",
-          "nombre_original": "Moon",
-          "slug": "moon",
-          "url": "https://www.thiings.co/things/moon",
-          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-PtBEjX92ZU74yv9aW8wR5aS9Cd9Ohe.png"
+          "nombre": "Queso de cabra",
+          "nombre_original": "Goat Cheese Log",
+          "slug": "goat-cheese-log",
+          "url": "https://www.thiings.co/things/goat-cheese-log",
+          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-ehJ9QuDbzoEDJ623BCDD09VqNdTYzD.png"
         },
         {
-          "nombre": "Asteroide",
-          "nombre_original": "Asteroid",
-          "slug": "asteroid",
-          "url": "https://www.thiings.co/things/asteroid",
-          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-FXnIvRY1fGE6Kai2IAGx3ZF7Khuwkq.png"
+          "nombre": "Yogur helado",
+          "nombre_original": "Frozen Yoghurt",
+          "slug": "frozen-yoghurt",
+          "url": "https://www.thiings.co/things/frozen-yoghurt",
+          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-xtInMkvgNtWmqPg9ECh30HmAUAlf8Z.png"
         }
       ]
     },
@@ -7033,7 +7033,7 @@
       ]
     },
     {
-      "categoria": "Aviones",
+      "categoria": "Aeronaves",
       "objetos": [
         {
           "nombre": "Avión",
@@ -7122,7 +7122,7 @@
       ]
     },
     {
-      "categoria": "Barcos",
+      "categoria": "Embarcaciones",
       "objetos": [
         {
           "nombre": "Velero",
@@ -7345,11 +7345,11 @@
           "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-8xDmWOL8boLcTcRXiiOLyujZEy5rA3.png"
         },
         {
-          "nombre": "Cono",
-          "nombre_original": "Traffic Cone",
-          "slug": "traffic-cone",
-          "url": "https://www.thiings.co/things/traffic-cone",
-          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-JaKlYnoj1kaQ5oU36W5rbyQRv663zy.png"
+          "nombre": "Volqueta",
+          "nombre_original": "Dump Truck",
+          "slug": "dump-truck",
+          "url": "https://www.thiings.co/things/dump-truck",
+          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-SLLb1qbFumAOeuEj7CQ5MwLLGMY5TO.png"
         },
         {
           "nombre": "Andamio",
@@ -7373,7 +7373,7 @@
           "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-oys2S1Ra34rnhcMzmHTAwUQIsXN1Gk.png"
         },
         {
-          "nombre": "Martillo",
+          "nombre": "Perforadora",
           "nombre_original": "Jackhammer",
           "slug": "jackhammer",
           "url": "https://www.thiings.co/things/jackhammer",
@@ -7478,91 +7478,91 @@
       ]
     },
     {
-      "categoria": "Edificios",
+      "categoria": "Frutos secos",
       "objetos": [
         {
-          "nombre": "Casa",
-          "nombre_original": "House",
-          "slug": "house",
-          "url": "https://www.thiings.co/things/house",
-          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-0OoMAJRtHLxXtHGKaC50y1kLqsAPFV.png"
+          "nombre": "Almendra",
+          "nombre_original": "Almond",
+          "slug": "almond",
+          "url": "https://www.thiings.co/things/almond",
+          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-v4QqtgUT65fjxf4afTk8FCkybNYAiq.png"
         },
         {
-          "nombre": "Castillo",
-          "nombre_original": "Castle",
-          "slug": "castle",
-          "url": "https://www.thiings.co/things/castle",
-          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-8o5EpiaaH2g4RjLkY6SFje6UGDIApP.png"
+          "nombre": "Pistacho",
+          "nombre_original": "Pistachio",
+          "slug": "pistachio",
+          "url": "https://www.thiings.co/things/pistachio",
+          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-bqEPYWQr7Dc2dNlMNOfSVdafrbo4fm.png"
         },
         {
-          "nombre": "Iglú",
-          "nombre_original": "Igloo",
-          "slug": "igloo",
-          "url": "https://www.thiings.co/things/igloo",
-          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-XxFqvvudjEjibdjIMnHeo1F7Wt743O.png"
+          "nombre": "Nuez",
+          "nombre_original": "Walnut",
+          "slug": "walnut",
+          "url": "https://www.thiings.co/things/walnut",
+          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-0wWd0fmMGDqRaxwYng6SmU0su3RmJm.png"
         },
         {
-          "nombre": "Faro",
-          "nombre_original": "Lighthouse",
-          "slug": "lighthouse",
-          "url": "https://www.thiings.co/things/lighthouse",
-          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-X1k0CWzyiok7fKEPw4rHZBqem14ITg.png"
+          "nombre": "Marañón",
+          "nombre_original": "Cashew",
+          "slug": "cashew",
+          "url": "https://www.thiings.co/things/cashew",
+          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-0y0WBRYJTSiA7pYXTdh2nhLNl7cP7Y.png"
         },
         {
-          "nombre": "Rascacielos",
-          "nombre_original": "Skyscraper",
-          "slug": "skyscraper",
-          "url": "https://www.thiings.co/things/skyscraper",
-          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-LDA5ahbZOWRPSZOn676SiiT4LzXIsb.png"
+          "nombre": "Avellana",
+          "nombre_original": "Hazelnut",
+          "slug": "hazelnut",
+          "url": "https://www.thiings.co/things/hazelnut",
+          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-xa93ghN3V8GzdbFM2DPmHFDLPr3OEL.png"
         },
         {
-          "nombre": "Molino",
-          "nombre_original": "Windmill",
-          "slug": "windmill",
-          "url": "https://www.thiings.co/things/windmill",
-          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-cHhhIVRbKdJzTyf5vthvz04UbLt8uw.png"
+          "nombre": "Pecana",
+          "nombre_original": "Pecan",
+          "slug": "pecan",
+          "url": "https://www.thiings.co/things/pecan",
+          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-KAV8YcQrj89dqxnEpbq1bQHxDJz3Ju.png"
         },
         {
-          "nombre": "Granero",
-          "nombre_original": "Barn",
-          "slug": "barn",
-          "url": "https://www.thiings.co/things/barn",
-          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-il4n6aTTlaIJKQnA8WgM4lI6WqMNZj.png"
+          "nombre": "Piñón",
+          "nombre_original": "Pine Nut",
+          "slug": "pine-nut",
+          "url": "https://www.thiings.co/things/pine-nut",
+          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-yaaD87bvv5YqIU9PXSomWraBfz3UNS.png"
         },
         {
-          "nombre": "Casita",
-          "nombre_original": "Treehouse",
-          "slug": "treehouse",
-          "url": "https://www.thiings.co/things/treehouse",
-          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-EPKMpfhl6VSmx22GsjkHADdHnrDUdY.png"
+          "nombre": "Castaña",
+          "nombre_original": "Roasted Chestnut",
+          "slug": "roasted-chestnut",
+          "url": "https://www.thiings.co/things/roasted-chestnut",
+          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-x8XaUV4tdGA5XBJKfylbgYrpKQnZvw.png"
         },
         {
-          "nombre": "Iglesia",
-          "nombre_original": "Church",
-          "slug": "church",
-          "url": "https://www.thiings.co/things/church",
-          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-MFZivdlX880yHITKHWBXYkIpUROYvb.png"
+          "nombre": "Nuez de Brasil",
+          "nombre_original": "Brazil Nut",
+          "slug": "brazil-nut",
+          "url": "https://www.thiings.co/things/brazil-nut",
+          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-orq8EHW4e2WKUFZW4PFnH38TJZtGpG.png"
         },
         {
-          "nombre": "Pagoda",
-          "nombre_original": "Pagoda",
-          "slug": "pagoda",
-          "url": "https://www.thiings.co/things/pagoda",
-          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-uEsZPPjHTA9m8bE8rhbJiYGUMU3HmE.png"
+          "nombre": "Pipas",
+          "nombre_original": "Sunflower Seed",
+          "slug": "sunflower-seed",
+          "url": "https://www.thiings.co/things/sunflower-seed",
+          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-DiWg1b95n8GSl3pGmdHq2NSQdTZhvd.png"
         },
         {
-          "nombre": "Choza",
-          "nombre_original": "Hut",
-          "slug": "hut",
-          "url": "https://www.thiings.co/things/hut",
-          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-qHD0Vvr8KcM7QcTI2yKSWNpgEfqQ1h.png"
+          "nombre": "Pepitas",
+          "nombre_original": "Pumpkin Seeds",
+          "slug": "pumpkin-seeds",
+          "url": "https://www.thiings.co/things/pumpkin-seeds",
+          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-Px39ZKQnfBxMT8CqWmincm2OsRVqUE.png"
         },
         {
-          "nombre": "Mezquita",
-          "nombre_original": "Mosque",
-          "slug": "mosque",
-          "url": "https://www.thiings.co/things/mosque",
-          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-nDKPNnlCh1zQAV577JyWeXxLByEjwc.png"
+          "nombre": "Maní",
+          "nombre_original": "Peanut",
+          "slug": "peanut",
+          "url": "https://www.thiings.co/things/peanut",
+          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-vEwrHCppAh1YMVuphJJCv0ELPU5GNi.png"
         }
       ]
     },
@@ -7968,11 +7968,11 @@
           "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-aqSZqdHlbTShgvmRE76mbwwueRZRhK.png"
         },
         {
-          "nombre": "Luz de noche",
-          "nombre_original": "Night Light",
-          "slug": "night-light",
-          "url": "https://www.thiings.co/things/night-light",
-          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-mps8XMRBcyxWGbBE9TPZScC0P2k5fC.png"
+          "nombre": "Lámpara de lava",
+          "nombre_original": "Liquid Motion Lamp",
+          "slug": "liquid-motion-lamp",
+          "url": "https://www.thiings.co/things/liquid-motion-lamp",
+          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-G90A2fJkn7Sj52HduTHGFFP7YuCgjl.png"
         },
         {
           "nombre": "Guirnalda",
@@ -7991,9 +7991,9 @@
         {
           "nombre": "Antorcha",
           "nombre_original": "Torch",
-          "slug": "torch",
-          "url": "https://www.thiings.co/things/torch",
-          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-w91Q5DH7WLjiH0iJ53US3XhcRzTRRP.png"
+          "slug": "torch-1",
+          "url": "https://www.thiings.co/things/torch-1",
+          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-m1qi4sLoMGWBfbQb3XgsBJRcHENrfn.png"
         },
         {
           "nombre": "Barra de luz",
@@ -8190,7 +8190,7 @@
       ]
     },
     {
-      "categoria": "Viaje",
+      "categoria": "Vacaciones",
       "objetos": [
         {
           "nombre": "Maleta",
@@ -8207,18 +8207,18 @@
           "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-YxxWewuwXdRncaZSbQNORwOieVOP39.png"
         },
         {
-          "nombre": "Mapa",
-          "nombre_original": "Map",
-          "slug": "map",
-          "url": "https://www.thiings.co/things/map",
-          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-SsfjxCJh43Hr1dqzkbFWUGH3ICZQbH.png"
+          "nombre": "Piscina",
+          "nombre_original": "Swimming Pool",
+          "slug": "swimming-pool",
+          "url": "https://www.thiings.co/things/swimming-pool",
+          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-BWBtiIA0RTZ9SrIb0oOdPBZRfvTVYn.png"
         },
         {
-          "nombre": "Brújula",
-          "nombre_original": "Compass",
-          "slug": "compass",
-          "url": "https://www.thiings.co/things/compass",
-          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-lJtgyMsZAMhsOQy6TgetNuRXs9wjhj.png"
+          "nombre": "Hotel",
+          "nombre_original": "Hotel",
+          "slug": "hotel",
+          "url": "https://www.thiings.co/things/hotel",
+          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-lCvW4p3khtoganHdqFzwxmQszzsKjS.png"
         },
         {
           "nombre": "Pase",
@@ -8235,11 +8235,11 @@
           "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-s09fUJ3H6nVTAzwemNRaSQgTJi6PUP.png"
         },
         {
-          "nombre": "Postal",
-          "nombre_original": "Postcard",
-          "slug": "postcard",
-          "url": "https://www.thiings.co/things/postcard",
-          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-BWHskVIbPlrZ8Wh8PjiuAvT9E3GKa9.png"
+          "nombre": "Hamaca",
+          "nombre_original": "Hammock",
+          "slug": "hammock",
+          "url": "https://www.thiings.co/things/hammock",
+          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-ICHUOEEyyY9JgzvpjDTfhSIxQse0JG.png"
         },
         {
           "nombre": "Etiqueta",
@@ -8256,11 +8256,11 @@
           "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-xbu17L0fw8vi5UpvTCgPDQLde0RQVK.png"
         },
         {
-          "nombre": "Globo terráqueo",
-          "nombre_original": "Globe",
-          "slug": "globe",
-          "url": "https://www.thiings.co/things/globe",
-          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-KBUXl6AhDj2IsoZnozHL39yX1acqa5.png"
+          "nombre": "Palo selfie",
+          "nombre_original": "Selfie Stick",
+          "slug": "selfie-stick",
+          "url": "https://www.thiings.co/things/selfie-stick",
+          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-wc00vgvqTrjFPN01XIqA9VCdAnYfWc.png"
         },
         {
           "nombre": "Mochila",
@@ -8359,11 +8359,11 @@
           "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-xfEJsWYZAx6f3DGc3YD3XApuJC0752.png"
         },
         {
-          "nombre": "Hacha",
-          "nombre_original": "Camp Axe",
-          "slug": "camp-axe",
-          "url": "https://www.thiings.co/things/camp-axe",
-          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-zjze0DD0G8RLZyOK0xHRMqFl4Gem7F.png"
+          "nombre": "Caña de pescar",
+          "nombre_original": "Fishing Rod",
+          "slug": "fishing-rod",
+          "url": "https://www.thiings.co/things/fishing-rod",
+          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-JL4fZgR2sVySN2vI3kr9DuYYOmhQ2a.png"
         }
       ]
     },
@@ -8635,91 +8635,91 @@
       ]
     },
     {
-      "categoria": "Gestos",
+      "categoria": "Emojis",
       "objetos": [
         {
-          "nombre": "Me gusta",
-          "nombre_original": "Thumbs Up",
-          "slug": "thumbs-up-1",
-          "url": "https://www.thiings.co/things/thumbs-up-1",
-          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-COMTTbEYwSKeck8gEy5dVlwzrDPAIO.png"
+          "nombre": "Feliz",
+          "nombre_original": "Grinning Face",
+          "slug": "emoji-1f600",
+          "url": "https://www.thiings.co/things/emoji-1f600",
+          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-X2AE9duvIpLtbrHNiGY9JbercF4oUx.png"
         },
         {
-          "nombre": "No me gusta",
-          "nombre_original": "Thumbs Down",
-          "slug": "thumbs-down",
-          "url": "https://www.thiings.co/things/thumbs-down",
-          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-7OPJHv7kuFsfeauTlQ6vu8LXmz2TGr.png"
+          "nombre": "Risa",
+          "nombre_original": "Face with Tears of Joy",
+          "slug": "emoji-1f602",
+          "url": "https://www.thiings.co/things/emoji-1f602",
+          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-EDax87hiHoG8tNU0sMHBUovgWk6Bk5.png"
         },
         {
-          "nombre": "Paz",
-          "nombre_original": "Peace Sign",
-          "slug": "peace-sign",
-          "url": "https://www.thiings.co/things/peace-sign",
-          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-lRgJJuKBMbyiBsLQAN6WI1eA1Bp31E.png"
+          "nombre": "Enamorado",
+          "nombre_original": "Smiling Face with Heart-Eyes",
+          "slug": "emoji-1f60d",
+          "url": "https://www.thiings.co/things/emoji-1f60d",
+          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-WUSq1Vh7Bx9ubs5TVkFSXBXXnh260s.png"
         },
         {
-          "nombre": "Señalar",
-          "nombre_original": "Finger Pointing",
-          "slug": "finger-pointing",
-          "url": "https://www.thiings.co/things/finger-pointing",
-          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-vP69o0PCbTzsJHrFg0THo1GTO87TmF.png"
+          "nombre": "Genial",
+          "nombre_original": "Smiling Face with Sunglasses",
+          "slug": "emoji-1f60e",
+          "url": "https://www.thiings.co/things/emoji-1f60e",
+          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-1kljwdetluZKSUl2LvZfA4NMSGKEOm.png"
         },
         {
-          "nombre": "Pellizco",
-          "nombre_original": "Pinching Fingers",
-          "slug": "pinching-fingers",
-          "url": "https://www.thiings.co/things/pinching-fingers",
-          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-UikyB7XDgofPY49O27inGswfaasa6a.png"
+          "nombre": "Llanto",
+          "nombre_original": "Loudly Crying Face",
+          "slug": "emoji-1f62d",
+          "url": "https://www.thiings.co/things/emoji-1f62d",
+          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-2MA9v6CMpcli8VEXCzVugc9JU9sd6H.png"
         },
         {
-          "nombre": "Meñique",
-          "nombre_original": "Pinky swear",
-          "slug": "pinky-swear",
-          "url": "https://www.thiings.co/things/pinky-swear",
-          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-SrtpSyNpF9ye6gXc8oN1UOgFUB3vaM.png"
+          "nombre": "Enojado",
+          "nombre_original": "Enraged Face",
+          "slug": "emoji-1f621",
+          "url": "https://www.thiings.co/things/emoji-1f621",
+          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-su3nmdyHzINmrRMGJenO5q0Rzq8qYX.png"
         },
         {
-          "nombre": "Rezar",
-          "nombre_original": "Pray",
-          "slug": "pray",
-          "url": "https://www.thiings.co/things/pray",
-          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-xu15Ju96A9KThcrTSwbycTWosTJEAe.png"
+          "nombre": "Asombro",
+          "nombre_original": "Face Screaming in Fear",
+          "slug": "emoji-1f631",
+          "url": "https://www.thiings.co/things/emoji-1f631",
+          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-kxcm81t0Y5aYShfGLKDC7xNDMazT9D.png"
+        },
+        {
+          "nombre": "Sueño",
+          "nombre_original": "Sleeping Face",
+          "slug": "emoji-1f634",
+          "url": "https://www.thiings.co/things/emoji-1f634",
+          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-eWOVlMCKsHoqV8QLFtmYoxg1G89qGy.png"
+        },
+        {
+          "nombre": "Pensativo",
+          "nombre_original": "Thinking Face",
+          "slug": "emoji-1f914",
+          "url": "https://www.thiings.co/things/emoji-1f914",
+          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-Hm4OR9P0iZ9TanKi1OqZ9FYOmh7lbv.png"
+        },
+        {
+          "nombre": "Fiesta",
+          "nombre_original": "Partying Face",
+          "slug": "emoji-1f973",
+          "url": "https://www.thiings.co/things/emoji-1f973",
+          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-FC0o4LaNpNaMva21spBxK4f3YGsoe7.png"
         },
         {
           "nombre": "Beso",
-          "nombre_original": "Chef's Kiss",
-          "slug": "chefs-kiss",
-          "url": "https://www.thiings.co/things/chefs-kiss",
-          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-FL7iM2YyMB6xnBOCxRXxGVRMx5aCsJ.png"
+          "nombre_original": "Face Blowing a Kiss",
+          "slug": "emoji-1f618",
+          "url": "https://www.thiings.co/things/emoji-1f618",
+          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-OLQ7HfwXXxrq1r8wgLXWBAmeGTiDPv.png"
         },
         {
-          "nombre": "Agobio",
-          "nombre_original": "Face Palm",
-          "slug": "face-palm",
-          "url": "https://www.thiings.co/things/face-palm",
-          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-Gsmnjz4sQEZ02ZzcBuxZBm31OJpIE9.png"
-        },
-        {
-          "nombre": "Saludo",
-          "nombre_original": "Welcome Hand",
-          "slug": "welcome-hand",
-          "url": "https://www.thiings.co/things/welcome-hand",
-          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-JxIiQAKgxWjAGiU5tqHO41VNfncUXa.png"
-        },
-        {
-          "nombre": "Tres",
-          "nombre_original": "Hand Showing 3 Fingers",
-          "slug": "hand-showing-3-fingers",
-          "url": "https://www.thiings.co/things/hand-showing-3-fingers",
-          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-w9fkxWO4kPE9LnUraulz8UiqkfSIjh.png"
-        },
-        {
-          "nombre": "Ven",
-          "nombre_original": "Come Here Hand Gesture",
-          "slug": "come-here-hand-gesture",
-          "url": "https://www.thiings.co/things/come-here-hand-gesture",
-          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-jGzqbrjT8mI9aXEmjmKNJwnZJv1QgS.png"
+          "nombre": "Guiño",
+          "nombre_original": "Winking Face",
+          "slug": "emoji-1f609",
+          "url": "https://www.thiings.co/things/emoji-1f609",
+          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-SL0jAAgMx42O3uja0P9aeefYaHC7kN.png"
         }
       ]
     },
@@ -8734,7 +8734,7 @@
           "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-3Z16WUJRChL1aGQIFDIKKb4jt32Rht.png"
         },
         {
-          "nombre": "Aerogenerador",
+          "nombre": "Molino",
           "nombre_original": "Wind Turbine",
           "slug": "wind-turbine",
           "url": "https://www.thiings.co/things/wind-turbine",
@@ -8797,11 +8797,11 @@
           "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-zGUMSBZbv5SRJf15VJtnemsKmt86kn.png"
         },
         {
-          "nombre": "Rayo",
-          "nombre_original": "Lightning Bolt",
-          "slug": "lightning-bolt",
-          "url": "https://www.thiings.co/things/lightning-bolt",
-          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-kEc3FuOo6TejgI0tivfA8qPm4YIWfV.png"
+          "nombre": "Represa",
+          "nombre_original": "Dam",
+          "slug": "dam",
+          "url": "https://www.thiings.co/things/dam",
+          "imagen": "https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-rIwTNwCSh4ZO404x0WKGgH2STwMOQZ.png"
         },
         {
           "nombre": "Extensión",
