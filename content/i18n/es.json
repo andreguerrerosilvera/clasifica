@@ -50,6 +50,12 @@
     "nothingToUndo": "No hay nada que deshacer",
     "magnetNeedsCategory": "El imán necesita una categoría con cartas disponibles",
     "categoryDone": "¡{name}<br>completo!",
-    "bonus": "¡+{n} movimientos y una casilla más!"
+    "bonus": "¡+{n} movimientos y una casilla más!",
+    "catalog": "📚 Ver categorías",
+    "catalogTitle": "Categorías",
+    "catalogSearch": "Busca una categoría u objeto",
+    "catalogEmpty": "No hay resultados para «{q}»",
+    "catalogCount": "{n} categorías · {m} objetos",
+    "back": "Volver"
   }
 }

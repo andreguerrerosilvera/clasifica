@@ -164,10 +164,12 @@ export function StuckModal({
 export function SettingsModal({
   onClose,
   onRestart,
+  onCatalog,
   onExit,
 }: {
   onClose: () => void;
   onRestart: () => void;
+  onCatalog: () => void;
   onExit: () => void;
 }) {
   return (
@@ -176,6 +178,7 @@ export function SettingsModal({
         <Panel title={t('settings')} tone="blue">
           <div className="flex flex-col gap-3">
             <OrangeButton onClick={onRestart}>{t('restart')}</OrangeButton>
+            <OrangeButton onClick={onCatalog}>{t('catalog')}</OrangeButton>
             <OrangeButton onClick={onExit}>{t('exit')}</OrangeButton>
           </div>
           <HowToPlay />

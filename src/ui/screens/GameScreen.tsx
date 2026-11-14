@@ -11,6 +11,7 @@ import { GameHeader } from '../components/GameHeader';
 import { Toast } from '../components/Toast';
 import { Tray } from '../components/Tray';
 import { OutOfMovesModal, SettingsModal, StuckModal, WinScreen } from '../modals/Modals';
+import { CatalogScreen } from './CatalogScreen';
 
 interface Props {
   level: LevelDef;
@@ -25,6 +26,7 @@ export function GameScreen({ level: levelDef, coins, spend, onWin, onNext, onExi
   const { bursts, burstFor } = useBursts();
   const game = useGame({ level: levelDef, spend, onWin, onCategoryComplete: burstFor });
   const [settings, setSettings] = useState(false);
+  const [catalog, setCatalog] = useState(false);
 
   const { state, level, diff, overlay } = game;
   const progressPct = Math.round((state.placedCount / state.totalItems) * 100);
@@ -99,8 +101,18 @@ export function GameScreen({ level: levelDef, coins, spend, onWin, onNext, onExi
           <WinScreen key="won" levelTitle={level.title} reward={game.reward} onNext={onNext} />
         )}
         {settings && (
-          <SettingsModal key="settings" onClose={() => setSettings(false)} onRestart={restart} onExit={onExit} />
+          <SettingsModal
+            key="settings"
+            onClose={() => setSettings(false)}
+            onRestart={restart}
+            onCatalog={() => {
+              setSettings(false);
+              setCatalog(true);
+            }}
+            onExit={onExit}
+          />
         )}
+        {catalog && <CatalogScreen key="catalog" onClose={() => setCatalog(false)} />}
       </AnimatePresence>
     </div>
   );

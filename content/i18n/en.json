@@ -50,6 +50,12 @@
     "nothingToUndo": "Nothing to undo",
     "magnetNeedsCategory": "The magnet needs a category with available cards",
     "categoryDone": "{name}<br>done!",
-    "bonus": "+{n} moves and an extra slot!"
+    "bonus": "+{n} moves and an extra slot!",
+    "catalog": "📚 Browse categories",
+    "catalogTitle": "Categories",
+    "catalogSearch": "Search a category or item",
+    "catalogEmpty": "No results for “{q}”",
+    "catalogCount": "{n} categories · {m} items",
+    "back": "Back"
   }
 }

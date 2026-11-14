@@ -92,3 +92,20 @@ export function sharedItemConflicts(catalog: Catalog): [string, string][] {
       if ([...sets[a]].some((slug) => sets[b].has(slug))) out.push([ids[a], ids[b]]);
   return out;
 }
+
+/** Una categoría del catálogo lista para mostrar: nombre e imagen de cada objeto en el idioma actual. */
+export interface CatalogEntry {
+  id: string;
+  name: string;
+  items: { id: string; name: string; image: string }[];
+}
+
+/** Todas las categorías del catálogo, en su orden original, con los textos del idioma actual. */
+export function catalogEntries(): CatalogEntry[] {
+  const texts = catalogTexts();
+  return Object.entries(CATALOG).map(([id, cat]) => ({
+    id,
+    name: texts.categories[id] ?? id,
+    items: cat.items.map((it) => ({ id: it.id, name: texts.items[itemKey(id, it.id)] ?? it.id, image: it.emoji })),
+  }));
+}

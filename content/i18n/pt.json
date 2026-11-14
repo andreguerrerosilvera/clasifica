@@ -50,6 +50,12 @@
     "nothingToUndo": "Não há nada para desfazer",
     "magnetNeedsCategory": "O ímã precisa de uma categoria com cartas disponíveis",
     "categoryDone": "{name}<br>completo!",
-    "bonus": "+{n} movimentos e um espaço extra!"
+    "bonus": "+{n} movimentos e um espaço extra!",
+    "catalog": "📚 Ver categorias",
+    "catalogTitle": "Categorias",
+    "catalogSearch": "Busque uma categoria ou objeto",
+    "catalogEmpty": "Nenhum resultado para “{q}”",
+    "catalogCount": "{n} categorias · {m} objetos",
+    "back": "Voltar"
   }
 }
