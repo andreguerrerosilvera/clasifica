@@ -56,6 +56,22 @@
     "catalogSearch": "Busque uma categoria ou objeto",
     "catalogEmpty": "Nenhum resultado para “{q}”",
     "catalogCount": "{n} categorias · {m} objetos",
-    "back": "Voltar"
+    "back": "Voltar",
+    "freeSlot": "grátis",
+    "freeSlotTitle": "Espaço grátis!",
+    "freeSlotText": "Assista a um anúncio curto e ganhe mais uma categoria e +{n} movimentos.",
+    "watchAd": "▶ Ver anúncio",
+    "notNow": "Agora não",
+    "adSkipped": "Assista ao anúncio inteiro para ganhar a recompensa",
+    "adUnavailable": "Não há anúncios disponíveis agora. Tente mais tarde",
+    "adTest": "ANÚNCIO DE TESTE",
+    "adTestText": "Aqui vai passar um anúncio",
+    "adRewardIn": "Recompensa em {n}",
+    "adClose": "✕ Fechar",
+    "adRewardReady": "Recompensa pronta! Feche o anúncio",
+    "buySlotTitle": "Espaço extra!",
+    "buySlotText": "Desbloqueie mais uma categoria e +{n} movimentos.",
+    "buy": "Comprar",
+    "adLabel": "Publicidade"
   }
 }

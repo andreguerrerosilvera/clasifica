@@ -20,16 +20,26 @@ Las dependencias van siempre hacia abajo: `ui → hooks → logic → data → m
   - `generator.ts` estado inicial desde el tablero · `layout.ts` arma un tablero resoluble · `levelGen.ts` genera niveles nuevos
   - `solver.ts` solver · `rng.ts` aleatorio con semilla · `save.ts` persistencia
 - `src/hooks/`   – estado de React: `useGame` (partida), `useSave` (progreso), `useBursts` (efectos)
+- `src/platform/` – servicios del dispositivo: `ads.ts` (anuncios recompensados)
 - `src/ui/`      – presentación: `screens/` (inicio y partida), `components/` (tablero, columnas, bandeja…), `modals/`
 
 ## Reglas
 - Arrastra y suelta cada carta sobre su categoría (los clics sobre las cartas no hacen nada; cada colocación gasta 1 movimiento).
-- La columna central tiene 3 categorías reveladas y la casilla GRATIS (desactivada en el piloto con `FREE_SLOT_ENABLED` en `src/logic/rules.ts`); al completar una, las de encima bajan y la siguiente entra arriba.
+- La columna central tiene 3 categorías reveladas y la casilla extra (+1 categoría y +5 movimientos). Por ahora se compra por 300 monedas; con `FREE_SLOT_PAYMENT = 'ad'` en `src/logic/rules.ts` se gana viendo un anuncio recompensado entero, y con `FREE_SLOT_ENABLED = false` desaparece. Los niveles se generan y verifican sin contar con ella. Al completar una categoría, las de encima bajan y la siguiente entra arriba.
 - Si su categoría aún no está revelada, la carta va a la bandeja (3 casillas abiertas, 2 bloqueadas por monedas).
 - Las columnas caen al liberar huecos; las rayas sobre cada columna indican cartas pendientes.
 - Las cartas "?" se revelan al retirar una carta vecina.
+- Potenciadores (pista, deshacer, imán): ocultos por ahora con `BOOSTERS_ENABLED` en `src/logic/rules.ts`.
 - Tablero vacío → nivel superado.
 - Sin movimientos → "Seguir (+10)" o "Reintentar". Bandeja llena sin jugadas → "Sin jugadas".
+
+## Anuncios
+Decisión completa, ubicaciones y pasos de AdSense en [`docs/anuncios.md`](docs/anuncios.md). Banners: inicio y nivel completado (320×100) y laterales en pantallas ≥ 1024 px (160×600), con `AdBanner`; se configuran en `.env.local` (ver `.env.example`).
+
+Con `FREE_SLOT_PAYMENT = 'ad'`, la casilla extra usa `showRewardedAd` de `src/platform/ads.ts`:
+- Sin configurar nada se muestra un **anuncio simulado** de 5 s (para el piloto y desarrollo).
+- Con `VITE_ADSENSE_CLIENT=ca-pub-…` en `.env.local` usa la [Ad Placement API de Google para juegos HTML5](https://developers.google.com/ad-placement) (`adBreak` de tipo `reward`). Con `VITE_ADS_TEST=on` Google sirve anuncios de prueba.
+- La recompensa solo se da si el anuncio se ve entero; si se cierra antes o no hay inventario, la casilla sigue disponible.
 
 ## Contenido (`content/`)
 No hay niveles fijos: los niveles son infinitos. Cada uno se genera en el momento en que el jugador lo va a jugar (combinando categorías del catálogo y comprobando con el solver que tenga solución) y se guarda tal cual hasta que lo supera: si sale y vuelve, o reintenta, es el mismo tablero. Se llaman "Nivel N".

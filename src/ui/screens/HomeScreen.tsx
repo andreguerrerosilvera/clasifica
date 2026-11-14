@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { useMemo } from 'react';
 import { type Lang, t } from '../../data/i18n';
+import { AdBanner } from '../components/AdBanner';
 import { LanguagePicker } from '../components/LanguagePicker';
 import { Logo } from '../modals/Modals';
 
@@ -78,6 +79,8 @@ export function HomeScreen({ nextLevelId, lang, onLangChange, onPlay }: Props) {
             <LanguagePicker lang={lang} onChange={onLangChange} />
           </div>
         </div>
+        {/* Publicidad abajo del todo, lejos de JUGAR y del idioma. */}
+        <AdBanner placement="home" className="relative mt-auto" />
       </div>
     </div>
   );

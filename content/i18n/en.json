@@ -56,6 +56,22 @@
     "catalogSearch": "Search a category or item",
     "catalogEmpty": "No results for “{q}”",
     "catalogCount": "{n} categories · {m} items",
-    "back": "Back"
+    "back": "Back",
+    "freeSlot": "free",
+    "freeSlotTitle": "Free slot!",
+    "freeSlotText": "Watch a short ad to get one more category and +{n} moves.",
+    "watchAd": "▶ Watch ad",
+    "notNow": "Not now",
+    "adSkipped": "Watch the whole ad to get the reward",
+    "adUnavailable": "No ads available right now. Try again later",
+    "adTest": "TEST AD",
+    "adTestText": "An ad will play here",
+    "adRewardIn": "Reward in {n}",
+    "adClose": "✕ Close",
+    "adRewardReady": "Reward ready! Close the ad",
+    "buySlotTitle": "Extra slot!",
+    "buySlotText": "Unlock one more category and +{n} moves.",
+    "buy": "Buy",
+    "adLabel": "Advertisement"
   }
 }

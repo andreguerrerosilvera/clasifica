@@ -2,6 +2,7 @@ import confetti from 'canvas-confetti';
 import { motion } from 'framer-motion';
 import { useEffect, useRef, useState, type ReactNode } from 'react';
 import { t } from '../../data/i18n';
+import { AdBanner } from '../components/AdBanner';
 import { Coin, LockIcon } from '../components/Icons';
 
 function Backdrop({ children, peek = false }: { children: ReactNode; peek?: boolean }) {
@@ -161,6 +162,49 @@ export function StuckModal({
   );
 }
 
+/**
+ * Oferta de la casilla extra: con `price` se compra con monedas; sin él, viendo un anuncio recompensado.
+ */
+export function FreeSlotModal({
+  moves,
+  price,
+  canAfford = true,
+  onAccept,
+  onClose,
+}: {
+  moves: number;
+  price?: number;
+  canAfford?: boolean;
+  onAccept: () => void;
+  onClose: () => void;
+}) {
+  const buy = price !== undefined;
+  return (
+    <Backdrop>
+      <div className="w-full max-w-[340px]">
+        <Panel title={t(buy ? 'buySlotTitle' : 'freeSlotTitle')} tone="blue">
+          <div className="mb-3 text-[48px] leading-none">🎁</div>
+          <p className="mb-5 font-black text-[#5c4520]">{t(buy ? 'buySlotText' : 'freeSlotText', { n: moves })}</p>
+          {buy ? (
+            <OrangeButton onClick={onAccept} disabled={!canAfford}>
+              {t('buy')}{' '}
+              <span className="flex items-center gap-1 text-base opacity-90">
+                <Coin />
+                {price}
+              </span>
+            </OrangeButton>
+          ) : (
+            <OrangeButton onClick={onAccept}>{t('watchAd')}</OrangeButton>
+          )}
+          <button onClick={onClose} className="mt-5 font-display text-lg text-[#5c4520] underline underline-offset-4">
+            {t('notNow')}
+          </button>
+        </Panel>
+      </div>
+    </Backdrop>
+  );
+}
+
 export function SettingsModal({
   onClose,
   onRestart,
@@ -280,6 +324,8 @@ export function WinScreen({ levelTitle, reward, onNext }: { levelTitle: string; 
       >
         <OrangeButton onClick={onNext}>{t('next')}</OrangeButton>
       </motion.div>
+      {/* Publicidad abajo, bien separada de SIGUIENTE para evitar toques accidentales. */}
+      <AdBanner placement="win" className="absolute bottom-6 left-1/2 -translate-x-1/2" />
     </motion.div>
   );
 }

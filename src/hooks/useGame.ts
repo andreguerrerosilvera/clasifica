@@ -13,9 +13,10 @@ import {
 } from '../logic/board';
 import { createLevel } from '../logic/generator';
 import { findHint, magnet } from '../logic/hints';
-import { BONUS_MOVES, COST, FREE_SLOT_ENABLED, HISTORY_LIMIT, PLAY_ON_MOVES, ROWS, TRAY_SIZE, WIN_REWARD } from '../logic/rules';
+import { BONUS_MOVES, COST, FREE_SLOT_ENABLED, FREE_SLOT_PAYMENT, HISTORY_LIMIT, PLAY_ON_MOVES, ROWS, TRAY_SIZE, WIN_REWARD } from '../logic/rules';
 import type { Card, DropTarget, GameState, Hint, LevelDef } from '../models/types';
 import { t } from '../data/i18n';
+import { showRewardedAd } from '../platform/ads';
 
 export type Overlay = null | 'won' | 'lost' | 'stuck';
 
@@ -41,6 +42,7 @@ export function useGame({ level, spend, onWin, onCategoryComplete }: Options) {
   const [hint, setHint] = useState<Hint>(null);
   const [overlay, setOverlay] = useState<Overlay>(null);
   const [reward, setReward] = useState(0);
+  const [adPlaying, setAdPlaying] = useState(false);
   const toastTimer = useRef<number>(0);
 
   // Nueva partida al cambiar de nivel/dificultad o reiniciar
@@ -87,7 +89,7 @@ export function useGame({ level, spend, onWin, onCategoryComplete }: Options) {
     setHint(null);
   };
 
-  const locked = state.status !== 'playing' || dealing;
+  const locked = state.status !== 'playing' || dealing || adPlaying;
 
   const place = (id: string) => {
     const r = placeItem(state, id);
@@ -155,9 +157,21 @@ export function useGame({ level, spend, onWin, onCategoryComplete }: Options) {
     setState(unlockTraySlot(state));
   };
 
-  const claimBonus = () => {
+  /** Casilla extra: se compra con monedas o se gana viendo un anuncio recompensado entero. */
+  const claimBonus = async () => {
     if (!FREE_SLOT_ENABLED || locked || state.bonusUnlocked) return;
-    commit(unlockBonus(state));
+    if (FREE_SLOT_PAYMENT === 'coins') {
+      if (!spend(COST.bonusSlot)) return say(t('notEnoughCoins'));
+    } else {
+      setAdPlaying(true);
+      const result = await showRewardedAd('free-slot');
+      setAdPlaying(false);
+      if (result !== 'rewarded') return say(t(result === 'skipped' ? 'adSkipped' : 'adUnavailable'));
+    }
+    // Lo ganado no se pierde al deshacer: también se aplica a los estados del historial.
+    setHistory((h) => h.map((s) => (s.bonusUnlocked ? s : unlockBonus(s))));
+    setState((s) => (s.bonusUnlocked ? s : unlockBonus(s)));
+    setHint(null);
     say(t('bonus', { n: BONUS_MOVES }));
   };
 
@@ -189,6 +203,7 @@ export function useGame({ level, spend, onWin, onCategoryComplete }: Options) {
     reward,
     dealing,
     locked,
+    adPlaying,
     dealIndex,
     isHighlighted,
     dropCard,
