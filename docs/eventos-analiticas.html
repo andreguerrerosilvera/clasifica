@@ -1,0 +1,304 @@
+<title>Eventos de Clasifica</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Nunito:wght@600;700;800;900&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+/* Layout: una columna de lectura; cada evento es una ficha con nombre, cuándo, qué envía y por qué. Colores del propio juego. */
+:root {
+  --bg: #f6efe0;
+  --panel: #fffaf0;
+  --ink: #3f2f14;
+  --muted: #7a6440;
+  --line: #e6d7b5;
+  --accent: #e62e1f;
+  --accent-soft: #ffe2d6;
+  --chip: #f3e6c6;
+  --code: #8a3410;
+  --display: "Lilita One", "Nunito", system-ui, sans-serif;
+  --body: "Nunito", system-ui, sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #1c1610; --panel: #272017; --ink: #f4e8cf; --muted: #bba57d; --line: #3d3324;
+    --accent: #ff6a4d; --accent-soft: #3d2017; --chip: #342a1d; --code: #ffb38a; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #1c1610; --panel: #272017; --ink: #f4e8cf; --muted: #bba57d; --line: #3d3324;
+  --accent: #ff6a4d; --accent-soft: #3d2017; --chip: #342a1d; --code: #ffb38a; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--ink); font-family: var(--body); font-weight: 600;
+  font-size: 15px; line-height: 1.55;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 40px 64px;
+}
+main { max-width: 860px; margin: 0 auto; display: flex; flex-direction: column; gap: 40px; }
+h1, h2 { font-family: var(--display); font-weight: 400; text-wrap: balance; margin: 0; letter-spacing: .01em; }
+h1 { font-size: clamp(32px, 6vw, 46px); line-height: 1.05; }
+h2 { font-size: 24px; }
+p { margin: 0; max-width: 65ch; }
+code { font-family: var(--mono); font-size: .86em; color: var(--code); }
+.lede { display: flex; flex-direction: column; gap: 14px; }
+.lede p { color: var(--muted); font-size: 16px; }
+.rules { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
+.rule { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.rule b { font-weight: 900; }
+.rule span { color: var(--muted); font-size: 14px; }
+section { display: flex; flex-direction: column; gap: 14px; }
+.section-head { display: flex; flex-direction: column; gap: 4px; }
+.section-head p { color: var(--muted); }
+.events { display: flex; flex-direction: column; gap: 12px; }
+.event { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 18px 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 14px 24px; }
+.event header { grid-column: 1 / -1; display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 12px; }
+.event h3 { margin: 0; font-family: var(--mono); font-size: 17px; font-weight: 500; color: var(--accent); overflow-wrap: anywhere; }
+.when { color: var(--muted); font-size: 14px; }
+.block { display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.label { font-size: 11px; font-weight: 900; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); }
+.props { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 5px; }
+.props li { display: flex; flex-wrap: wrap; gap: 2px 8px; font-size: 14px; }
+.props code { background: var(--chip); border-radius: 5px; padding: 1px 6px; }
+.why { background: var(--accent-soft); border-radius: 10px; padding: 12px 14px; font-size: 14.5px; }
+.why p { max-width: none; }
+table { width: 100%; border-collapse: collapse; font-size: 14px; background: var(--panel); border-radius: 12px; overflow: hidden; }
+.table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 12px; }
+th, td { text-align: left; padding: 10px 14px; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { font-size: 11px; font-weight: 900; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); }
+tr:last-child td { border-bottom: 0; }
+@media (max-width: 640px) {
+  .event { grid-template-columns: 1fr; padding: 16px; }
+}
+</style>
+
+<main>
+  <div class="lede">
+    <h1>Eventos de Clasifica</h1>
+    <p>Lo que mide PostHog en el juego: el nombre de cada evento, cuándo se envía, qué datos lleva y para qué nos sirve. Solo se envía desde <code>clasifica.andregames.co</code>; en local y en las previews de Netlify no sale nada.</p>
+  </div>
+
+  <div class="rules">
+    <div class="rule"><b>Sin autocapture</b><span>El juego es todo arrastres; solo se mandan los eventos de esta lista.</span></div>
+    <div class="rule"><b>Jugadores anónimos</b><span>No pedimos ni enviamos nombre, correo ni ningún dato personal.</span></div>
+    <div class="rule"><b>Sin grabar sesiones</b><span>Solo visitas de página (<code>$pageview</code>, <code>$pageleave</code>) y estos eventos.</span></div>
+  </div>
+
+  <section>
+    <div class="section-head">
+      <h2>Datos que van en todos los eventos</h2>
+      <p>Se adjuntan solos a cada evento para poder segmentar.</p>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Propiedad</th><th>Qué es</th><th>Para qué</th></tr></thead>
+        <tbody>
+          <tr><td><code>lang</code></td><td>Idioma elegido: <code>es</code>, <code>en</code> o <code>pt</code></td><td>Ver si el juego funciona igual en los tres idiomas y cuál traer primero al contenido nuevo.</td></tr>
+          <tr><td><code>levels_completed</code></td><td>Niveles superados hasta ahora</td><td>Separar jugadores nuevos de veteranos.</td></tr>
+          <tr><td><code>coins</code></td><td>Monedas que tiene el jugador</td><td>Saber si la economía se queda corta o sobra.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <h2>Partida</h2>
+      <p>El recorrido de un nivel: empezar, ganar, perder, reintentar o salir.</p>
+    </div>
+    <div class="events">
+
+      <article class="event">
+        <header><h3>level_started</h3><span class="when">Al empezar un nivel o un reintento</span></header>
+        <div class="block">
+          <span class="label">Qué envía</span>
+          <ul class="props">
+            <li><code>level</code> número de nivel</li>
+            <li><code>difficulty</code> easy, normal o hard</li>
+            <li><code>attempt</code> intento (1 = primero)</li>
+            <li><code>moves</code> movimientos disponibles</li>
+            <li><code>categories</code> categorías del nivel</li>
+            <li><code>total_items</code> cartas a clasificar</li>
+            <li><code>hidden_cards</code> cartas boca abajo</li>
+          </ul>
+        </div>
+        <div class="block"><span class="label">Por qué</span><div class="why"><p>Es la puerta de entrada de todos los embudos: cuánta gente juega cada nivel y cuántas veces lo intenta. Con <code>hidden_cards</code> y <code>moves</code> comparamos la dificultad que generamos con la que la gente siente.</p></div></div>
+      </article>
+
+      <article class="event">
+        <header><h3>level_won</h3><span class="when">Al completar el nivel</span></header>
+        <div class="block">
+          <span class="label">Qué envía</span>
+          <ul class="props">
+            <li>Métricas del intento (ver abajo)</li>
+            <li><code>reward</code> monedas ganadas</li>
+          </ul>
+        </div>
+        <div class="block"><span class="label">Por qué</span><div class="why"><p>Nos dice hasta dónde llega la gente y cuánto les cuesta cada nivel. Si un nivel se gana con muchos intentos o casi sin movimientos sobrantes, está demasiado difícil.</p></div></div>
+      </article>
+
+      <article class="event">
+        <header><h3>level_failed</h3><span class="when">Cuando se acaban los movimientos o no quedan jugadas</span></header>
+        <div class="block">
+          <span class="label">Qué envía</span>
+          <ul class="props">
+            <li>Métricas del intento</li>
+            <li><code>reason</code> <code>out_of_moves</code> o <code>stuck</code></li>
+          </ul>
+        </div>
+        <div class="block"><span class="label">Por qué</span><div class="why"><p>Muestra en qué niveles se pierde y de qué forma. Muchos <code>stuck</code> apuntan a que la bandeja es pequeña; muchos <code>out_of_moves</code>, a que faltan movimientos.</p></div></div>
+      </article>
+
+      <article class="event">
+        <header><h3>level_restarted</h3><span class="when">Al pulsar Reintentar</span></header>
+        <div class="block">
+          <span class="label">Qué envía</span>
+          <ul class="props">
+            <li>Métricas del intento</li>
+            <li><code>source</code> <code>settings</code>, <code>out_of_moves</code> o <code>stuck</code></li>
+          </ul>
+        </div>
+        <div class="block"><span class="label">Por qué</span><div class="why"><p>Diferencia a quien reinicia por gusto (desde ajustes) de quien lo hace tras perder. Si reinician desde ajustes con poco progreso, el arranque del nivel no convence.</p></div></div>
+      </article>
+
+      <article class="event">
+        <header><h3>level_abandoned</h3><span class="when">Al salir al inicio sin terminar el nivel</span></header>
+        <div class="block">
+          <span class="label">Qué envía</span>
+          <ul class="props"><li>Métricas del intento</li></ul>
+        </div>
+        <div class="block"><span class="label">Por qué</span><div class="why"><p>Es la señal más clara de frustración o aburrimiento. Con <code>progress_pct</code> vemos si se van al principio o justo antes de terminar.</p></div></div>
+      </article>
+
+      <article class="event">
+        <header><h3>category_completed</h3><span class="when">Cada vez que se llena una categoría</span></header>
+        <div class="block">
+          <span class="label">Qué envía</span>
+          <ul class="props">
+            <li><code>level</code>, <code>difficulty</code></li>
+            <li><code>category</code> id de la categoría</li>
+            <li><code>order</code> 1.ª, 2.ª, 3.ª… del intento</li>
+            <li><code>by_magnet</code> si la completó el imán</li>
+          </ul>
+        </div>
+        <div class="block"><span class="label">Por qué</span><div class="why"><p>Mide el avance dentro del nivel y qué categorías se resuelven antes o se atascan. Sirve para revisar el catálogo: una categoría que nunca se completa primero puede ser confusa.</p></div></div>
+      </article>
+
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <h2>Monedas y ayudas</h2>
+      <p>En qué se gastan las monedas y dónde faltan.</p>
+    </div>
+    <div class="events">
+
+      <article class="event">
+        <header><h3>booster_used</h3><span class="when">Al pagar una ayuda</span></header>
+        <div class="block">
+          <span class="label">Qué envía</span>
+          <ul class="props">
+            <li><code>level</code>, <code>difficulty</code></li>
+            <li><code>booster</code> <code>hint</code>, <code>undo</code>, <code>magnet</code>, <code>tray_slot</code>, <code>bonus_slot</code> o <code>play_on</code></li>
+            <li><code>cost</code> monedas pagadas</li>
+            <li><code>via</code> <code>coins</code> o <code>ad</code></li>
+          </ul>
+        </div>
+        <div class="block"><span class="label">Por qué</span><div class="why"><p>Dice qué ayudas valen la pena para el jugador y en qué niveles se necesitan. Es la base para ajustar precios y decidir qué ayudas cambiar por anuncios recompensados.</p></div></div>
+      </article>
+
+      <article class="event">
+        <header><h3>not_enough_coins</h3><span class="when">Al intentar pagar una ayuda sin monedas suficientes</span></header>
+        <div class="block">
+          <span class="label">Qué envía</span>
+          <ul class="props">
+            <li><code>level</code>, <code>difficulty</code></li>
+            <li><code>booster</code> la ayuda que quería</li>
+            <li><code>cost</code> lo que costaba</li>
+            <li><code>coins</code> lo que tenía</li>
+          </ul>
+        </div>
+        <div class="block"><span class="label">Por qué</span><div class="why"><p>Es demanda que no pudimos atender. Cada vez que salta es un buen sitio para ofrecer un anuncio recompensado, o una señal de que la ayuda es demasiado cara.</p></div></div>
+      </article>
+
+      <article class="event">
+        <header><h3>free_slot_offer</h3><span class="when">Al abrir, aceptar o cerrar la oferta de la casilla extra</span></header>
+        <div class="block">
+          <span class="label">Qué envía</span>
+          <ul class="props">
+            <li><code>level</code>, <code>difficulty</code></li>
+            <li><code>action</code> <code>shown</code>, <code>accepted</code> o <code>dismissed</code></li>
+          </ul>
+        </div>
+        <div class="block"><span class="label">Por qué</span><div class="why"><p>Mide si la oferta convence: qué parte de quienes la ven la acepta. Con <code>level_won</code> detrás, también si de verdad ayuda a ganar.</p></div></div>
+      </article>
+
+      <article class="event">
+        <header><h3>rewarded_ad</h3><span class="when">Al terminar un anuncio recompensado (aún desactivados)</span></header>
+        <div class="block">
+          <span class="label">Qué envía</span>
+          <ul class="props">
+            <li><code>placement</code> dónde se mostró</li>
+            <li><code>result</code> <code>rewarded</code>, <code>skipped</code> o <code>unavailable</code></li>
+          </ul>
+        </div>
+        <div class="block"><span class="label">Por qué</span><div class="why"><p>Cuando activemos anuncios recompensados, nos dirá cuántos se ven enteros, cuántos se saltan y cuántas veces no hay anuncio que mostrar.</p></div></div>
+      </article>
+
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <h2>Navegación</h2>
+    </div>
+    <div class="events">
+
+      <article class="event">
+        <header><h3>catalog_opened</h3><span class="when">Al abrir el catálogo de categorías</span></header>
+        <div class="block">
+          <span class="label">Qué envía</span>
+          <ul class="props"><li><code>from</code> desde dónde se abrió (<code>settings</code>)</li></ul>
+        </div>
+        <div class="block"><span class="label">Por qué</span><div class="why"><p>Saber si a alguien le interesa el catálogo, para decidir si merece un acceso más visible o si lo quitamos.</p></div></div>
+      </article>
+
+      <article class="event">
+        <header><h3>language_changed</h3><span class="when">Al cambiar el idioma en el inicio</span></header>
+        <div class="block">
+          <span class="label">Qué envía</span>
+          <ul class="props">
+            <li><code>from</code> idioma anterior</li>
+            <li><code>to</code> idioma nuevo</li>
+          </ul>
+        </div>
+        <div class="block"><span class="label">Por qué</span><div class="why"><p>Si mucha gente cambia de idioma al entrar, el idioma que detectamos por defecto está fallando.</p></div></div>
+      </article>
+
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <h2>Métricas del intento</h2>
+      <p>Van en <code>level_won</code>, <code>level_failed</code>, <code>level_restarted</code> y <code>level_abandoned</code>, para comparar los cuatro finales posibles de una partida con los mismos datos.</p>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Propiedad</th><th>Qué es</th></tr></thead>
+        <tbody>
+          <tr><td><code>level</code>, <code>difficulty</code></td><td>Nivel y su dificultad</td></tr>
+          <tr><td><code>attempt</code></td><td>Número de intento en esta visita al nivel</td></tr>
+          <tr><td><code>moves_left</code> / <code>moves_used</code></td><td>Movimientos que quedaban y que se gastaron</td></tr>
+          <tr><td><code>placed</code> / <code>total_items</code></td><td>Cartas clasificadas y total del nivel</td></tr>
+          <tr><td><code>progress_pct</code></td><td>Porcentaje del nivel completado</td></tr>
+          <tr><td><code>duration_s</code></td><td>Segundos desde que empezó el intento</td></tr>
+          <tr><td><code>mistakes</code></td><td>Cartas soltadas en la categoría equivocada; mide si el juego se entiende</td></tr>
+          <tr><td><code>boosters_used</code></td><td>Ayudas pagadas en el intento</td></tr>
+          <tr><td><code>bonus_unlocked</code></td><td>Si se desbloqueó la casilla extra</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+</main>
