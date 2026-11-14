@@ -17,6 +17,7 @@ Código: `src/platform/analytics.ts` (catálogo tipado de eventos y envío) y la
 | `lang` | Idioma elegido (`es`, `en`, `pt`) |
 | `levels_completed` | Niveles superados hasta ahora |
 | `coins` | Monedas actuales |
+| `display_mode` | `standalone` si se juega desde la app instalada, `browser` si desde el navegador |
 
 ## Eventos
 
@@ -34,6 +35,8 @@ Código: `src/platform/analytics.ts` (catálogo tipado de eventos y envío) y la
 | `rewarded_ad` | Termina un anuncio recompensado (cuando se activen) | `placement`, `result` |
 | `catalog_opened` | Se abre el catálogo de categorías | `from` |
 | `language_changed` | Se cambia el idioma en el inicio | `from`, `to` |
+| `install_prompt` | Oferta de instalar la app en el inicio (desde 2 niveles superados) | `action` (`shown` / `accepted` / `dismissed` / `ios_guide`), `platform` (`android` / `ios`) |
+| `app_installed` | Se instala la app (en iPhone: primera vez que se abre desde la pantalla de inicio) | `platform` |
 
 **Métricas del intento** (en `level_won`, `level_failed`, `level_restarted` y `level_abandoned`): `level`, `difficulty`, `attempt`, `moves_left`, `moves_used`, `placed`, `total_items`, `progress_pct`, `duration_s`, `mistakes` (cartas soltadas en la categoría equivocada), `boosters_used`, `bonus_unlocked`.
 

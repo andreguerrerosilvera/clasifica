@@ -71,6 +71,13 @@
     "buySlotTitle": "¡Casilla extra!",
     "buySlotText": "Desbloquea una categoría más y +{n} movimientos.",
     "buy": "Comprar",
-    "adLabel": "Publicidad"
+    "adLabel": "Publicidad",
+    "install": "📲 Instalar Clasifica",
+    "installHint": "Juega sin conexión desde tu pantalla de inicio",
+    "installIosTitle": "Instalar Clasifica",
+    "installIos1": "Toca <b>Compartir</b> en la barra de Safari.",
+    "installIos2": "Elige <b>Añadir a pantalla de inicio</b>.",
+    "installIos3": "Abre Clasifica desde su icono.",
+    "gotIt": "Entendido"
   }
 }

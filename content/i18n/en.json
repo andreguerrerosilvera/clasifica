@@ -71,6 +71,13 @@
     "buySlotTitle": "Extra slot!",
     "buySlotText": "Unlock one more category and +{n} moves.",
     "buy": "Buy",
-    "adLabel": "Advertisement"
+    "adLabel": "Advertisement",
+    "install": "📲 Install Clasifica",
+    "installHint": "Play offline from your home screen",
+    "installIosTitle": "Install Clasifica",
+    "installIos1": "Tap <b>Share</b> in Safari's toolbar.",
+    "installIos2": "Choose <b>Add to Home Screen</b>.",
+    "installIos3": "Open Clasifica from its icon.",
+    "gotIt": "Got it"
   }
 }

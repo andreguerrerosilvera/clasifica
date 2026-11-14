@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { setContext, track } from './platform/analytics';
+import { isStandalone } from './platform/install';
 import { type Lang, getLang, setLang } from './data/i18n';
 import { nextLevelId } from './data/levels';
 import { useSave } from './hooks/useSave';
@@ -16,7 +17,12 @@ export default function App() {
 
   // Contexto que acompaña a todos los eventos de analíticas
   useEffect(() => {
-    setContext({ lang, levels_completed: save.completed.length, coins: save.coins });
+    setContext({
+      lang,
+      levels_completed: save.completed.length,
+      coins: save.coins,
+      display_mode: isStandalone() ? 'standalone' : 'browser',
+    });
   }, [lang, save.completed.length, save.coins]);
 
   /** El idioma solo se elige en el inicio: el nivel se traduce al empezar a jugarlo. */
@@ -43,5 +49,8 @@ export default function App() {
     );
   }
 
-  return <HomeScreen nextLevelId={nextLevelId(save.completed)} lang={lang} onLangChange={changeLang} onPlay={playNext} />;
+  return <HomeScreen
+      nextLevelId={nextLevelId(save.completed)}
+      levelsCompleted={save.completed.length}
+      lang={lang} onLangChange={changeLang} onPlay={playNext} />;
 }

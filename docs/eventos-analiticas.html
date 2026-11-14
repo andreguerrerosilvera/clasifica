@@ -96,6 +96,7 @@ tr:last-child td { border-bottom: 0; }
           <tr><td><code>lang</code></td><td>Idioma elegido: <code>es</code>, <code>en</code> o <code>pt</code></td><td>Ver si el juego funciona igual en los tres idiomas y cuál traer primero al contenido nuevo.</td></tr>
           <tr><td><code>levels_completed</code></td><td>Niveles superados hasta ahora</td><td>Separar jugadores nuevos de veteranos.</td></tr>
           <tr><td><code>coins</code></td><td>Monedas que tiene el jugador</td><td>Saber si la economía se queda corta o sobra.</td></tr>
+          <tr><td><code>display_mode</code></td><td><code>standalone</code> (app instalada) o <code>browser</code></td><td>Comparar si quien instala la app vuelve más y juega más niveles.</td></tr>
         </tbody>
       </table>
     </div>
@@ -274,6 +275,27 @@ tr:last-child td { border-bottom: 0; }
           </ul>
         </div>
         <div class="block"><span class="label">Por qué</span><div class="why"><p>Si mucha gente cambia de idioma al entrar, el idioma que detectamos por defecto está fallando.</p></div></div>
+      </article>
+
+      <article class="event">
+        <header><h3>install_prompt</h3><span class="when">Al mostrar, aceptar o cerrar la oferta de instalar la app (desde 2 niveles superados)</span></header>
+        <div class="block">
+          <span class="label">Qué envía</span>
+          <ul class="props">
+            <li><code>action</code> <code>shown</code>, <code>accepted</code>, <code>dismissed</code> o <code>ios_guide</code></li>
+            <li><code>platform</code> <code>android</code> o <code>ios</code></li>
+          </ul>
+        </div>
+        <div class="block"><span class="label">Por qué</span><div class="why"><p>Mide si el botón de instalar convence y en qué plataforma. En iPhone solo podemos mostrar la guía, así que <code>ios_guide</code> es lo más cerca que llegamos a saber si lo intentan.</p></div></div>
+      </article>
+
+      <article class="event">
+        <header><h3>app_installed</h3><span class="when">Al instalar la app (en iPhone, la primera vez que se abre desde la pantalla de inicio)</span></header>
+        <div class="block">
+          <span class="label">Qué envía</span>
+          <ul class="props"><li><code>platform</code> <code>android</code> o <code>ios</code></li></ul>
+        </div>
+        <div class="block"><span class="label">Por qué</span><div class="why"><p>Cuenta las instalaciones reales. Junto con <code>display_mode</code> nos dice si instalar hace que la gente vuelva al juego, que es el motivo de tener la app.</p></div></div>
       </article>
 
     </div>

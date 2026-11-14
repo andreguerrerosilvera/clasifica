@@ -1,12 +1,15 @@
-import { motion } from 'framer-motion';
-import { useMemo } from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
+import { useEffect, useMemo, useState } from 'react';
 import { type Lang, t } from '../../data/i18n';
 import { AdBanner } from '../components/AdBanner';
 import { LanguagePicker } from '../components/LanguagePicker';
-import { Logo } from '../modals/Modals';
+import { IosInstallModal, Logo } from '../modals/Modals';
+import { track } from '../../platform/analytics';
+import { INSTALL_AFTER_LEVELS, useInstall } from '../../platform/install';
 
 interface Props {
   nextLevelId: number;
+  levelsCompleted: number;
   lang: Lang;
   onLangChange: (lang: Lang) => void;
   onPlay: () => void;
@@ -37,8 +40,20 @@ function makeFloaters() {
   });
 }
 
-export function HomeScreen({ nextLevelId, lang, onLangChange, onPlay }: Props) {
+export function HomeScreen({ nextLevelId, levelsCompleted, lang, onLangChange, onPlay }: Props) {
   const floaters = useMemo(() => makeFloaters(), []);
+  const { platform, install, dismiss } = useInstall();
+  const [iosGuide, setIosGuide] = useState(false);
+  // Se ofrece instalar solo a quien ya jugó un poco: es cuando más sentido tiene volver.
+  const offerInstall = !!platform && levelsCompleted >= INSTALL_AFTER_LEVELS;
+
+  useEffect(() => {
+    if (offerInstall && platform) track('install_prompt', { action: 'shown', platform });
+  }, [offerInstall, platform]);
+
+  const onInstall = async () => {
+    if ((await install()) === 'ios') setIosGuide(true);
+  };
 
   return (
     <div className="relative h-full w-full overflow-hidden bg-gradient-to-b from-[#c9a2ff] via-[#9d6af0] to-[#6a35c4]">
@@ -77,11 +92,32 @@ export function HomeScreen({ nextLevelId, lang, onLangChange, onPlay }: Props) {
               {t('playLevel', { n: nextLevelId })}
             </button>
             <LanguagePicker lang={lang} onChange={onLangChange} />
+            {offerInstall && (
+              <div className="pointer-events-auto flex flex-col items-center gap-1">
+                <div className="flex w-full items-stretch gap-2">
+                  <button
+                    onClick={onInstall}
+                    className="flex-1 rounded-full border-b-4 border-[#0f7f73] bg-gradient-to-b from-[#5ff0dd] to-[#21c2ae] px-5 py-2 font-display text-lg text-white shadow-lg [text-shadow:0_1px_0_rgba(0,0,0,.2)] active:translate-y-0.5 active:border-b-2"
+                  >
+                    {t('install')}
+                  </button>
+                  <button
+                    onClick={dismiss}
+                    aria-label={t('close')}
+                    className="w-11 shrink-0 rounded-full border-b-4 border-[#2f1566] bg-[#4a2490] font-display text-lg text-white/80 shadow-lg active:translate-y-0.5 active:border-b-2"
+                  >
+                    ✕
+                  </button>
+                </div>
+                <p className="text-sm font-bold text-white/80">{t('installHint')}</p>
+              </div>
+            )}
           </div>
         </div>
         {/* Publicidad abajo del todo, lejos de JUGAR y del idioma. */}
         <AdBanner placement="home" className="relative mt-auto" />
       </div>
+      <AnimatePresence>{iosGuide && <IosInstallModal key="ios-install" onClose={() => setIosGuide(false)} />}</AnimatePresence>
     </div>
   );
 }

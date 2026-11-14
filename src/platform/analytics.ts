@@ -50,6 +50,8 @@ export interface Events {
   free_slot_offer: LevelProps & { action: 'shown' | 'accepted' | 'dismissed' };
   catalog_opened: { from: 'settings' };
   language_changed: { from: string; to: string };
+  install_prompt: { action: 'shown' | 'accepted' | 'dismissed' | 'ios_guide'; platform: 'android' | 'ios' };
+  app_installed: { platform: 'android' | 'ios' };
 }
 
 /* ---------------- Envío ---------------- */

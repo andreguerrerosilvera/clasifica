@@ -257,6 +257,34 @@ export function HowToPlay({ light = false }: { light?: boolean }) {
   );
 }
 
+const IOS_STEPS = [
+  { icon: '⬆️', key: 'installIos1' },
+  { icon: '➕', key: 'installIos2' },
+  { icon: '🃏', key: 'installIos3' },
+] as const;
+
+/** Guía para instalar en iPhone/iPad: Safari no deja abrir el diálogo de instalación desde la web. */
+export function IosInstallModal({ onClose }: { onClose: () => void }) {
+  return (
+    <Backdrop>
+      <div className="w-full max-w-[340px]">
+        <Panel title={t('installIosTitle')} tone="blue">
+          <img src="/icons/icon-192.png" alt="" className="mx-auto mb-4 h-16 w-16 rounded-2xl shadow-md" />
+          <ol className="mb-6 space-y-3 text-left text-[15px] font-bold leading-snug text-[#5c4520]">
+            {IOS_STEPS.map((s) => (
+              <li key={s.key} className="flex items-start gap-2.5">
+                <span className="w-6 shrink-0 text-center">{s.icon}</span>
+                <span>{withBold(t(s.key))}</span>
+              </li>
+            ))}
+          </ol>
+          <OrangeButton onClick={onClose}>{t('gotIt')}</OrangeButton>
+        </Panel>
+      </div>
+    </Backdrop>
+  );
+}
+
 export function WinScreen({ levelTitle, reward, onNext }: { levelTitle: string; reward: number; onNext: () => void }) {
   const canvas = useRef<HTMLCanvasElement>(null);
   useEffect(() => {
