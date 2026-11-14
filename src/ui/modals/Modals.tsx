@@ -132,7 +132,6 @@ export function StuckModal({
     <Backdrop peek={peek}>
       <div className="w-full max-w-[340px]">
         <Panel title={t('stuck')}>
-          <p className="mb-5 font-black text-[#5c4520]">{t('stuckText')}</p>
           <div className="flex flex-col gap-3">
             {canUnlock && (
               <OrangeButton onClick={onUnlock}>

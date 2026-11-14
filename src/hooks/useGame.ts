@@ -17,11 +17,14 @@ import { BONUS_MOVES, COST, FREE_SLOT_ENABLED, FREE_SLOT_PAYMENT, HISTORY_LIMIT,
 import type { Card, DropTarget, GameState, Hint, LevelDef } from '../models/types';
 import { t } from '../data/i18n';
 import { showRewardedAd } from '../platform/ads';
+import { type Booster, type RestartSource, track } from '../platform/analytics';
 
 export type Overlay = null | 'won' | 'lost' | 'stuck';
 
 interface Options {
   level: LevelDef;
+  /** monedas actuales (para registrar cuando no alcanzan) */
+  coins: number;
   spend: (n: number) => boolean;
   onWin: (levelId: number, reward: number) => void;
   /** se llama con las categorías que se acaban de completar (para efectos visuales) */
@@ -29,7 +32,7 @@ interface Options {
 }
 
 /** Orquesta una partida: estado, historial, potenciadores y fin de partida. */
-export function useGame({ level, spend, onWin, onCategoryComplete }: Options) {
+export function useGame({ level, coins, spend, onWin, onCategoryComplete }: Options) {
   const levelId = level.id;
   const diff = difficultyOf(level);
   const fresh = useCallback(() => createLevel(level, diff), [level, diff]);
@@ -44,16 +47,55 @@ export function useGame({ level, spend, onWin, onCategoryComplete }: Options) {
   const [reward, setReward] = useState(0);
   const [adPlaying, setAdPlaying] = useState(false);
   const toastTimer = useRef<number>(0);
+  // Métricas del intento en curso (solo para analíticas)
+  const run = useRef({ startedAt: Date.now(), mistakes: 0, boosters: 0, categories: 0 });
+
+  const levelProps = { level: levelId, difficulty: diff.id };
+  const runProps = (s: GameState) => ({
+    ...levelProps,
+    attempt: round + 1,
+    moves_left: s.moves,
+    moves_used: s.startMoves - s.moves,
+    placed: s.placedCount,
+    total_items: s.totalItems,
+    progress_pct: Math.round((s.placedCount / s.totalItems) * 100),
+    duration_s: Math.round((Date.now() - run.current.startedAt) / 1000),
+    mistakes: run.current.mistakes,
+    boosters_used: run.current.boosters,
+    bonus_unlocked: s.bonusUnlocked,
+  });
+
+  /** Cobra un potenciador y lo registra; devuelve false si no alcanzan las monedas. */
+  const pay = (booster: Booster, cost: number) => {
+    if (!spend(cost)) {
+      track('not_enough_coins', { ...levelProps, booster, cost, coins });
+      return false;
+    }
+    run.current.boosters += 1;
+    track('booster_used', { ...levelProps, booster, cost, via: 'coins' });
+    return true;
+  };
 
   // Nueva partida al cambiar de nivel/dificultad o reiniciar
   useEffect(() => {
-    setState(fresh());
+    const s = fresh();
+    setState(s);
+    run.current = { startedAt: Date.now(), mistakes: 0, boosters: 0, categories: 0 };
+    track('level_started', {
+      ...levelProps,
+      attempt: round + 1,
+      moves: s.moves,
+      categories: s.categories.filter(Boolean).length + s.pending.length,
+      total_items: s.totalItems,
+      hidden_cards: s.columns.flat().filter((c) => c.hidden).length,
+    });
     setHistory([]);
     setOverlay(null);
     setHint(null);
     setDealing(true);
     const t = window.setTimeout(() => setDealing(false), 1400);
     return () => window.clearTimeout(t);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [fresh, round]);
 
   // Pantallas de fin de partida
@@ -62,6 +104,8 @@ export function useGame({ level, spend, onWin, onCategoryComplete }: Options) {
       setOverlay(null);
       return;
     }
+    if (state.status === 'won') track('level_won', { ...runProps(state), reward: WIN_REWARD });
+    else track('level_failed', { ...runProps(state), reason: state.status === 'lost' ? 'out_of_moves' : 'stuck' });
     const t = window.setTimeout(
       () => {
         if (state.status === 'won') {
@@ -94,8 +138,18 @@ export function useGame({ level, spend, onWin, onCategoryComplete }: Options) {
   const place = (id: string) => {
     const r = placeItem(state, id);
     if (!r) return;
-    if (r.completedCategory) onCategoryComplete([r.completedCategory]);
+    if (r.completedCategory) {
+      onCategoryComplete([r.completedCategory]);
+      trackCategories([r.completedCategory], false);
+    }
     commit(r.state);
+  };
+
+  const trackCategories = (cards: Card[], byMagnet: boolean) => {
+    for (const c of cards) {
+      run.current.categories += 1;
+      track('category_completed', { ...levelProps, category: c.cat, order: run.current.categories, by_magnet: byMagnet });
+    }
   };
 
   /** Soltar una carta sobre una categoría o la bandeja. */
@@ -119,7 +173,10 @@ export function useGame({ level, spend, onWin, onCategoryComplete }: Options) {
     }
     const cat = state.categories.find((c) => c?.id === target);
     if (!cat) return;
-    if (cat.cat !== card.cat) return say(t('wrongCategory'));
+    if (cat.cat !== card.cat) {
+      run.current.mistakes += 1;
+      return say(t('wrongCategory'));
+    }
     place(card.id);
   };
 
@@ -128,7 +185,7 @@ export function useGame({ level, spend, onWin, onCategoryComplete }: Options) {
     if (locked) return;
     const h = findHint(state);
     if (!h) return say(t('noMoves'));
-    if (!spend(COST.hint)) return say(t('notEnoughCoins'));
+    if (!pay('hint', COST.hint)) return say(t('notEnoughCoins'));
     setHint(h);
     window.setTimeout(() => setHint((cur) => (cur === h ? null : cur)), 3000);
   };
@@ -136,7 +193,7 @@ export function useGame({ level, spend, onWin, onCategoryComplete }: Options) {
   const undo = () => {
     if (dealing || state.status === 'won') return;
     if (!history.length) return say(t('nothingToUndo'));
-    if (!spend(COST.undo)) return say(t('notEnoughCoins'));
+    if (!pay('undo', COST.undo)) return say(t('notEnoughCoins'));
     setState(history[history.length - 1]);
     setHistory((h) => h.slice(0, -1));
     setHint(null);
@@ -146,14 +203,15 @@ export function useGame({ level, spend, onWin, onCategoryComplete }: Options) {
     if (locked) return;
     const r = magnet(state);
     if (!r) return say(t('magnetNeedsCategory'));
-    if (!spend(COST.magnet)) return say(t('notEnoughCoins'));
+    if (!pay('magnet', COST.magnet)) return say(t('notEnoughCoins'));
     onCategoryComplete(r.completed);
+    trackCategories(r.completed, true);
     commit(r.state);
   };
 
   const unlockSlot = () => {
     if (state.openSlots >= TRAY_SIZE || state.status === 'won') return;
-    if (!spend(COST.slot)) return say(t('notEnoughCoins'));
+    if (!pay('tray_slot', COST.slot)) return say(t('notEnoughCoins'));
     setState(unlockTraySlot(state));
   };
 
@@ -161,11 +219,16 @@ export function useGame({ level, spend, onWin, onCategoryComplete }: Options) {
   const claimBonus = async () => {
     if (!FREE_SLOT_ENABLED || locked || state.bonusUnlocked) return;
     if (FREE_SLOT_PAYMENT === 'coins') {
-      if (!spend(COST.bonusSlot)) return say(t('notEnoughCoins'));
+      if (!pay('bonus_slot', COST.bonusSlot)) return say(t('notEnoughCoins'));
     } else {
       setAdPlaying(true);
       const result = await showRewardedAd('free-slot');
       setAdPlaying(false);
+      track('rewarded_ad', { placement: 'free-slot', result });
+      if (result === 'rewarded') {
+        run.current.boosters += 1;
+        track('booster_used', { ...levelProps, booster: 'bonus_slot', cost: 0, via: 'ad' });
+      }
       if (result !== 'rewarded') return say(t(result === 'skipped' ? 'adSkipped' : 'adUnavailable'));
     }
     // Lo ganado no se pierde al deshacer: también se aplica a los estados del historial.
@@ -176,11 +239,19 @@ export function useGame({ level, spend, onWin, onCategoryComplete }: Options) {
   };
 
   const playOn = () => {
-    if (!spend(COST.playOn)) return say(t('notEnoughCoins'));
+    if (!pay('play_on', COST.playOn)) return say(t('notEnoughCoins'));
     setState(addMoves(state, PLAY_ON_MOVES));
   };
 
-  const restart = () => setRound((r) => r + 1);
+  const restart = (source: RestartSource) => {
+    track('level_restarted', { ...runProps(state), source });
+    setRound((r) => r + 1);
+  };
+
+  /** Salir al inicio a mitad de nivel. */
+  const abandon = () => {
+    if (state.status !== 'won') track('level_abandoned', runProps(state));
+  };
 
   // Orden de reparto para la animación inicial
   const dealIndex = useMemo(() => {
@@ -214,5 +285,6 @@ export function useGame({ level, spend, onWin, onCategoryComplete }: Options) {
     claimBonus,
     playOn,
     restart,
+    abandon,
   };
 }

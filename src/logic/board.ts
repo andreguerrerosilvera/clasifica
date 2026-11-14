@@ -73,19 +73,25 @@ export const remainingCards = (s: GameState) =>
 /* Mutaciones (sobre una copia)                                        */
 /* ------------------------------------------------------------------ */
 
+function reveal(s: GameState, c: number, i: number) {
+  if (c < 0 || c >= COLS || i < 0) return;
+  const card = s.columns[c][i];
+  if (card && i < visibleRows(s, c)) card.hidden = false;
+}
+
+/** Revela las cartas "?" que tocan la casilla (col, idx): izquierda, derecha y encima. */
+function revealAround(s: GameState, col: number, idx: number) {
+  reveal(s, col - 1, idx);
+  reveal(s, col + 1, idx);
+  reveal(s, col, idx - 1);
+}
+
 function removeFromBoard(s: GameState, col: number, idx: number): Card {
   const column = s.columns[col];
   const [removed] = column.splice(idx, 1);
   // Revela las cartas "?" vecinas: izquierda, derecha, debajo y la que cae al hueco.
-  const reveal = (c: number, i: number) => {
-    if (c < 0 || c >= COLS || i < 0) return;
-    const card = s.columns[c][i];
-    if (card && i < visibleRows(s, c)) card.hidden = false;
-  };
-  reveal(col - 1, idx);
-  reveal(col + 1, idx);
-  reveal(col, idx);
-  reveal(col, idx - 1);
+  revealAround(s, col, idx);
+  reveal(s, col, idx);
   return removed;
 }
 
@@ -150,6 +156,8 @@ export function moveToColumn(prev: GameState, id: string, col: number): GameStat
   if (loc.card.kind !== 'item' || loc.card.hidden || !hasEmptySpace(s, col)) return null;
   const card = removeFromBoard(s, loc.col, loc.idx);
   s.columns[col].push(card);
+  // La carta soltada también destapa las "?" que quedan a su lado.
+  revealAround(s, col, s.columns[col].length - 1);
   s.moves -= 1;
   evaluate(s);
   return s;

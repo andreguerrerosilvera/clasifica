@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { setContext, track } from './platform/analytics';
 import { type Lang, getLang, setLang } from './data/i18n';
 import { nextLevelId } from './data/levels';
 import { useSave } from './hooks/useSave';
@@ -13,8 +14,14 @@ export default function App() {
   const [screen, setScreen] = useState<Screen>({ name: 'home' });
   const [lang, setLangState] = useState<Lang>(getLang);
 
+  // Contexto que acompaña a todos los eventos de analíticas
+  useEffect(() => {
+    setContext({ lang, levels_completed: save.completed.length, coins: save.coins });
+  }, [lang, save.completed.length, save.coins]);
+
   /** El idioma solo se elige en el inicio: el nivel se traduce al empezar a jugarlo. */
   const changeLang = (next: Lang) => {
+    if (next !== lang) track('language_changed', { from: lang, to: next });
     setLang(next);
     setLangState(next);
   };

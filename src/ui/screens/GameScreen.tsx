@@ -14,6 +14,7 @@ import { Toast } from '../components/Toast';
 import { Tray } from '../components/Tray';
 import { FreeSlotModal, OutOfMovesModal, SettingsModal, StuckModal, WinScreen } from '../modals/Modals';
 import { CatalogScreen } from './CatalogScreen';
+import { type RestartSource, track } from '../../platform/analytics';
 
 interface Props {
   level: LevelDef;
@@ -26,7 +27,7 @@ interface Props {
 
 export function GameScreen({ level: levelDef, coins, spend, onWin, onNext, onExit }: Props) {
   const { bursts, burstFor } = useBursts();
-  const game = useGame({ level: levelDef, spend, onWin, onCategoryComplete: burstFor });
+  const game = useGame({ level: levelDef, coins, spend, onWin, onCategoryComplete: burstFor });
   const [settings, setSettings] = useState(false);
   const [catalog, setCatalog] = useState(false);
   const [freeSlotOffer, setFreeSlotOffer] = useState(false);
@@ -34,10 +35,11 @@ export function GameScreen({ level: levelDef, coins, spend, onWin, onNext, onExi
   const { state, level, diff, overlay } = game;
   const progressPct = Math.round((state.placedCount / state.totalItems) * 100);
 
-  const restart = () => {
+  const restart = (source: RestartSource) => {
     setSettings(false);
-    game.restart();
+    game.restart(source);
   };
+  const levelProps = { level: level.id, difficulty: diff.id };
 
   return (
     <div className="board-bg relative flex min-h-full w-full justify-center gap-8 overflow-hidden">
@@ -62,7 +64,11 @@ export function GameScreen({ level: levelDef, coins, spend, onWin, onNext, onExi
             dealIndex={game.dealIndex}
             isHighlighted={game.isHighlighted}
             onDrop={game.dropCard}
-            onClaimBonus={() => !game.locked && setFreeSlotOffer(true)}
+            onClaimBonus={() => {
+              if (game.locked) return;
+              setFreeSlotOffer(true);
+              track('free_slot_offer', { ...levelProps, action: 'shown' });
+            }}
           />
           <Tray
             state={state}
@@ -92,7 +98,7 @@ export function GameScreen({ level: levelDef, coins, spend, onWin, onNext, onExi
             cost={COST.playOn}
             extra={PLAY_ON_MOVES}
             onPlayOn={game.playOn}
-            onRetry={restart}
+            onRetry={() => restart('out_of_moves')}
           />
         )}
         {overlay === 'stuck' && (
@@ -104,7 +110,7 @@ export function GameScreen({ level: levelDef, coins, spend, onWin, onNext, onExi
             slotCost={COST.slot}
             onUndo={game.undo}
             onUnlock={game.unlockSlot}
-            onRetry={restart}
+            onRetry={() => restart('stuck')}
           />
         )}
         {overlay === 'won' && (
@@ -114,12 +120,16 @@ export function GameScreen({ level: levelDef, coins, spend, onWin, onNext, onExi
           <SettingsModal
             key="settings"
             onClose={() => setSettings(false)}
-            onRestart={restart}
+            onRestart={() => restart('settings')}
             onCatalog={() => {
               setSettings(false);
               setCatalog(true);
+              track('catalog_opened', { from: 'settings' });
             }}
-            onExit={onExit}
+            onExit={() => {
+              game.abandon();
+              onExit();
+            }}
           />
         )}
         {freeSlotOffer && (
@@ -130,9 +140,13 @@ export function GameScreen({ level: levelDef, coins, spend, onWin, onNext, onExi
             canAfford={coins >= COST.bonusSlot}
             onAccept={() => {
               setFreeSlotOffer(false);
+              track('free_slot_offer', { ...levelProps, action: 'accepted' });
               void game.claimBonus();
             }}
-            onClose={() => setFreeSlotOffer(false)}
+            onClose={() => {
+              setFreeSlotOffer(false);
+              track('free_slot_offer', { ...levelProps, action: 'dismissed' });
+            }}
           />
         )}
         {catalog && <CatalogScreen key="catalog" onClose={() => setCatalog(false)} />}
