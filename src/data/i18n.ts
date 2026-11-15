@@ -3,20 +3,21 @@ import es from '../../content/i18n/es.json';
 import pt from '../../content/i18n/pt.json';
 
 /**
- * Textos del juego en cada idioma (content/i18n/<idioma>.json). El español es el idioma base:
- * los nombres de categorías y objetos en español salen de categorias_thiings.json y los de los
- * demás idiomas de content/i18n/catalog.<idioma>.json (ver catalog.ts).
+ * Textos del juego en cada idioma (content/i18n/<idioma>.json). El inglés es el idioma principal
+ * de la app (el que se usa por defecto y como respaldo de los textos de interfaz). Los nombres
+ * de categorías y objetos en español salen de categorias_thiings.json y los de los demás
+ * idiomas de content/i18n/catalog.<idioma>.json (ver catalog.ts).
  */
 export const LANGS = [
-  { id: 'es', label: 'Español', flag: '🇪🇸' },
   { id: 'en', label: 'English', flag: '🇺🇸' },
+  { id: 'es', label: 'Español', flag: '🇪🇸' },
   { id: 'pt', label: 'Português', flag: '🇧🇷' },
 ] as const;
 
 export type Lang = (typeof LANGS)[number]['id'];
-export const DEFAULT_LANG: Lang = 'es';
+export const DEFAULT_LANG: Lang = 'en';
 
-type UiTexts = typeof es.ui;
+type UiTexts = typeof en.ui;
 export type UiKey = keyof UiTexts;
 
 export interface Texts {

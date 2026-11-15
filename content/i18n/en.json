@@ -78,6 +78,14 @@
     "installIos1": "Tap <b>Share</b> in Safari's toolbar.",
     "installIos2": "Choose <b>Add to Home Screen</b>.",
     "installIos3": "Open Clasifica from its icon.",
-    "gotIt": "Got it"
+    "gotIt": "Got it",
+    "emailTitle": "You're one of the first! 🎉",
+    "emailText": "Clasifica just launched, and you're among its very first players. Join the list to get early access to new games and be the first to try every update.",
+    "emailPlaceholder": "your@email.com",
+    "emailSubmit": "Count me in",
+    "emailInvalid": "Enter a valid email",
+    "emailError": "Couldn't save your email. Try again",
+    "emailThanks": "Thanks! We'll keep you posted.",
+    "emailPrivacy": "No spam. Only the good stuff."
   }
 }

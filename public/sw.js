@@ -6,7 +6,7 @@
  * - Google Fonts: copia guardada y se refresca en segundo plano.
  * - Todo lo demás (AdSense, PostHog…) pasa directo, sin caché.
  */
-const VERSION = 'v1';
+const VERSION = 'v2';
 const PAGES = `clasifica-pages-${VERSION}`;
 const STATIC = `clasifica-static-${VERSION}`;
 const FONTS = `clasifica-fonts-${VERSION}`;

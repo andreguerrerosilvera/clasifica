@@ -1,14 +1,15 @@
 import confetti from 'canvas-confetti';
 import { motion } from 'framer-motion';
-import { useEffect, useRef, useState, type ReactNode } from 'react';
+import { useEffect, useRef, useState, type FormEvent, type ReactNode } from 'react';
 import { t } from '../../data/i18n';
+import { isValidEmail } from '../../platform/newsletter';
 import { AdBanner } from '../components/AdBanner';
 import { Coin, LockIcon } from '../components/Icons';
 
-function Backdrop({ children, peek = false }: { children: ReactNode; peek?: boolean }) {
+function Backdrop({ children, peek = false, top = false }: { children: ReactNode; peek?: boolean; top?: boolean }) {
   return (
     <motion.div
-      className="fixed inset-0 z-[80] flex items-center justify-center bg-[#170b30]/75 px-5"
+      className={`fixed inset-0 ${top ? 'z-[100]' : 'z-[80]'} flex items-center justify-center bg-[#170b30]/75 px-5`}
       initial={{ opacity: 0 }}
       animate={{ opacity: peek ? 0 : 1 }}
       exit={{ opacity: 0 }}
@@ -43,13 +44,16 @@ function OrangeButton({
   children,
   onClick,
   disabled,
+  type = 'button',
 }: {
   children: ReactNode;
-  onClick: () => void;
+  onClick?: () => void;
   disabled?: boolean;
+  type?: 'button' | 'submit';
 }) {
   return (
     <button
+      type={type}
       onClick={onClick}
       disabled={disabled}
       className="mx-auto flex items-center justify-center gap-2 rounded-full border-b-4 border-[#b84d00] bg-gradient-to-b from-[#ffa53a] to-[#ff7a00] px-8 py-3 font-display text-xl tracking-wide text-white shadow-lg active:translate-y-0.5 active:border-b-2 disabled:opacity-45"
@@ -279,6 +283,77 @@ export function IosInstallModal({ onClose }: { onClose: () => void }) {
             ))}
           </ol>
           <OrangeButton onClick={onClose}>{t('gotIt')}</OrangeButton>
+        </Panel>
+      </div>
+    </Backdrop>
+  );
+}
+
+/**
+ * Pide el email tras superar el primer nivel para avisar de juegos nuevos y actualizaciones.
+ * Se muestra por encima de la pantalla de victoria; `onDone` sigue al siguiente nivel.
+ */
+export function EmailModal({
+  onSubmit,
+  onDone,
+}: {
+  onSubmit: (email: string) => Promise<boolean>;
+  onDone: (result: 'submitted' | 'dismissed') => void;
+}) {
+  const [email, setEmail] = useState('');
+  const [status, setStatus] = useState<'idle' | 'sending' | 'invalid' | 'error' | 'done'>('idle');
+
+  const submit = async (e: FormEvent) => {
+    e.preventDefault();
+    if (!isValidEmail(email)) return setStatus('invalid');
+    setStatus('sending');
+    if (!(await onSubmit(email))) return setStatus('error');
+    setStatus('done');
+    window.setTimeout(() => onDone('submitted'), 1400);
+  };
+
+  return (
+    <Backdrop top>
+      <div className="w-full max-w-[340px]">
+        <Panel title={t('emailTitle')} tone="blue">
+          <div className="mb-3 text-[48px] leading-none">💌</div>
+          {status === 'done' ? (
+            <p className="py-4 font-display text-xl text-[#5c4520]">{t('emailThanks')}</p>
+          ) : (
+            <form onSubmit={submit} noValidate>
+              <p className="mb-4 font-black leading-snug text-[#5c4520]">{t('emailText')}</p>
+              <input
+                type="email"
+                inputMode="email"
+                autoComplete="email"
+                value={email}
+                onChange={(e) => {
+                  setEmail(e.target.value);
+                  if (status === 'invalid' || status === 'error') setStatus('idle');
+                }}
+                placeholder={t('emailPlaceholder')}
+                aria-label={t('emailPlaceholder')}
+                aria-invalid={status === 'invalid'}
+                className={`mb-2 w-full rounded-xl border-4 bg-white px-4 py-3 text-center text-lg font-bold text-[#3d2b10] outline-none placeholder:text-[#b9a57c] focus:border-[#7a3cd6] ${
+                  status === 'invalid' ? 'border-[#e62e1f]' : 'border-[#e8d3a0]'
+                }`}
+              />
+              <p className="mb-3 min-h-5 text-sm font-bold text-[#c41f12]" role="alert">
+                {status === 'invalid' ? t('emailInvalid') : status === 'error' ? t('emailError') : ''}
+              </p>
+              <OrangeButton type="submit" disabled={status === 'sending'}>
+                {t('emailSubmit')}
+              </OrangeButton>
+              <p className="mt-3 text-xs font-bold text-[#8a734a]">{t('emailPrivacy')}</p>
+              <button
+                type="button"
+                onClick={() => onDone('dismissed')}
+                className="mt-4 font-display text-lg text-[#5c4520] underline underline-offset-4"
+              >
+                {t('notNow')}
+              </button>
+            </form>
+          )}
         </Panel>
       </div>
     </Backdrop>

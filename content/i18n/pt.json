@@ -78,6 +78,14 @@
     "installIos1": "Toque em <b>Compartilhar</b> na barra do Safari.",
     "installIos2": "Escolha <b>Adicionar à Tela de Início</b>.",
     "installIos3": "Abra o Clasifica pelo ícone.",
-    "gotIt": "Entendi"
+    "gotIt": "Entendi",
+    "emailTitle": "Você é um dos primeiros! 🎉",
+    "emailText": "O Clasifica acabou de ser lançado e você está entre os primeiros jogadores. Entre na lista para ter acesso antecipado a novos jogos e ser o primeiro a experimentar cada novidade.",
+    "emailPlaceholder": "seu@email.com",
+    "emailSubmit": "Quero participar",
+    "emailInvalid": "Digite um email válido",
+    "emailError": "Não foi possível salvar seu email. Tente de novo",
+    "emailThanks": "Obrigado! Vamos te manter informado.",
+    "emailPrivacy": "Sem spam. Só coisa boa."
   }
 }

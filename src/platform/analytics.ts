@@ -52,6 +52,7 @@ export interface Events {
   language_changed: { from: string; to: string };
   install_prompt: { action: 'shown' | 'accepted' | 'dismissed' | 'ios_guide'; platform: 'android' | 'ios' };
   app_installed: { platform: 'android' | 'ios' };
+  email_prompt: { action: 'shown' | 'submitted' | 'dismissed' | 'error' };
 }
 
 /* ---------------- Envío ---------------- */
