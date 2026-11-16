@@ -70,9 +70,13 @@ function applyConsent() {
   const consent = getConsent();
   if (consent === 'denied') {
     queue.length = 0;
+    client?.stopSessionRecording();
     client?.opt_out_capturing();
   } else if (consent === 'granted') {
-    if (client) client.opt_in_capturing();
+    if (client) {
+      client.opt_in_capturing();
+      client.startSessionRecording();
+    }
     else if (!loading) load();
   }
 }
@@ -93,7 +97,10 @@ function load() {
       autocapture: false,
       capture_pageview: true,
       capture_pageleave: true,
-      disable_session_recording: true,
+      // Grabación de sesiones (solo con consentimiento: PostHog no se carga sin él). Los campos
+      // de texto, como el email, se ocultan; los anuncios son iframes de Google y no se graban.
+      disable_session_recording: false,
+      session_recording: { maskAllInputs: true },
       persistence: 'localStorage',
     });
     // Si antes había dicho que no y ahora acepta, PostHog recordaría la exclusión.
