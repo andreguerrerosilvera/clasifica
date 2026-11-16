@@ -15,6 +15,9 @@ export const LANGS = [
 ] as const;
 
 export type Lang = (typeof LANGS)[number]['id'];
+
+/** Política de privacidad de AndreGames (por ahora solo existe en español). */
+export const PRIVACY_URL = 'https://andregames.co/privacidad';
 export const DEFAULT_LANG: Lang = 'en';
 
 type UiTexts = typeof en.ui;

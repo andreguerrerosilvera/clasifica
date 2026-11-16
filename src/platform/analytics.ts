@@ -4,6 +4,7 @@
  * y la librería ni siquiera se descarga (import dinámico).
  */
 import type { PostHog } from 'posthog-js';
+import { getConsent, onConsentChange } from './consent';
 
 const PROD_HOST = 'clasifica.andregames.co';
 const KEY: string | undefined = import.meta.env.VITE_POSTHOG_KEY || undefined;
@@ -58,10 +59,31 @@ export interface Events {
 /* ---------------- Envío ---------------- */
 
 let client: PostHog | null = null;
+let loading = false;
+/** Eventos ocurridos antes de que el jugador responda al banner; se descartan si dice que no. */
 const queue: [string, object][] = [];
+const MAX_QUEUE = 100;
 let context: Record<string, string | number | boolean> = {};
 
+/** PostHog solo se descarga e inicia cuando el jugador acepta (src/platform/consent.ts). */
+function applyConsent() {
+  const consent = getConsent();
+  if (consent === 'denied') {
+    queue.length = 0;
+    client?.opt_out_capturing();
+  } else if (consent === 'granted') {
+    if (client) client.opt_in_capturing();
+    else if (!loading) load();
+  }
+}
+
 if (ANALYTICS_ENABLED) {
+  applyConsent();
+  onConsentChange(applyConsent);
+}
+
+function load() {
+  loading = true;
   void import('posthog-js').then(({ default: posthog }) => {
     posthog.init(KEY!, {
       api_host: API_HOST,
@@ -74,16 +96,19 @@ if (ANALYTICS_ENABLED) {
       disable_session_recording: true,
       persistence: 'localStorage',
     });
+    // Si antes había dicho que no y ahora acepta, PostHog recordaría la exclusión.
+    if (posthog.has_opted_out_capturing()) posthog.opt_in_capturing();
     posthog.register(context);
     client = posthog;
+    if (getConsent() !== 'granted') return applyConsent();
     for (const [name, props] of queue.splice(0)) posthog.capture(name, props);
   });
 }
 
 export function track<E extends keyof Events>(event: E, props: Events[E]) {
-  if (!ANALYTICS_ENABLED) return;
+  if (!ANALYTICS_ENABLED || getConsent() === 'denied') return;
   if (client) client.capture(event, props);
-  else queue.push([event, props]);
+  else if (queue.length < MAX_QUEUE) queue.push([event, props]);
 }
 
 /** Propiedades que viajan con todos los eventos (idioma, niveles superados, monedas). */

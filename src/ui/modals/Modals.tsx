@@ -1,10 +1,20 @@
 import confetti from 'canvas-confetti';
 import { motion } from 'framer-motion';
 import { useEffect, useRef, useState, type FormEvent, type ReactNode } from 'react';
-import { t } from '../../data/i18n';
+import { PRIVACY_URL, t } from '../../data/i18n';
+import { reopenConsent } from '../../platform/consent';
 import { isValidEmail } from '../../platform/newsletter';
 import { AdBanner } from '../components/AdBanner';
 import { Coin, LockIcon } from '../components/Icons';
+
+/** Enlace a la política de privacidad (se abre en otra pestaña para no perder la partida). */
+export function PrivacyLink({ className = '' }: { className?: string }) {
+  return (
+    <a href={PRIVACY_URL} target="_blank" rel="noopener noreferrer" className={`underline underline-offset-2 ${className}`}>
+      {t('privacy')}
+    </a>
+  );
+}
 
 function Backdrop({ children, peek = false, top = false }: { children: ReactNode; peek?: boolean; top?: boolean }) {
   return (
@@ -229,6 +239,12 @@ export function SettingsModal({
             <OrangeButton onClick={onExit}>{t('exit')}</OrangeButton>
           </div>
           <HowToPlay />
+          <div className="mt-3 flex flex-col items-center gap-1 text-sm font-bold text-[#8a734a]">
+            <PrivacyLink />
+            <button onClick={reopenConsent} className="underline underline-offset-2">
+              {t('consentSettings')}
+            </button>
+          </div>
           <button onClick={onClose} className="mt-4 font-display text-lg text-[#5c4520] underline underline-offset-4">
             {t('close')}
           </button>
@@ -344,7 +360,9 @@ export function EmailModal({
               <OrangeButton type="submit" disabled={status === 'sending'}>
                 {t('emailSubmit')}
               </OrangeButton>
-              <p className="mt-3 text-xs font-bold text-[#8a734a]">{t('emailPrivacy')}</p>
+              <p className="mt-3 text-xs font-bold text-[#8a734a]">
+                {t('emailPrivacy')} <PrivacyLink />
+              </p>
               <button
                 type="button"
                 onClick={() => onDone('dismissed')}

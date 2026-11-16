@@ -86,6 +86,11 @@
     "emailInvalid": "Enter a valid email",
     "emailError": "Couldn't save your email. Try again",
     "emailThanks": "Thanks! We'll keep you posted.",
-    "emailPrivacy": "No spam. Only the good stuff."
+    "emailPrivacy": "No spam. Unsubscribe anytime.",
+    "privacy": "Privacy policy",
+    "consentText": "This site uses cookies. Please review our",
+    "consentAccept": "Accept",
+    "consentDecline": "Decline",
+    "consentSettings": "Privacy choices"
   }
 }

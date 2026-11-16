@@ -3,7 +3,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { type Lang, t } from '../../data/i18n';
 import { AdBanner } from '../components/AdBanner';
 import { LanguagePicker } from '../components/LanguagePicker';
-import { IosInstallModal, Logo } from '../modals/Modals';
+import { IosInstallModal, Logo, PrivacyLink } from '../modals/Modals';
 import { track } from '../../platform/analytics';
 import { INSTALL_AFTER_LEVELS, useInstall } from '../../platform/install';
 
@@ -112,6 +112,7 @@ export function HomeScreen({ nextLevelId, levelsCompleted, lang, onLangChange, o
                 <p className="text-sm font-bold text-white/80">{t('installHint')}</p>
               </div>
             )}
+            <PrivacyLink className="pointer-events-auto text-sm font-bold text-white/70" />
           </div>
         </div>
         {/* Publicidad abajo del todo, lejos de JUGAR y del idioma. */}

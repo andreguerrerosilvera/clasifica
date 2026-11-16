@@ -7,6 +7,8 @@
  *   (`SimulatedAd`). La recompensa solo se da si el anuncio se ve entero (`'rewarded'`).
  * - `VITE_ADS_TEST=on` pide anuncios de prueba a Google (nunca hagas clic en tus anuncios reales).
  */
+import { getConsent, onConsentChange } from './consent';
+
 export type AdResult = 'rewarded' | 'skipped' | 'unavailable';
 
 /** ID de editor de AdSense (`ca-pub-…`). */
@@ -42,7 +44,7 @@ interface AdBreakOptions {
   adViewed: () => void;
   adBreakDone: (info: PlacementInfo) => void;
 }
-type AdsQueue = unknown[] & { push: (o: unknown) => number };
+type AdsQueue = unknown[] & { push: (o: unknown) => number; requestNonPersonalizedAds?: 0 | 1 };
 declare global {
   interface Window {
     adsbygoogle?: AdsQueue;
@@ -54,8 +56,20 @@ const push = (o: object) => {
   window.adsbygoogle.push(o);
 };
 
+/**
+ * Anuncios personalizados salvo que el jugador rechace en el banner (src/platform/consent.ts);
+ * si rechaza, se piden sin personalizar. Afecta a las siguientes peticiones. En el EEE, Reino
+ * Unido y Suiza manda el aviso de consentimiento de Google (AdSense → Privacidad y mensajes).
+ */
+function applyAdConsent() {
+  window.adsbygoogle = window.adsbygoogle || ([] as unknown as AdsQueue);
+  window.adsbygoogle.requestNonPersonalizedAds = getConsent() === 'denied' ? 1 : 0;
+}
+
 // El script de AdSense se carga una sola vez, al arrancar, si hay ID de editor.
 if (CLIENT && typeof document !== 'undefined') {
+  applyAdConsent();
+  onConsentChange(applyAdConsent);
   const s = document.createElement('script');
   s.async = true;
   s.crossOrigin = 'anonymous';

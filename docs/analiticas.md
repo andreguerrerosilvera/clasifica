@@ -4,6 +4,8 @@ _Fecha: 2026-11-14_
 
 PostHog solo se activa en `clasifica.andregames.co` y con `VITE_POSTHOG_KEY` definida. En local, en las previews de Netlify y en `clasifica-game.netlify.app` no se envía nada y la librería no se descarga. Sin clave, ni siquiera entra en el build.
 
+Además, PostHog solo se descarga si el jugador pulsa **Aceptar** en el banner de privacidad (`src/platform/consent.ts`). Si dice que no, no se envía nada; si no responde, los eventos esperan en memoria y se descartan al cerrar. La elección se cambia en Ajustes → Opciones de privacidad.
+
 - **Sin autocapture:** el juego es todo arrastres, así que los eventos se envían a mano.
 - **Sin grabación de sesiones.** Sí se registran `$pageview` y `$pageleave`.
 - **Jugadores anónimos:** no se crean perfiles de persona (`identified_only`).
